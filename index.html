@@ -1,505 +1,3308 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brew & Bite | Premium Cafe</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{--dark:#211710;--brown:#493020;--gold:#c99a5b;--cream:#f8f3eb;--white:#fffdf9;--muted:#81766b;--border:#eadfce}
+:root{
+ --dark:#211710;
+ --brown:#493020;
+ --gold:#c99a5b;
+ --gold2:#e5bd82;
+ --cream:#f8f3eb;
+ --white:#fffdf9;
+ --muted:#81766b;
+ --border:#eadfce;
+ --green:#567257;
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:100px}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden}
+
+html{
+ scroll-behavior:smooth;
+ scroll-padding-top:100px;
+}
+
+body{
+ font-family:'DM Sans',sans-serif;
+ background:var(--cream);
+ color:var(--dark);
+ overflow-x:hidden;
+}
+
 a{text-decoration:none;color:inherit}
-button,input,textarea{font:inherit}
+
+button,input,textarea,select{font:inherit}
+
 button{cursor:pointer}
+
 img{max-width:100%;display:block}
-.container{width:min(1160px,90%);margin:auto}
-.topbar{background:var(--gold);text-align:center;padding:9px;font-size:11px;letter-spacing:2px}
-header{position:sticky;top:0;z-index:100;background:#211710f5;color:white;backdrop-filter:blur(15px);box-shadow:0 5px 25px #0002}
-.navbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font:700 27px 'Playfair Display',serif;color:var(--gold)}
+
+.container{
+ width:min(1160px,90%);
+ margin:auto;
+}
+
+/* ================= TOP BAR ================= */
+
+.topbar{
+ background:var(--gold);
+ text-align:center;
+ padding:9px;
+ font-size:11px;
+ letter-spacing:2px;
+ font-weight:600;
+}
+
+/* ================= NAVBAR ================= */
+
+header{
+ position:sticky;
+ top:0;
+ z-index:100;
+ background:#211710f5;
+ color:white;
+ backdrop-filter:blur(15px);
+ box-shadow:0 5px 25px #0002;
+}
+
+.navbar{
+ min-height:76px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
+}
+
+.logo{
+ font:700 27px 'Playfair Display',serif;
+ color:var(--gold);
+}
+
 .logo span{color:white}
-.nav-links{display:flex;gap:24px;align-items:center}
-.nav-links a{font-size:13px;color:#eee;transition:.3s}
-.nav-links a:hover,.nav-links a.active{color:var(--gold)}
-.cart-pill{border:1px solid var(--gold);padding:10px 17px;border-radius:30px}
-.menu-toggle{display:none;background:none;border:0;color:white;font-size:26px}
-.page{display:none;animation:pageIn .55s ease}
+
+.nav-links{
+ display:flex;
+ gap:22px;
+ align-items:center;
+}
+
+.nav-links a{
+ font-size:13px;
+ color:#eee;
+ transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+ color:var(--gold);
+}
+
+.book-pill{
+ border:1px solid var(--gold);
+ padding:10px 17px;
+ border-radius:30px;
+ transition:.3s;
+}
+
+.book-pill:hover{
+ background:var(--gold);
+ color:var(--dark)!important;
+}
+
+.cart-pill{
+ border:1px solid var(--gold);
+ padding:10px 17px;
+ border-radius:30px;
+}
+
+.menu-toggle{
+ display:none;
+ background:none;
+ border:0;
+ color:white;
+ font-size:26px;
+}
+
+/* ================= PAGE ================= */
+
+.page{
+ display:none;
+ animation:pageIn .55s ease;
+}
+
 .page.active{display:block}
-@keyframes pageIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-.hero{min-height:590px;display:flex;align-items:center;color:white;background:linear-gradient(90deg,#160e0be8,#160e0b88,#160e0b22),url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=1800') center/cover}
-.hero-content{max-width:650px;padding:85px 0;animation:fadeUp 1s both}
-.eyebrow{color:var(--gold);letter-spacing:4px;font-size:12px;font-weight:700}
-.hero h1{font:600 clamp(43px,7vw,76px)/1.1 'Playfair Display',serif;margin:20px 0}
+
+@keyframes pageIn{
+ from{
+  opacity:0;
+  transform:translateY(15px)
+ }
+ to{
+  opacity:1;
+  transform:translateY(0)
+ }
+}
+
+/* ================= HERO ================= */
+
+.hero{
+ min-height:590px;
+ display:flex;
+ align-items:center;
+ color:white;
+ background:
+ linear-gradient(90deg,#160e0be8,#160e0b88,#160e0b22),
+ url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=1800')
+ center/cover;
+}
+
+.hero-content{
+ max-width:650px;
+ padding:85px 0;
+ animation:fadeUp 1s both;
+}
+
+.eyebrow{
+ color:var(--gold);
+ letter-spacing:4px;
+ font-size:12px;
+ font-weight:700;
+}
+
+.hero h1{
+ font:600 clamp(43px,7vw,76px)/1.1 'Playfair Display',serif;
+ margin:20px 0;
+}
+
 .hero h1 span{color:var(--gold)}
-.hero p{color:#eee0d3;line-height:1.9;max-width:500px}
-.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--gold);color:#211710;padding:14px 25px;border:0;border-radius:40px;font-weight:700;margin-top:23px;transition:.3s}
-.btn:hover{transform:translateY(-4px);background:#e2bb84;box-shadow:0 12px 25px #0003}
-.btn-dark{background:var(--brown);color:white}
-.btn-dark:hover{background:var(--gold);color:var(--dark)}
+
+.hero p{
+ color:#eee0d3;
+ line-height:1.9;
+ max-width:500px;
+}
+
+.hero-actions{
+ display:flex;
+ gap:12px;
+ flex-wrap:wrap;
+}
+
+.btn{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ background:var(--gold);
+ color:#211710;
+ padding:14px 25px;
+ border:0;
+ border-radius:40px;
+ font-weight:700;
+ margin-top:23px;
+ transition:.3s;
+}
+
+.btn:hover{
+ transform:translateY(-4px);
+ background:#e2bb84;
+ box-shadow:0 12px 25px #0003;
+}
+
+.btn-dark{
+ background:var(--brown);
+ color:white;
+}
+
+.btn-dark:hover{
+ background:var(--gold);
+ color:var(--dark);
+}
+
+.btn-outline{
+ background:transparent;
+ color:white;
+ border:1px solid #ffffff88;
+}
+
+.btn-outline:hover{
+ background:white;
+ color:var(--dark);
+}
+
+/* ================= COMMON SECTION ================= */
+
 .section{padding:85px 0}
-.section-heading{text-align:center;margin-bottom:42px}
-.section-heading small{color:#a16e38;letter-spacing:3px;font-weight:700}
-.section-heading h2{font:600 clamp(30px,4vw,43px) 'Playfair Display',serif;margin:12px 0}
-.section-heading p{font-size:14px;color:var(--muted);line-height:1.8}
-.features{background:var(--dark);color:white}
-.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;padding:35px 0;text-align:center}
-.feature-grid h3{font:600 22px 'Playfair Display',serif;margin:12px}
-.feature-grid p{font-size:12px;color:#c7b8a8}
-.feature-icon{font-size:30px;color:var(--gold)}
-.menu-tools{max-width:850px;margin:0 auto 30px}
-.search{width:100%;padding:16px 20px;border:1px solid var(--border);border-radius:40px;background:white;outline:none;margin-bottom:17px}
-.search:focus,input:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px #c99a5b20}
-.filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
-.filter{background:white;border:1px solid var(--border);border-radius:30px;padding:10px 20px;transition:.3s}
-.filter.active,.filter:hover{background:var(--brown);color:white}
-.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:24px}
-.product-card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 12px 35px #38241412;transition:transform .4s,box-shadow .4s}
-.product-card:hover{transform:translateY(-9px);box-shadow:0 20px 40px #38241420}
-.product-image{height:195px;overflow:hidden;background:#eee}
-.product-image img{width:100%;height:100%;object-fit:cover;transition:transform .65s}
-.product-card:hover .product-image img{transform:scale(1.09)}
+
+.section-heading{
+ text-align:center;
+ margin-bottom:42px;
+}
+
+.section-heading small{
+ color:#a16e38;
+ letter-spacing:3px;
+ font-weight:700;
+}
+
+.section-heading h2{
+ font:600 clamp(30px,4vw,43px) 'Playfair Display',serif;
+ margin:12px 0;
+}
+
+.section-heading p{
+ font-size:14px;
+ color:var(--muted);
+ line-height:1.8;
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+ background:var(--dark);
+ color:white;
+}
+
+.feature-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:25px;
+ padding:35px 0;
+ text-align:center;
+}
+
+.feature-grid h3{
+ font:600 22px 'Playfair Display',serif;
+ margin:12px;
+}
+
+.feature-grid p{
+ font-size:12px;
+ color:#c7b8a8;
+}
+
+.feature-icon{
+ font-size:30px;
+ color:var(--gold);
+}
+
+/* ================= HOME RATING ================= */
+
+.rating-strip{
+ margin-top:55px;
+ background:white;
+ border:1px solid var(--border);
+ border-radius:24px;
+ padding:25px 30px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:25px;
+ box-shadow:0 12px 35px #38241412;
+}
+
+.rating-strip-left{
+ display:flex;
+ align-items:center;
+ gap:20px;
+}
+
+.big-rating{
+ font:700 45px 'Playfair Display',serif;
+ color:var(--brown);
+}
+
+.stars{
+ color:#e0a12d;
+ letter-spacing:1px;
+}
+
+.rating-strip p{
+ font-size:13px;
+ color:var(--muted);
+ line-height:1.7;
+}
+
+/* ================= PREMIUM MENU HERO ================= */
+
+.menu-hero{
+ min-height:360px;
+ display:flex;
+ align-items:center;
+ text-align:center;
+ color:white;
+ background:
+ linear-gradient(#160e0bbd,#160e0bd9),
+ url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1800')
+ center/cover;
+}
+
+.menu-hero-content{
+ max-width:700px;
+ margin:auto;
+ padding:75px 0;
+}
+
+.menu-hero small{
+ color:var(--gold);
+ font-size:11px;
+ letter-spacing:4px;
+ font-weight:700;
+}
+
+.menu-hero h1{
+ font:600 clamp(38px,6vw,62px) 'Playfair Display',serif;
+ margin:15px 0;
+}
+
+.menu-hero p{
+ color:#ddd0c4;
+ line-height:1.9;
+ font-size:14px;
+}
+
+/* ================= MENU TOOLS ================= */
+
+.menu-tools{
+ max-width:900px;
+ margin:0 auto 35px;
+ background:#fffdf9;
+ padding:24px;
+ border-radius:22px;
+ box-shadow:0 12px 40px #38241412;
+ border:1px solid var(--border);
+}
+
+.search{
+ width:100%;
+ padding:16px 20px;
+ border:1px solid var(--border);
+ border-radius:40px;
+ background:white;
+ outline:none;
+ margin-bottom:17px;
+}
+
+.search:focus,
+input:focus,
+textarea:focus,
+select:focus{
+ border-color:var(--gold);
+ box-shadow:0 0 0 3px #c99a5b20;
+ outline:none;
+}
+
+.filters{
+ display:flex;
+ justify-content:center;
+ gap:10px;
+ flex-wrap:wrap;
+}
+
+.filter{
+ background:white;
+ border:1px solid var(--border);
+ border-radius:30px;
+ padding:10px 20px;
+ transition:.3s;
+}
+
+.filter.active,
+.filter:hover{
+ background:var(--brown);
+ color:white;
+}
+
+/* ================= PRODUCTS ================= */
+
+.product-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(235px,1fr));
+ gap:24px;
+}
+
+.product-card{
+ position:relative;
+ background:white;
+ border-radius:22px;
+ overflow:hidden;
+ border:1px solid #eadfceaa;
+ box-shadow:0 12px 35px #38241412;
+ transition:transform .4s,box-shadow .4s;
+}
+
+.product-card:hover{
+ transform:translateY(-9px);
+ box-shadow:0 22px 45px #38241425;
+}
+
+.product-image{
+ height:205px;
+ overflow:hidden;
+ background:#eee;
+ position:relative;
+}
+
+.product-image img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ transition:transform .65s;
+}
+
+.product-card:hover .product-image img{
+ transform:scale(1.09);
+}
+
+.product-badge{
+ position:absolute;
+ top:13px;
+ left:13px;
+ z-index:5;
+ background:var(--gold);
+ color:var(--dark);
+ border-radius:20px;
+ padding:6px 11px;
+ font-size:9px;
+ letter-spacing:1px;
+ font-weight:700;
+ box-shadow:0 5px 15px #0002;
+}
+
 .product-info{padding:19px}
-.product-category{font-size:10px;color:#a16e38;letter-spacing:2px;font-weight:700;text-transform:uppercase}
-.product-info h3{font:600 21px 'Playfair Display',serif;margin:8px 0}
-.product-info p{font-size:12px;color:var(--muted);line-height:1.7;min-height:42px}
-.product-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:15px}
-.price{font-weight:700;font-size:18px;color:#87552e}
-.add-btn{border:0;border-radius:30px;background:var(--brown);color:white;padding:10px 17px;transition:.3s}
-.add-btn:hover{background:var(--gold);color:var(--dark);transform:scale(1.04)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
-.about-grid img{height:420px;width:100%;object-fit:cover;border-radius:25px;box-shadow:0 12px 35px #38241412}
-.about-grid h2{font:600 40px 'Playfair Display',serif;margin:15px 0}
-.about-grid p{color:var(--muted);line-height:2;font-size:14px;margin-bottom:15px}
-.info-card{background:white;padding:30px;border-radius:20px;box-shadow:0 12px 35px #38241412}
-.info-card h3{font:600 24px 'Playfair Display',serif;margin-bottom:15px}
-.info-card p{font-size:14px;color:var(--muted);line-height:1.9}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
-.contact-grid input,.contact-grid textarea,.customer-form input,.payment-box input{width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:white;outline:none;margin-bottom:13px}
-.contact-grid textarea{min-height:120px;resize:vertical}
-.cart-box{max-width:850px;margin:auto;background:white;padding:30px;border-radius:22px;box-shadow:0 12px 35px #38241412}
-.cart-row{display:grid;grid-template-columns:1fr auto auto;gap:18px;align-items:center;padding:17px 0;border-bottom:1px solid var(--border)}
-.qty-controls{display:flex;gap:10px;align-items:center}
-.qty-controls button{border:1px solid var(--border);background:white;border-radius:50%;width:30px;height:30px}
-.remove{background:none;border:0;color:#a33;font-size:12px;margin-top:5px}
-.cart-total{display:flex;justify-content:space-between;font-size:23px;font-weight:700;padding:25px 0}
-.customer-form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.checkout-btn{width:100%;padding:16px;border:0;border-radius:40px;background:var(--gold);font-weight:700;transition:.3s}
-.checkout-btn:hover{background:var(--brown);color:white}
-.payment-box{display:none;margin:30px auto 0;max-width:500px;text-align:center;background:var(--cream);padding:28px;border-radius:22px}
-.payment-box h3{font:600 27px 'Playfair Display',serif}
-.payment-box img{width:225px;height:225px;object-fit:contain;margin:20px auto;background:white;border-radius:15px}
-.payment-box p{font-size:13px;color:var(--muted);line-height:1.8}
-.payment-amount{font-size:27px;font-weight:700;color:#87552e;margin:12px}
-.verify-section{margin-top:30px;padding:22px;background:white;border-radius:16px;text-align:left}
-.verify-section h4{font:600 21px 'Playfair Display',serif;margin-bottom:12px}
-.verify-section li{font-size:12px;color:var(--muted);margin:9px 0 9px 18px;line-height:1.6}
-.notice{font-size:11px!important;color:#a24e32!important;margin-top:12px}
-.empty{text-align:center;color:var(--muted);padding:35px}
-.map-frame{width:100%;height:320px;border:0;border-radius:20px;margin-top:25px}
-footer{background:var(--dark);color:white;padding:55px 0 25px;text-align:center}
-footer h2{font:600 32px 'Playfair Display',serif;color:var(--gold)}
-footer p{color:#c7b8a8;font-size:13px;margin-top:12px;line-height:1.8}
-.footer-links{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin:22px}
-.footer-links a{font-size:12px;color:#eee}
-.footer-bottom{border-top:1px solid #ffffff20;padding-top:20px;margin-top:25px;color:#a99b8d;font-size:11px}
-.toast{position:fixed;bottom:25px;right:25px;background:var(--dark);color:white;padding:15px 23px;border-radius:40px;z-index:200;opacity:0;transform:translateY(20px);transition:.3s;pointer-events:none}
-.toast.show{opacity:1;transform:translateY(0)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+.product-category{
+ font-size:10px;
+ color:#a16e38;
+ letter-spacing:2px;
+ font-weight:700;
+ text-transform:uppercase;
+}
+
+.product-info h3{
+ font:600 21px 'Playfair Display',serif;
+ margin:8px 0;
+}
+
+.product-info p{
+ font-size:12px;
+ color:var(--muted);
+ line-height:1.7;
+ min-height:42px;
+}
+
+.product-rating{
+ display:flex;
+ align-items:center;
+ gap:6px;
+ margin-top:11px;
+ font-size:11px;
+}
+
+.product-rating .stars{
+ font-size:11px;
+}
+
+.rating-number{
+ font-weight:700;
+ color:var(--dark);
+}
+
+.review-count{
+ color:#9c9187;
+}
+
+.product-bottom{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ margin-top:15px;
+ gap:10px;
+}
+
+.price{
+ font-weight:700;
+ font-size:18px;
+ color:#87552e;
+}
+
+.add-btn{
+ border:0;
+ border-radius:30px;
+ background:var(--brown);
+ color:white;
+ padding:10px 17px;
+ transition:.3s;
+}
+
+.add-btn:hover{
+ background:var(--gold);
+ color:var(--dark);
+ transform:scale(1.04);
+}
+
+/* ================= REVIEWS ================= */
+
+.reviews-section{
+ background:#efe5d8;
+}
+
+.review-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:24px;
+}
+
+.review-card{
+ background:white;
+ padding:27px;
+ border-radius:20px;
+ box-shadow:0 12px 35px #38241410;
+}
+
+.review-card .stars{
+ margin-bottom:13px;
+}
+
+.review-card p{
+ font-size:13px;
+ color:var(--muted);
+ line-height:1.8;
+}
+
+.review-card h4{
+ margin-top:17px;
+ font-family:'Playfair Display',serif;
+}
+
+/* ================= ABOUT ================= */
+
+.about-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:55px;
+ align-items:center;
+}
+
+.about-grid img{
+ height:420px;
+ width:100%;
+ object-fit:cover;
+ border-radius:25px;
+ box-shadow:0 12px 35px #38241412;
+}
+
+.about-grid h2{
+ font:600 40px 'Playfair Display',serif;
+ margin:15px 0;
+}
+
+.about-grid p{
+ color:var(--muted);
+ line-height:2;
+ font-size:14px;
+ margin-bottom:15px;
+}
+
+/* ================= BOOKING ================= */
+
+.booking-page{
+ min-height:680px;
+ background:
+ linear-gradient(#160e0bd4,#160e0bd4),
+ url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1800')
+ center/cover;
+}
+
+.booking-page .section-heading h2{
+ color:white;
+}
+
+.booking-page .section-heading small{
+ color:var(--gold);
+}
+
+.booking-page .section-heading p{
+ color:#d5c7ba;
+}
+
+.booking-box{
+ max-width:850px;
+ margin:auto;
+ background:#fffdf9f7;
+ border-radius:26px;
+ padding:38px;
+ box-shadow:0 25px 60px #0005;
+}
+
+.booking-box h3{
+ text-align:center;
+ font:600 27px 'Playfair Display',serif;
+ margin-bottom:25px;
+}
+
+.booking-form{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:14px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea{
+ width:100%;
+ padding:14px 16px;
+ border:1px solid var(--border);
+ border-radius:12px;
+ background:white;
+}
+
+.booking-form textarea{
+ grid-column:1/-1;
+ min-height:110px;
+ resize:vertical;
+}
+
+.booking-form .booking-submit{
+ grid-column:1/-1;
+ border:0;
+ border-radius:40px;
+ background:var(--gold);
+ padding:16px;
+ font-weight:700;
+ transition:.3s;
+}
+
+.booking-form .booking-submit:hover{
+ background:var(--brown);
+ color:white;
+}
+
+.booking-note{
+ text-align:center;
+ margin-top:17px;
+ font-size:11px;
+ color:var(--muted);
+}
+
+/* ================= CONTACT ================= */
+
+.info-card{
+ background:white;
+ padding:30px;
+ border-radius:20px;
+ box-shadow:0 12px 35px #38241412;
+}
+
+.info-card h3{
+ font:600 24px 'Playfair Display',serif;
+ margin-bottom:15px;
+}
+
+.info-card p{
+ font-size:14px;
+ color:var(--muted);
+ line-height:1.9;
+}
+
+.contact-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:25px;
+}
+
+.contact-grid input,
+.contact-grid textarea,
+.customer-form input,
+.payment-box input{
+ width:100%;
+ padding:14px 16px;
+ border:1px solid var(--border);
+ border-radius:12px;
+ background:white;
+ outline:none;
+ margin-bottom:13px;
+}
+
+.contact-grid textarea{
+ min-height:120px;
+ resize:vertical;
+}
+
+.map-frame{
+ width:100%;
+ height:320px;
+ border:0;
+ border-radius:20px;
+ margin-top:25px;
+}
+
+/* ================= CART ================= */
+
+.cart-box{
+ max-width:850px;
+ margin:auto;
+ background:white;
+ padding:30px;
+ border-radius:22px;
+ box-shadow:0 12px 35px #38241412;
+}
+
+.cart-row{
+ display:grid;
+ grid-template-columns:1fr auto auto;
+ gap:18px;
+ align-items:center;
+ padding:17px 0;
+ border-bottom:1px solid var(--border);
+}
+
+.qty-controls{
+ display:flex;
+ gap:10px;
+ align-items:center;
+}
+
+.qty-controls button{
+ border:1px solid var(--border);
+ background:white;
+ border-radius:50%;
+ width:30px;
+ height:30px;
+}
+
+.remove{
+ background:none;
+ border:0;
+ color:#a33;
+ font-size:12px;
+ margin-top:5px;
+}
+
+.cart-total{
+ display:flex;
+ justify-content:space-between;
+ font-size:23px;
+ font-weight:700;
+ padding:25px 0;
+}
+
+.customer-form{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
+}
+
+.checkout-btn{
+ width:100%;
+ padding:16px;
+ border:0;
+ border-radius:40px;
+ background:var(--gold);
+ font-weight:700;
+ transition:.3s;
+}
+
+.checkout-btn:hover{
+ background:var(--brown);
+ color:white;
+}
+
+.payment-box{
+ display:none;
+ margin:30px auto 0;
+ max-width:500px;
+ text-align:center;
+ background:var(--cream);
+ padding:28px;
+ border-radius:22px;
+}
+
+.payment-box h3{
+ font:600 27px 'Playfair Display',serif;
+}
+
+.payment-box img{
+ width:225px;
+ height:225px;
+ object-fit:contain;
+ margin:20px auto;
+ background:white;
+ border-radius:15px;
+}
+
+.payment-box p{
+ font-size:13px;
+ color:var(--muted);
+ line-height:1.8;
+}
+
+.payment-amount{
+ font-size:27px;
+ font-weight:700;
+ color:#87552e;
+ margin:12px;
+}
+
+.verify-section{
+ margin-top:30px;
+ padding:22px;
+ background:white;
+ border-radius:16px;
+ text-align:left;
+}
+
+.verify-section h4{
+ font:600 21px 'Playfair Display',serif;
+ margin-bottom:12px;
+}
+
+.verify-section li{
+ font-size:12px;
+ color:var(--muted);
+ margin:9px 0 9px 18px;
+ line-height:1.6;
+}
+
+.notice{
+ font-size:11px!important;
+ color:#a24e32!important;
+ margin-top:12px;
+}
+
+.empty{
+ text-align:center;
+ color:var(--muted);
+ padding:35px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+ background:var(--dark);
+ color:white;
+ padding:55px 0 25px;
+ text-align:center;
+}
+
+footer h2{
+ font:600 32px 'Playfair Display',serif;
+ color:var(--gold);
+}
+
+footer p{
+ color:#c7b8a8;
+ font-size:13px;
+ margin-top:12px;
+ line-height:1.8;
+}
+
+.footer-links{
+ display:flex;
+ justify-content:center;
+ gap:22px;
+ flex-wrap:wrap;
+ margin:22px;
+}
+
+.footer-links a{
+ font-size:12px;
+ color:#eee;
+}
+
+.footer-links a:hover{
+ color:var(--gold);
+}
+
+.footer-bottom{
+ border-top:1px solid #ffffff20;
+ padding-top:20px;
+ margin-top:25px;
+ color:#a99b8d;
+ font-size:11px;
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+ position:fixed;
+ bottom:25px;
+ right:25px;
+ background:var(--dark);
+ color:white;
+ padding:15px 23px;
+ border-radius:40px;
+ z-index:200;
+ opacity:0;
+ transform:translateY(20px);
+ transition:.3s;
+ pointer-events:none;
+ box-shadow:0 10px 30px #0004;
+}
+
+.toast.show{
+ opacity:1;
+ transform:translateY(0);
+}
+
+@keyframes fadeUp{
+ from{
+  opacity:0;
+  transform:translateY(30px)
+ }
+ to{
+  opacity:1;
+  transform:translateY(0)
+ }
+}
+
+/* ================= MOBILE ================= */
+
 @media(max-width:760px){
- .navbar{flex-wrap:wrap;padding:14px 0}
+
+ .navbar{
+  flex-wrap:wrap;
+  padding:14px 0;
+ }
+
  .menu-toggle{display:block}
- .nav-links{display:none;width:100%;flex-direction:column;gap:18px;padding:15px 0}
+
+ .nav-links{
+  display:none;
+  width:100%;
+  flex-direction:column;
+  gap:18px;
+  padding:15px 0;
+ }
+
  .nav-links.open{display:flex}
+
  .hero{min-height:510px}
- .feature-grid{grid-template-columns:1fr}
- .about-grid,.contact-grid{grid-template-columns:1fr}
+
+ .feature-grid,
+ .review-grid{
+  grid-template-columns:1fr;
+ }
+
+ .about-grid,
+ .contact-grid{
+  grid-template-columns:1fr;
+ }
+
  .about-grid img{height:280px}
+
  .cart-box{padding:18px}
- .cart-row{grid-template-columns:1fr auto;gap:10px}
- .cart-row .qty-controls{grid-column:1/-1}
- .customer-form{grid-template-columns:1fr}
+
+ .cart-row{
+  grid-template-columns:1fr auto;
+  gap:10px;
+ }
+
+ .cart-row .qty-controls{
+  grid-column:1/-1;
+ }
+
+ .customer-form,
+ .booking-form{
+  grid-template-columns:1fr;
+ }
+
+ .booking-form textarea,
+ .booking-form .booking-submit{
+  grid-column:auto;
+ }
+
+ .booking-box{
+  padding:25px 18px;
+ }
+
+ .rating-strip{
+  flex-direction:column;
+  text-align:center;
+ }
+
+ .rating-strip-left{
+  flex-direction:column;
+  gap:8px;
+ }
+
  .section{padding:60px 0}
 }
 </style>
 </head>
+
 <body>
 
-<div class="topbar">✦ FRESHLY BREWED • FRESHLY SERVED • MADE WITH LOVE ✦</div>
+<div class="topbar">
+ ✦ FRESHLY BREWED • FRESHLY SERVED • MADE WITH LOVE ✦
+</div>
 
 <header>
  <div class="container navbar">
-  <a class="logo" href="#" onclick="showPage('home');return false">BREW <span>&</span> BITE.</a>
+
+  <a class="logo" href="#" onclick="showPage('home');return false">
+   BREW <span>&</span> BITE.
+  </a>
+
   <button class="menu-toggle" onclick="toggleNav()">☰</button>
+
   <nav class="nav-links" id="navLinks">
-   <a href="#" onclick="showPage('home');return false">Home</a>
-   <a href="#" onclick="showPage('menu');return false">Menu</a>
-   <a href="#" onclick="showPage('about');return false">About</a>
-   <a href="#" onclick="showPage('contact');return false">Contact</a>
-   <a class="cart-pill" href="#" onclick="showPage('checkout');return false">Cart (<span class="cart-count">0</span>)</a>
+
+   <a href="#" onclick="showPage('home');return false">
+    Home
+   </a>
+
+   <a href="#" onclick="showPage('menu');return false">
+    Menu
+   </a>
+
+   <a href="#" onclick="showPage('about');return false">
+    About
+   </a>
+
+   <a href="#" onclick="showPage('contact');return false">
+    Contact
+   </a>
+
+   <a class="book-pill"
+      href="#"
+      onclick="showPage('booking');return false">
+    Book a Table
+   </a>
+
+   <a class="cart-pill"
+      href="#"
+      onclick="showPage('checkout');return false">
+    Cart (<span class="cart-count">0</span>)
+   </a>
+
   </nav>
+
  </div>
 </header>
 
 <main>
 
-<!-- HOME PAGE -->
+<!-- =====================================================
+ HOME PAGE
+===================================================== -->
+
 <div class="page active" id="home">
+
  <section class="hero">
+
   <div class="container hero-content">
-   <div class="eyebrow">WELCOME TO BREW & BITE</div>
-   <h1>Where Every Sip<br>Feels Like <span>Home.</span></h1>
-   <p>Discover handcrafted coffee, delicious food and delightful desserts. A little place for big moments and beautiful memories.</p>
-   <button class="btn" onclick="showPage('menu')">EXPLORE OUR MENU →</button>
+
+   <div class="eyebrow">
+    WELCOME TO BREW & BITE
+   </div>
+
+   <h1>
+    Where Every Sip<br>
+    Feels Like <span>Home.</span>
+   </h1>
+
+   <p>
+    Discover handcrafted coffee, delicious food and delightful
+    desserts. A little place for big moments and beautiful memories.
+   </p>
+
+   <div class="hero-actions">
+
+    <button class="btn" onclick="showPage('menu')">
+     EXPLORE OUR MENU →
+    </button>
+
+    <button class="btn btn-outline" onclick="showPage('booking')">
+     BOOK A TABLE
+    </button>
+
+   </div>
+
   </div>
+
  </section>
+
 
  <section class="features">
+
   <div class="container feature-grid">
-   <div><div class="feature-icon">☕</div><h3>Fresh Coffee</h3><p>Carefully brewed for every coffee lover.</p></div>
-   <div><div class="feature-icon">✧</div><h3>Quality Ingredients</h3><p>Fresh ingredients in every single bite.</p></div>
-   <div><div class="feature-icon">♡</div><h3>Made With Love</h3><p>Good food and unforgettable experiences.</p></div>
-  </div>
- </section>
 
- <section class="section container">
-  <div class="section-heading">
-   <small>OUR FAVOURITES</small>
-   <h2>Customer Favourites</h2>
-   <p>Explore some of our most loved treats.</p>
-  </div>
-  <div class="product-grid" id="featuredProducts"></div>
-  <div style="text-align:center"><button class="btn btn-dark" onclick="showPage('menu')">VIEW FULL MENU →</button></div>
- </section>
-</div>
-
-<!-- MENU PAGE -->
-<div class="page" id="menu">
- <section class="section container">
-  <div class="section-heading">
-   <small>EXPLORE OUR COLLECTION</small>
-   <h2>Our Delicious Menu</h2>
-   <p>Something special for every mood and every craving.</p>
-  </div>
-  <div class="menu-tools">
-   <input class="search" id="search" placeholder="⌕  Search coffee, pizza, dessert..." oninput="renderMenu()">
-   <div class="filters">
-    <button class="filter active" onclick="setCategory('All',this)">All Items</button>
-    <button class="filter" onclick="setCategory('Food',this)">Food</button>
-    <button class="filter" onclick="setCategory('Dessert',this)">Desserts</button>
-    <button class="filter" onclick="setCategory('Beverage',this)">Beverages</button>
-   </div>
-  </div>
-  <div class="product-grid" id="menuItems"></div>
- </section>
-</div>
-
-<!-- ABOUT PAGE -->
-<div class="page" id="about">
- <section class="section container">
-  <div class="about-grid">
-   <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1000" alt="Coffee preparation">
    <div>
-    <small class="eyebrow">OUR STORY</small>
-    <h2>A Place To Pause, Sip & Smile.</h2>
-    <p>At Brew & Bite, we believe a café is more than just coffee. It is a place where friends meet, stories begin and memories are created.</p>
-    <p>From freshly prepared food to carefully crafted beverages, every detail is designed to make your day better.</p>
-    <button class="btn btn-dark" onclick="showPage('menu')">DISCOVER OUR MENU</button>
+    <div class="feature-icon">☕</div>
+    <h3>Fresh Coffee</h3>
+    <p>Carefully brewed for every coffee lover.</p>
    </div>
+
+   <div>
+    <div class="feature-icon">✧</div>
+    <h3>Quality Ingredients</h3>
+    <p>Fresh ingredients in every single bite.</p>
+   </div>
+
+   <div>
+    <div class="feature-icon">♡</div>
+    <h3>Made With Love</h3>
+    <p>Good food and unforgettable experiences.</p>
+   </div>
+
   </div>
-  <div class="section-heading" style="margin-top:85px">
-   <small>OUR PROMISE</small><h2>More Than Just A Café</h2>
-   <p>Warm hospitality, delightful flavours and a comfortable atmosphere.</p>
-  </div>
-  <div class="feature-grid" style="background:var(--dark);border-radius:20px">
-   <div><div class="feature-icon">♡</div><h3>Hospitality</h3><p>Every guest matters to us.</p></div>
-   <div><div class="feature-icon">✦</div><h3>Freshness</h3><p>Care in every preparation.</p></div>
-   <div><div class="feature-icon">☕</div><h3>Experience</h3><p>Moments worth remembering.</p></div>
-  </div>
+
  </section>
+
+
+ <section class="section container">
+
+  <div class="section-heading">
+
+   <small>OUR FAVOURITES</small>
+
+   <h2>Customer Favourites</h2>
+
+   <p>
+    Explore some of our most loved treats.
+   </p>
+
+  </div>
+
+
+  <div class="rating-strip">
+
+   <div class="rating-strip-left">
+
+    <div class="big-rating">
+     4.8
+    </div>
+
+    <div>
+     <div class="stars">★★★★★</div>
+     <p>Overall customer rating</p>
+    </div>
+
+   </div>
+
+   <p>
+    Loved for handcrafted coffee, delicious food,
+    warm ambience and memorable café experiences.
+   </p>
+
+   <button class="btn btn-dark"
+           style="margin-top:0"
+           onclick="showPage('booking')">
+    RESERVE A TABLE
+   </button>
+
+  </div>
+
+
+  <div style="height:35px"></div>
+
+  <div class="product-grid" id="featuredProducts"></div>
+
+  <div style="text-align:center">
+
+   <button class="btn btn-dark"
+           onclick="showPage('menu')">
+    VIEW FULL MENU →
+   </button>
+
+  </div>
+
+ </section>
+
+
+ <section class="section reviews-section">
+
+  <div class="container">
+
+   <div class="section-heading">
+
+    <small>CUSTOMER LOVE</small>
+
+    <h2>What Our Guests Say</h2>
+
+    <p>
+     A few words from people who love spending time at Brew & Bite.
+    </p>
+
+   </div>
+
+
+   <div class="review-grid">
+
+    <div class="review-card">
+
+     <div class="stars">★★★★★</div>
+
+     <p>
+      “Amazing coffee and a beautiful ambience. The cappuccino
+      and cheesecake were absolutely worth trying.”
+     </p>
+
+     <h4>— Aarav Sharma</h4>
+
+    </div>
+
+
+    <div class="review-card">
+
+     <div class="stars">★★★★★</div>
+
+     <p>
+      “Perfect café for spending an evening with friends.
+      Loved the pizza, cold coffee and overall atmosphere.”
+     </p>
+
+     <h4>— Riya Mehta</h4>
+
+    </div>
+
+
+    <div class="review-card">
+
+     <div class="stars">★★★★★</div>
+
+     <p>
+      “The food was fresh and the service was lovely.
+      Definitely coming back for the waffles and coffee.”
+     </p>
+
+     <h4>— Kunal Verma</h4>
+
+    </div>
+
+   </div>
+
+  </div>
+
+ </section>
+
 </div>
 
-<!-- CONTACT PAGE -->
+
+<!-- =====================================================
+ MENU PAGE
+===================================================== -->
+
+<div class="page" id="menu">
+
+ <section class="menu-hero">
+
+  <div class="container menu-hero-content">
+
+   <small>
+    BREW & BITE SIGNATURE COLLECTION
+   </small>
+
+   <h1>
+    Crafted For Every Craving.
+   </h1>
+
+   <p>
+    Handcrafted coffee, café favourites and irresistible desserts
+    prepared to make every visit a little more special.
+   </p>
+
+  </div>
+
+ </section>
+
+
+ <section class="section container">
+
+  <div class="section-heading">
+
+   <small>EXPLORE OUR COLLECTION</small>
+
+   <h2>Our Delicious Menu</h2>
+
+   <p>
+    Something special for every mood and every craving.
+   </p>
+
+  </div>
+
+
+  <div class="menu-tools">
+
+   <input
+    class="search"
+    id="search"
+    placeholder="⌕  Search coffee, pizza, burger, dessert..."
+    oninput="renderMenu()">
+
+
+   <div class="filters">
+
+    <button class="filter active"
+            onclick="setCategory('All',this)">
+     All Items
+    </button>
+
+    <button class="filter"
+            onclick="setCategory('Food',this)">
+     🍕 Food
+    </button>
+
+    <button class="filter"
+            onclick="setCategory('Dessert',this)">
+     🍰 Desserts
+    </button>
+
+    <button class="filter"
+            onclick="setCategory('Beverage',this)">
+     ☕ Beverages
+    </button>
+
+   </div>
+
+  </div>
+
+
+  <div class="product-grid" id="menuItems"></div>
+
+ </section>
+
+</div>
+
+
+<!-- =====================================================
+ BOOK A TABLE PAGE
+===================================================== -->
+
+<div class="page booking-page" id="booking">
+
+ <section class="section container">
+
+  <div class="section-heading">
+
+   <small>RESERVATIONS</small>
+
+   <h2>Book Your Table</h2>
+
+   <p>
+    Reserve your favourite spot for coffee, conversations,
+    celebrations and delicious food.
+   </p>
+
+  </div>
+
+
+  <div class="booking-box">
+
+   <h3>
+    Reserve Your Café Experience
+   </h3>
+
+
+   <form class="booking-form"
+         onsubmit="bookTable(event)">
+
+    <input
+     id="bookName"
+     type="text"
+     placeholder="Your full name"
+     required>
+
+
+    <input
+     id="bookPhone"
+     type="tel"
+     placeholder="10-digit mobile number"
+     maxlength="10"
+     required>
+
+
+    <input
+     id="bookDate"
+     type="date"
+     required>
+
+
+    <input
+     id="bookTime"
+     type="time"
+     required>
+
+
+    <select id="bookGuests" required>
+
+     <option value="">
+      Number of guests
+     </option>
+
+     <option value="1">1 Guest</option>
+     <option value="2">2 Guests</option>
+     <option value="3">3 Guests</option>
+     <option value="4">4 Guests</option>
+     <option value="5">5 Guests</option>
+     <option value="6">6 Guests</option>
+     <option value="7+">7+ Guests</option>
+
+    </select>
+
+
+    <select id="bookArea">
+
+     <option value="Indoor">
+      Indoor Seating
+     </option>
+
+     <option value="Outdoor">
+      Outdoor Seating
+     </option>
+
+     <option value="Any">
+      No Seating Preference
+     </option>
+
+    </select>
+
+
+    <textarea
+     id="bookMessage"
+     placeholder="Birthday, anniversary or any special request?"></textarea>
+
+
+    <button
+     class="booking-submit"
+     type="submit">
+     RESERVE MY TABLE →
+    </button>
+
+   </form>
+
+
+   <p class="booking-note">
+    Reservation requests are recorded on this demo page.
+    The café should confirm availability before treating a booking
+    as confirmed.
+   </p>
+
+  </div>
+
+ </section>
+
+</div>
+
+
+<!-- =====================================================
+ ABOUT PAGE
+===================================================== -->
+
+<div class="page" id="about">
+
+ <section class="section container">
+
+  <div class="about-grid">
+
+   <img
+    src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1000"
+    alt="Coffee preparation">
+
+
+   <div>
+
+    <small class="eyebrow">
+     OUR STORY
+    </small>
+
+    <h2>
+     A Place To Pause, Sip & Smile.
+    </h2>
+
+    <p>
+     At Brew & Bite, we believe a café is more than just coffee.
+     It is a place where friends meet, stories begin and memories
+     are created.
+    </p>
+
+    <p>
+     From freshly prepared food to carefully crafted beverages,
+     every detail is designed to make your day better.
+    </p>
+
+    <button class="btn btn-dark"
+            onclick="showPage('menu')">
+     DISCOVER OUR MENU
+    </button>
+
+   </div>
+
+  </div>
+
+
+  <div class="section-heading"
+       style="margin-top:85px">
+
+   <small>OUR PROMISE</small>
+
+   <h2>
+    More Than Just A Café
+   </h2>
+
+   <p>
+    Warm hospitality, delightful flavours and a comfortable atmosphere.
+   </p>
+
+  </div>
+
+
+  <div class="feature-grid"
+       style="background:var(--dark);border-radius:20px">
+
+   <div>
+
+    <div class="feature-icon">♡</div>
+
+    <h3>Hospitality</h3>
+
+    <p>
+     Every guest matters to us.
+    </p>
+
+   </div>
+
+
+   <div>
+
+    <div class="feature-icon">✦</div>
+
+    <h3>Freshness</h3>
+
+    <p>
+     Care in every preparation.
+    </p>
+
+   </div>
+
+
+   <div>
+
+    <div class="feature-icon">☕</div>
+
+    <h3>Experience</h3>
+
+    <p>
+     Moments worth remembering.
+    </p>
+
+   </div>
+
+  </div>
+
+ </section>
+
+</div>
+
+
+<!-- =====================================================
+ CONTACT PAGE
+===================================================== -->
+
 <div class="page" id="contact">
+
  <section class="section container">
+
   <div class="section-heading">
+
    <small>COME SAY HELLO</small>
+
    <h2>Visit Our Café</h2>
-   <p>We look forward to welcoming you.</p>
+
+   <p>
+    We look forward to welcoming you.
+   </p>
+
   </div>
+
+
   <div class="contact-grid">
+
+
    <div class="info-card">
+
     <h3>Our Location</h3>
-    <p><b>Brew & Bite Café</b></p>
-    <p>Bidholi, Dehradun, Uttarakhand, India</p>
-    <p style="margin-top:15px">📍 Find us in the Bidholi area of Dehradun.</p>
-    <iframe class="map-frame" loading="lazy" src="https://maps.google.com/maps?q=Bidholi%2C%20Dehradun%2C%20Uttarakhand&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
+
+    <p>
+     <b>Brew & Bite Café</b>
+    </p>
+
+    <p>
+     Bidholi, Dehradun, Uttarakhand, India
+    </p>
+
+    <p style="margin-top:15px">
+     📍 Find us in the Bidholi area of Dehradun.
+    </p>
+
+
+    <iframe
+     class="map-frame"
+     loading="lazy"
+     src="https://maps.google.com/maps?q=Bidholi%2C%20Dehradun%2C%20Uttarakhand&t=&z=14&ie=UTF8&iwloc=&output=embed">
+    </iframe>
+
    </div>
+
+
    <div class="info-card">
+
     <h3>Get In Touch</h3>
-    <p>Have a question about our menu or an order? Send us a message.</p>
-    <form onsubmit="sendContact(event)">
-     <input id="contactName" placeholder="Your name" required>
-     <input id="contactEmail" type="email" placeholder="Your email" required>
-     <textarea id="contactMessage" placeholder="Your message..." required></textarea>
-     <button class="btn btn-dark" type="submit">SEND MESSAGE</button>
+
+    <p>
+     Have a question about our menu, booking or an order?
+     Send us a message.
+    </p>
+
+
+    <form onsubmit="sendContact(event)"
+          style="margin-top:20px">
+
+     <input
+      id="contactName"
+      placeholder="Your name"
+      required>
+
+
+     <input
+      id="contactEmail"
+      type="email"
+      placeholder="Your email"
+      required>
+
+
+     <textarea
+      id="contactMessage"
+      placeholder="Your message..."
+      required></textarea>
+
+
+     <button
+      class="btn btn-dark"
+      type="submit">
+      SEND MESSAGE
+     </button>
+
     </form>
+
    </div>
+
   </div>
+
  </section>
+
 </div>
 
-<!-- CHECKOUT PAGE -->
+
+<!-- =====================================================
+ CHECKOUT PAGE
+===================================================== -->
+
 <div class="page" id="checkout">
+
  <section class="section container">
+
   <div class="section-heading">
+
    <small>YOUR ORDER</small>
-   <h2>Shopping Cart & Checkout</h2>
-   <p>Review your favourite picks before payment.</p>
+
+   <h2>
+    Shopping Cart & Checkout
+   </h2>
+
+   <p>
+    Review your favourite picks before payment.
+   </p>
+
   </div>
+
+
   <div class="cart-box">
-   <div id="cartItems"><div class="empty">Your cart is waiting for something delicious! ☕</div></div>
-   <div class="cart-total"><span>Total</span><span id="total">₹0</span></div>
 
-   <h3 style="font-family:'Playfair Display';margin-bottom:15px">Customer Details</h3>
-   <div class="customer-form">
-    <input id="customerName" placeholder="Your full name">
-    <input id="customerPhone" type="tel" placeholder="10-digit mobile number">
+
+   <div id="cartItems">
+
+    <div class="empty">
+     Your cart is waiting for something delicious! ☕
+    </div>
+
    </div>
-   <p style="font-size:12px;color:var(--muted);margin:5px 0 18px">Orders are for café pickup. Delivery address is not required.</p>
-   <button class="checkout-btn" onclick="checkout()">CONTINUE TO PAYMENT →</button>
 
-   <div class="payment-box" id="paymentBox">
-    <h3>Complete Your Payment</h3>
-    <p>Scan the QR code using your UPI application.</p>
-    <img id="qrImage" alt="UPI Payment QR Code">
-    <div class="payment-amount" id="paymentAmount">₹0</div>
-    <p>UPI ID: <b>9799618755-bbfa-2@ybl</b></p>
-    <button class="btn" onclick="payWithUPI()">OPEN UPI APP</button>
+
+   <div class="cart-total">
+
+    <span>Total</span>
+
+    <span id="total">₹0</span>
+
+   </div>
+
+
+   <h3 style="
+    font-family:'Playfair Display';
+    margin-bottom:15px">
+    Customer Details
+   </h3>
+
+
+   <div class="customer-form">
+
+    <input
+     id="customerName"
+     placeholder="Your full name">
+
+
+    <input
+     id="customerPhone"
+     type="tel"
+     maxlength="10"
+     placeholder="10-digit mobile number">
+
+   </div>
+
+
+   <p style="
+    font-size:12px;
+    color:var(--muted);
+    margin:5px 0 18px">
+
+    Orders are for café pickup.
+    Delivery address is not required.
+
+   </p>
+
+
+   <button
+    class="checkout-btn"
+    onclick="checkout()">
+
+    CONTINUE TO PAYMENT →
+
+   </button>
+
+
+   <div class="payment-box"
+        id="paymentBox">
+
+
+    <h3>
+     Complete Your Payment
+    </h3>
+
+
+    <p>
+     Scan the QR code using your UPI application.
+    </p>
+
+
+    <img
+     id="qrImage"
+     alt="UPI Payment QR Code">
+
+
+    <div
+     class="payment-amount"
+     id="paymentAmount">
+     ₹0
+    </div>
+
+
+    <p>
+     UPI ID:
+     <b>9799618755-bbfa-2@ybl</b>
+    </p>
+
+
+    <button
+     class="btn"
+     onclick="payWithUPI()">
+
+     OPEN UPI APP
+
+    </button>
+
 
     <div class="verify-section">
-     <h4>Verify Payment Details</h4>
-     <p>After paying, enter your UPI transaction reference (UTR).</p>
-     <input id="utr" placeholder="Enter UTR / transaction reference">
-     <button class="checkout-btn" onclick="submitOrder()">SUBMIT PAYMENT DETAILS</button>
-     <p class="notice">Submitting your UTR does not mean payment is verified. The café must check the actual bank/UPI transaction before confirming the order.</p>
-     <p id="paymentStatus" style="margin-top:15px"></p>
+
+     <h4>
+      Verify Payment Details
+     </h4>
+
+     <p>
+      After paying, enter your UPI transaction reference (UTR).
+     </p>
+
+
+     <input
+      id="utr"
+      placeholder="Enter UTR / transaction reference"
+      style="margin-top:15px">
+
+
+     <button
+      class="checkout-btn"
+      onclick="submitOrder()">
+
+      SUBMIT PAYMENT DETAILS
+
+     </button>
+
+
+     <p class="notice">
+      Submitting your UTR does not mean payment is verified.
+      The café must check the actual bank/UPI transaction before
+      confirming the order.
+     </p>
+
+
+     <p
+      id="paymentStatus"
+      style="margin-top:15px">
+     </p>
+
     </div>
+
    </div>
+
   </div>
+
  </section>
+
 </div>
 
 </main>
 
+
+<!-- =====================================================
+ FOOTER
+===================================================== -->
+
 <footer>
+
  <div class="container">
-  <h2>BREW & BITE.</h2>
-  <p>Good Coffee. Great Food. Beautiful Moments.</p>
+
+  <h2>
+   BREW & BITE.
+  </h2>
+
+  <p>
+   Good Coffee. Great Food. Beautiful Moments.
+  </p>
+
+
   <div class="footer-links">
-   <a href="#" onclick="showPage('home');return false">Home</a>
-   <a href="#" onclick="showPage('menu');return false">Menu</a>
-   <a href="#" onclick="showPage('about');return false">About</a>
-   <a href="#" onclick="showPage('contact');return false">Contact</a>
+
+   <a href="#"
+      onclick="showPage('home');return false">
+    Home
+   </a>
+
+   <a href="#"
+      onclick="showPage('menu');return false">
+    Menu
+   </a>
+
+   <a href="#"
+      onclick="showPage('booking');return false">
+    Book a Table
+   </a>
+
+   <a href="#"
+      onclick="showPage('about');return false">
+    About
+   </a>
+
+   <a href="#"
+      onclick="showPage('contact');return false">
+    Contact
+   </a>
+
   </div>
-  <p>📍 Bidholi, Dehradun, Uttarakhand, India</p>
-  <div class="footer-bottom">© 2026 Brew & Bite Café | All Rights Reserved</div>
+
+
+  <p>
+   📍 Bidholi, Dehradun, Uttarakhand, India
+  </p>
+
+
+  <div class="footer-bottom">
+   © 2026 Brew & Bite Café | All Rights Reserved
+  </div>
+
  </div>
+
 </footer>
 
-<div class="toast" id="toast">Added to cart!</div>
+
+<div class="toast" id="toast">
+ Added to cart!
+</div>
+
 
 <script>
+
+/* =====================================================
+ PAYMENT SETTINGS
+===================================================== */
+
 const UPI_ID="9799618755-bbfa-2@ybl";
+
 const PAYEE="Brew and Bite Cafe";
 
+
+/* =====================================================
+ PRODUCTS
+===================================================== */
+
 const products=[
-{name:"Chocolate Cake",category:"Dessert",price:180,desc:"Rich chocolate cake with creamy layers.",img:"photo-1578985545062-69928b1d9587"},
-{name:"Brownie",category:"Dessert",price:120,desc:"Warm and fudgy chocolate brownie.",img:"photo-1606313564200-e75d5e30476c"},
-{name:"Cheesecake",category:"Dessert",price:200,desc:"Smooth and creamy classic cheesecake.",img:"photo-1533134242443-d4fd215305ad"},
-{name:"Ice Cream",category:"Dessert",price:100,desc:"Chilled and delicious ice cream.",img:"photo-1501446529957-6226bd447c46"},
-{name:"Waffles",category:"Dessert",price:160,desc:"Golden waffles with sweet toppings.",img:"photo-1562376552-0d160a2f238d"},
-{name:"Donut",category:"Dessert",price:90,desc:"Soft donut with chocolate glaze.",img:"photo-1551024506-0bccd828d307"},
-{name:"Cupcake",category:"Dessert",price:110,desc:"Fresh cupcake with delicious frosting.",img:"photo-1486427944299-d1955d23e34d"},
-{name:"Margherita Pizza",category:"Food",price:250,desc:"Classic cheese pizza with fresh herbs.",img:"photo-1579751626657-72bc17010498"},
-{name:"Veg Burger",category:"Food",price:150,desc:"Crispy vegetable patty with fresh veggies.",img:"photo-1568901346375-23c9450c58cd"},
-{name:"White Sauce Pasta",category:"Food",price:190,desc:"Creamy pasta with herbs and vegetables.",img:"photo-1473093295043-cdd812d0e601"},
-{name:"Grilled Sandwich",category:"Food",price:130,desc:"Grilled sandwich with tasty filling.",img:"photo-1528735602780-2552fd46c7af"},
-{name:"French Fries",category:"Food",price:100,desc:"Crispy golden salted potato fries.",img:"photo-1573080496219-bb080dd4f877"},
-{name:"Garlic Bread",category:"Food",price:140,desc:"Toasted bread with garlic and herbs.",img:"photo-1619531040576-f9416740661c"},
-{name:"Cappuccino",category:"Beverage",price:120,desc:"Espresso topped with silky milk foam.",img:"photo-1572442388796-11668a67e53d"},
-{name:"Cold Coffee",category:"Beverage",price:140,desc:"Chilled coffee blended until smooth.",img:"photo-1461023058943-07fcbe16d735"},
-{name:"Hot Chocolate",category:"Beverage",price:150,desc:"Rich chocolate drink for cozy moments.",img:"photo-1542990253-0b8be3f5c2b8"},
-{name:"Iced Latte",category:"Beverage",price:160,desc:"Espresso, milk and refreshing ice.",img:"photo-1517701604599-bb29b565090c"},
-{name:"Fresh Lime Soda",category:"Beverage",price:90,desc:"Refreshing lime drink served chilled.",img:"photo-1513558161293-cf8c8a5a7f5b"},
-{name:"Mango Smoothie",category:"Beverage",price:150,desc:"Creamy mango smoothie.",img:"photo-1505252585461-04db1eb84625"},
-{name:"Strawberry Shake",category:"Beverage",price:160,desc:"Sweet strawberry milkshake served cold.",img:"photo-1572490122747-3968b75cc699"}
+
+/* ================= DESSERTS ================= */
+
+{
+ name:"Chocolate Cake",
+ category:"Dessert",
+ price:180,
+ rating:4.9,
+ reviews:218,
+ badge:"BESTSELLER",
+ desc:"Rich chocolate cake with creamy chocolate layers.",
+ img:"photo-1578985545062-69928b1d9587"
+},
+
+{
+ name:"Brownie",
+ category:"Dessert",
+ price:120,
+ rating:4.8,
+ reviews:184,
+ badge:"POPULAR",
+ desc:"Warm and fudgy chocolate brownie.",
+ img:"photo-1606313564200-e75d5e30476c"
+},
+
+{
+ name:"Cheesecake",
+ category:"Dessert",
+ price:200,
+ rating:4.9,
+ reviews:171,
+ badge:"SIGNATURE",
+ desc:"Smooth and creamy classic cheesecake.",
+ img:"photo-1533134242443-d4fd215305ad"
+},
+
+{
+ name:"Ice Cream",
+ category:"Dessert",
+ price:100,
+ rating:4.7,
+ reviews:116,
+ badge:"",
+ desc:"Chilled and delicious creamy ice cream.",
+ img:"photo-1563805042-7684c019e1cb"
+},
+
+{
+ name:"Waffles",
+ category:"Dessert",
+ price:160,
+ rating:4.8,
+ reviews:145,
+ badge:"CUSTOMER PICK",
+ desc:"Golden waffles with delicious sweet toppings.",
+ img:"photo-1562376552-0d160a2f238d"
+},
+
+{
+ name:"Donut",
+ category:"Dessert",
+ price:90,
+ rating:4.6,
+ reviews:93,
+ badge:"",
+ desc:"Soft donut finished with chocolate glaze.",
+ img:"photo-1551024506-0bccd828d307"
+},
+
+{
+ name:"Cupcake",
+ category:"Dessert",
+ price:110,
+ rating:4.7,
+ reviews:87,
+ badge:"",
+ desc:"Fresh cupcake with delicious creamy frosting.",
+ img:"photo-1486427944299-d1955d23e34d"
+},
+
+{
+ name:"Tiramisu",
+ category:"Dessert",
+ price:220,
+ rating:4.9,
+ reviews:139,
+ badge:"PREMIUM",
+ desc:"Classic coffee-flavoured Italian dessert with creamy layers.",
+ img:"photo-1571877227200-a0d98ea607e9"
+},
+
+{
+ name:"Pancakes",
+ category:"Dessert",
+ price:170,
+ rating:4.8,
+ reviews:126,
+ badge:"",
+ desc:"Fluffy pancakes served with syrup and fresh toppings.",
+ img:"photo-1528207776546-365bb710ee93"
+},
+
+{
+ name:"Chocolate Croissant",
+ category:"Dessert",
+ price:150,
+ rating:4.8,
+ reviews:105,
+ badge:"FRESH BAKED",
+ desc:"Flaky buttery croissant filled with delicious chocolate.",
+ img:"photo-1555507036-ab1f4038808a"
+},
+
+
+/* ================= FOOD ================= */
+
+{
+ name:"Margherita Pizza",
+ category:"Food",
+ price:250,
+ rating:4.9,
+ reviews:242,
+ badge:"BESTSELLER",
+ desc:"Classic cheese pizza with tomato and fresh herbs.",
+ img:"photo-1579751626657-72bc17010498"
+},
+
+{
+ name:"Farmhouse Pizza",
+ category:"Food",
+ price:320,
+ rating:4.8,
+ reviews:173,
+ badge:"CHEF'S PICK",
+ desc:"Loaded pizza with vegetables, cheese and Italian herbs.",
+ img:"photo-1574071318508-1cdbab80d002"
+},
+
+{
+ name:"Veg Burger",
+ category:"Food",
+ price:150,
+ rating:4.8,
+ reviews:194,
+ badge:"POPULAR",
+ desc:"Crispy vegetable patty with cheese and fresh veggies.",
+ img:"photo-1568901346375-23c9450c58cd"
+},
+
+{
+ name:"Cheese Burger",
+ category:"Food",
+ price:190,
+ rating:4.8,
+ reviews:153,
+ badge:"",
+ desc:"Café-style burger loaded with melted cheese.",
+ img:"photo-1550547660-d9450f859349"
+},
+
+{
+ name:"White Sauce Pasta",
+ category:"Food",
+ price:190,
+ rating:4.9,
+ reviews:205,
+ badge:"SIGNATURE",
+ desc:"Creamy pasta with herbs and fresh vegetables.",
+ img:"photo-1473093295043-cdd812d0e601"
+},
+
+{
+ name:"Red Sauce Pasta",
+ category:"Food",
+ price:180,
+ rating:4.7,
+ reviews:128,
+ badge:"",
+ desc:"Pasta tossed in tangy tomato sauce and Italian herbs.",
+ img:"photo-1563379926898-05f4575a45d8"
+},
+
+{
+ name:"Grilled Sandwich",
+ category:"Food",
+ price:130,
+ rating:4.7,
+ reviews:121,
+ badge:"",
+ desc:"Crispy grilled sandwich with a delicious filling.",
+ img:"photo-1528735602780-2552fd46c7af"
+},
+
+{
+ name:"French Fries",
+ category:"Food",
+ price:100,
+ rating:4.8,
+ reviews:212,
+ badge:"FAVOURITE",
+ desc:"Crispy golden salted potato fries.",
+ img:"photo-1573080496219-bb080dd4f877"
+},
+
+{
+ name:"Garlic Bread",
+ category:"Food",
+ price:140,
+ rating:4.7,
+ reviews:102,
+ badge:"",
+ desc:"Toasted bread with garlic butter and herbs.",
+ img:"photo-1573140247632-f8fd74997d5c"
+},
+
+{
+ name:"Club Sandwich",
+ category:"Food",
+ price:190,
+ rating:4.8,
+ reviews:116,
+ badge:"",
+ desc:"Triple-layer sandwich with vegetables, cheese and sauces.",
+ img:"photo-1553909489-cd47e0907980"
+},
+
+
+/* ================= BEVERAGES ================= */
+
+{
+ name:"Cappuccino",
+ category:"Beverage",
+ price:120,
+ rating:4.9,
+ reviews:231,
+ badge:"BESTSELLER",
+ desc:"Espresso topped with silky steamed milk foam.",
+ img:"photo-1572442388796-11668a67e53d"
+},
+
+{
+ name:"Cold Coffee",
+ category:"Beverage",
+ price:140,
+ rating:4.9,
+ reviews:254,
+ badge:"MOST LOVED",
+ desc:"Chilled creamy coffee blended until smooth.",
+ img:"photo-1461023058943-07fcbe16d735"
+},
+
+{
+ name:"Hot Chocolate",
+ category:"Beverage",
+ price:150,
+ rating:4.8,
+ reviews:147,
+ badge:"COZY PICK",
+ desc:"Rich chocolate drink made for cozy moments.",
+ img:"photo-1542990253-0b8be3f5c2b8"
+},
+
+{
+ name:"Iced Latte",
+ category:"Beverage",
+ price:160,
+ rating:4.8,
+ reviews:133,
+ badge:"",
+ desc:"Espresso, chilled milk and refreshing ice.",
+ img:"photo-1517701604599-bb29b565090c"
+},
+
+{
+ name:"Fresh Lime Soda",
+ category:"Beverage",
+ price:90,
+ rating:4.6,
+ reviews:78,
+ badge:"REFRESHING",
+ desc:"Refreshing fresh lime drink served chilled.",
+ img:"photo-1513558161293-cf8c8a5a7f5b"
+},
+
+{
+ name:"Mango Smoothie",
+ category:"Beverage",
+ price:150,
+ rating:4.8,
+ reviews:119,
+ badge:"FRESH",
+ desc:"Creamy and refreshing mango smoothie.",
+ img:"photo-1505252585461-04db1eb84625"
+},
+
+{
+ name:"Strawberry Shake",
+ category:"Beverage",
+ price:160,
+ rating:4.8,
+ reviews:127,
+ badge:"",
+ desc:"Sweet strawberry milkshake served perfectly chilled.",
+ img:"photo-1572490122747-3968b75cc699"
+},
+
+{
+ name:"Cafe Latte",
+ category:"Beverage",
+ price:140,
+ rating:4.8,
+ reviews:162,
+ badge:"POPULAR",
+ desc:"Smooth espresso blended with creamy steamed milk.",
+ img:"photo-1561882468-9110e03e0f78"
+},
+
+{
+ name:"Espresso",
+ category:"Beverage",
+ price:90,
+ rating:4.7,
+ reviews:94,
+ badge:"",
+ desc:"Bold concentrated coffee with a rich aromatic crema.",
+ img:"photo-1510707577719-ae7c14805e3a"
+},
+
+{
+ name:"Cafe Mocha",
+ category:"Beverage",
+ price:160,
+ rating:4.8,
+ reviews:138,
+ badge:"CHOCOLATE LOVE",
+ desc:"Espresso combined with chocolate and steamed milk.",
+ img:"photo-1578314675249-a6910f80cc4e"
+}
+
 ];
 
-let cart=JSON.parse(localStorage.getItem("brewCart")||"[]");
+
+/* =====================================================
+ CART VARIABLES
+===================================================== */
+
+let cart=JSON.parse(
+ localStorage.getItem("brewCart") || "[]"
+);
+
 let activeCategory="All";
+
 let currentUPILink="";
 
+
+/* =====================================================
+ PAGE NAVIGATION
+===================================================== */
+
 function showPage(id){
- document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+
+ document
+ .querySelectorAll(".page")
+ .forEach(p=>p.classList.remove("active"));
+
+
  const page=document.getElementById(id);
- if(page)page.classList.add("active");
- document.querySelectorAll(".nav-links a").forEach(a=>a.classList.remove("active"));
- document.getElementById("navLinks").classList.remove("open");
- window.scrollTo({top:0,behavior:"smooth"});
- if(id==="menu")renderMenu();
- if(id==="checkout")renderCart();
+
+ if(page){
+  page.classList.add("active");
+ }
+
+
+ document
+ .querySelectorAll(".nav-links a")
+ .forEach(a=>a.classList.remove("active"));
+
+
+ document
+ .getElementById("navLinks")
+ .classList.remove("open");
+
+
+ window.scrollTo({
+  top:0,
+  behavior:"smooth"
+ });
+
+
+ if(id==="menu"){
+  renderMenu();
+ }
+
+
+ if(id==="checkout"){
+  renderCart();
+ }
+
 }
+
+
+/* =====================================================
+ MOBILE NAV
+===================================================== */
 
 function toggleNav(){
- document.getElementById("navLinks").classList.toggle("open");
+
+ document
+ .getElementById("navLinks")
+ .classList.toggle("open");
+
 }
+
+
+/* =====================================================
+ IMAGE URL
+===================================================== */
 
 function imageURL(id){
- return "https://images.unsplash.com/"+id+"?auto=format&fit=crop&w=700&q=85";
+
+ return "https://images.unsplash.com/"
+ + id
+ + "?auto=format&fit=crop&w=700&q=85";
+
 }
+
+
+/* =====================================================
+ TOAST
+===================================================== */
 
 function notify(message){
- const toast=document.getElementById("toast");
+
+ const toast=
+ document.getElementById("toast");
+
+
  toast.textContent=message;
+
  toast.classList.add("show");
- setTimeout(()=>toast.classList.remove("show"),2200);
+
+
+ setTimeout(()=>{
+
+  toast.classList.remove("show");
+
+ },2200);
+
 }
+
+
+/* =====================================================
+ SAVE CART
+===================================================== */
 
 function saveCart(){
- localStorage.setItem("brewCart",JSON.stringify(cart));
+
+ localStorage.setItem(
+  "brewCart",
+  JSON.stringify(cart)
+ );
+
 }
+
+
+/* =====================================================
+ CART COUNT
+===================================================== */
 
 function updateCartCount(){
- const count=cart.reduce((sum,p)=>sum+p.qty,0);
- document.querySelectorAll(".cart-count").forEach(el=>el.textContent=count);
+
+ const count=
+ cart.reduce(
+  (sum,p)=>sum+p.qty,
+  0
+ );
+
+
+ document
+ .querySelectorAll(".cart-count")
+ .forEach(el=>el.textContent=count);
+
 }
+
+
+/* =====================================================
+ PRODUCT CARD
+===================================================== */
 
 function productCard(p){
- return `<article class="product-card">
- <div class="product-image"><img loading="lazy" src="${imageURL(p.img)}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700'"></div>
- <div class="product-info"><span class="product-category">${p.category}</span>
- <h3>${p.name}</h3><p>${p.desc}</p>
- <div class="product-bottom"><span class="price">₹${p.price}</span>
- <button class="add-btn" onclick="addToCart('${p.name}')">+ Add</button></div></div></article>`;
+
+ return `
+
+ <article class="product-card">
+
+  ${
+   p.badge
+   ?
+   `<span class="product-badge">
+     ${p.badge}
+    </span>`
+   :
+   ""
+  }
+
+
+  <div class="product-image">
+
+   <img
+    loading="lazy"
+    src="${imageURL(p.img)}"
+    alt="${p.name}"
+
+    onerror="
+     this.onerror=null;
+     this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700';
+    ">
+
+  </div>
+
+
+  <div class="product-info">
+
+   <span class="product-category">
+    ${p.category}
+   </span>
+
+
+   <h3>
+    ${p.name}
+   </h3>
+
+
+   <p>
+    ${p.desc}
+   </p>
+
+
+   <div class="product-rating">
+
+    <span class="stars">
+     ★★★★★
+    </span>
+
+    <span class="rating-number">
+     ${p.rating}
+    </span>
+
+    <span class="review-count">
+     (${p.reviews} reviews)
+    </span>
+
+   </div>
+
+
+   <div class="product-bottom">
+
+    <span class="price">
+     ₹${p.price}
+    </span>
+
+
+    <button
+     class="add-btn"
+     onclick="addToCart('${p.name}')">
+
+     + Add
+
+    </button>
+
+   </div>
+
+  </div>
+
+ </article>
+
+ `;
+
 }
+
+
+/* =====================================================
+ RENDER MENU
+===================================================== */
 
 function renderMenu(){
- const grid=document.getElementById("menuItems");
- if(!grid)return;
- const query=(document.getElementById("search")?.value||"").toLowerCase();
- const filtered=products.filter(p=>(activeCategory==="All"||p.category===activeCategory)&&(p.name.toLowerCase().includes(query)||p.desc.toLowerCase().includes(query)));
- grid.innerHTML=filtered.length?filtered.map(productCard).join():'<div class="empty">No matching products found.</div>';
+
+ const grid=
+ document.getElementById("menuItems");
+
+
+ if(!grid){
+  return;
+ }
+
+
+ const query=
+ (
+  document.getElementById("search")?.value || ""
+ )
+ .toLowerCase();
+
+
+ const filtered=
+ products.filter(p=>
+
+  (
+   activeCategory==="All"
+   ||
+   p.category===activeCategory
+  )
+
+  &&
+
+  (
+   p.name.toLowerCase().includes(query)
+   ||
+   p.desc.toLowerCase().includes(query)
+  )
+
+ );
+
+
+ grid.innerHTML=
+ filtered.length
+ ?
+ filtered.map(productCard).join("")
+ :
+ `
+ <div class="empty">
+  No matching products found.
+ </div>
+ `;
+
 }
+
+
+/* =====================================================
+ CATEGORY FILTER
+===================================================== */
 
 function setCategory(category,button){
+
  activeCategory=category;
- document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
+
+
+ document
+ .querySelectorAll(".filter")
+ .forEach(b=>b.classList.remove("active"));
+
+
  button.classList.add("active");
+
+
  renderMenu();
+
 }
+
+
+/* =====================================================
+ FEATURED
+===================================================== */
 
 function renderFeatured(){
- const box=document.getElementById("featuredProducts");
- if(box)box.innerHTML=products.slice(0,4).map(productCard).join("");
+
+ const box=
+ document.getElementById("featuredProducts");
+
+
+ if(!box){
+  return;
+ }
+
+
+ const featuredNames=[
+
+  "Cappuccino",
+  "Margherita Pizza",
+  "Chocolate Cake",
+  "Cheesecake"
+
+ ];
+
+
+ const featured=
+ featuredNames
+ .map(name=>
+  products.find(p=>p.name===name)
+ )
+ .filter(Boolean);
+
+
+ box.innerHTML=
+ featured
+ .map(productCard)
+ .join("");
+
 }
+
+
+/* =====================================================
+ ADD TO CART
+===================================================== */
 
 function addToCart(name){
- const product=products.find(p=>p.name===name);
- const found=cart.find(p=>p.name===name);
- if(found)found.qty++;
- else cart.push({...product,qty:1});
- saveCart();renderCart();updateCartCount();
- notify(name+" added to cart!");
+
+ const product=
+ products.find(p=>p.name===name);
+
+
+ if(!product){
+  return;
+ }
+
+
+ const found=
+ cart.find(p=>p.name===name);
+
+
+ if(found){
+
+  found.qty++;
+
+ }
+
+ else{
+
+  cart.push({
+   ...product,
+   qty:1
+  });
+
+ }
+
+
+ saveCart();
+
+ renderCart();
+
+ updateCartCount();
+
+
+ notify(
+  name+" added to cart!"
+ );
+
 }
+
+
+/* =====================================================
+ CHANGE QUANTITY
+===================================================== */
 
 function changeQty(name,change){
- const item=cart.find(p=>p.name===name);
- if(!item)return;
+
+ const item=
+ cart.find(p=>p.name===name);
+
+
+ if(!item){
+  return;
+ }
+
+
  item.qty+=change;
- if(item.qty<=0)cart=cart.filter(p=>p.name!==name);
- saveCart();renderCart();updateCartCount();
+
+
+ if(item.qty<=0){
+
+  cart=
+  cart.filter(p=>p.name!==name);
+
+ }
+
+
+ saveCart();
+
+ renderCart();
+
+ updateCartCount();
+
 }
+
+
+/* =====================================================
+ REMOVE ITEM
+===================================================== */
 
 function removeItem(name){
- cart=cart.filter(p=>p.name!==name);
- saveCart();renderCart();updateCartCount();
+
+ cart=
+ cart.filter(p=>p.name!==name);
+
+
+ saveCart();
+
+ renderCart();
+
+ updateCartCount();
+
+
+ notify("Item removed from cart");
+
 }
+
+
+/* =====================================================
+ TOTAL
+===================================================== */
 
 function getTotal(){
- return cart.reduce((sum,p)=>sum+p.price*p.qty,0);
+
+ return cart.reduce(
+
+  (sum,p)=>
+  sum+p.price*p.qty,
+
+  0
+
+ );
+
 }
+
+
+/* =====================================================
+ RENDER CART
+===================================================== */
 
 function renderCart(){
- const box=document.getElementById("cartItems");
- if(!box)return;
- document.getElementById("total").textContent="₹"+getTotal();
- if(!cart.length){
-  box.innerHTML='<div class="empty">Your cart is waiting for something delicious! ☕</div>';
-  document.getElementById("paymentBox").style.display="none";
+
+ const box=
+ document.getElementById("cartItems");
+
+
+ if(!box){
   return;
  }
- box.innerHTML=cart.map(p=>`
- <div class="cart-row">
-  <div><b>${p.name}</b><br><small>₹${p.price} each</small></div>
-  <div class="qty-controls">
-   <button onclick="changeQty('${p.name}',-1)">−</button>
-   <b>${p.qty}</b>
-   <button onclick="changeQty('${p.name}',1)">+</button>
+
+
+ document
+ .getElementById("total")
+ .textContent=
+ "₹"+getTotal();
+
+
+ if(!cart.length){
+
+  box.innerHTML=`
+
+   <div class="empty">
+
+    Your cart is waiting for something delicious! ☕
+
+    <br><br>
+
+    <button
+     class="btn btn-dark"
+     onclick="showPage('menu')">
+
+     EXPLORE MENU
+
+    </button>
+
+   </div>
+
+  `;
+
+
+  document
+  .getElementById("paymentBox")
+  .style.display="none";
+
+
+  return;
+
+ }
+
+
+ box.innerHTML=
+ cart.map(p=>`
+
+  <div class="cart-row">
+
+
+   <div>
+
+    <b>
+     ${p.name}
+    </b>
+
+    <br>
+
+    <small>
+     ₹${p.price} each
+    </small>
+
+   </div>
+
+
+   <div class="qty-controls">
+
+    <button
+     onclick="changeQty('${p.name}',-1)">
+     −
+    </button>
+
+
+    <b>
+     ${p.qty}
+    </b>
+
+
+    <button
+     onclick="changeQty('${p.name}',1)">
+     +
+    </button>
+
+   </div>
+
+
+   <div style="text-align:right">
+
+    <b>
+     ₹${p.price*p.qty}
+    </b>
+
+    <br>
+
+    <button
+     class="remove"
+     onclick="removeItem('${p.name}')">
+
+     Remove
+
+    </button>
+
+   </div>
+
+
   </div>
-  <div style="text-align:right"><b>₹${p.price*p.qty}</b><br><button class="remove" onclick="removeItem('${p.name}')">Remove</button></div>
- </div>`).join("");
+
+ `).join("");
+
 }
+
+
+/* =====================================================
+ CHECKOUT
+===================================================== */
 
 function checkout(){
- if(!cart.length){notify("Your cart is empty!");return;}
- const name=document.getElementById("customerName").value.trim();
- const phone=document.getElementById("customerPhone").value.trim();
- if(!name||!/^[0-9]{10}$/.test(phone)){
-  alert("Please enter your name and a valid 10-digit mobile number.");
+
+ if(!cart.length){
+
+  notify("Your cart is empty!");
+
   return;
+
  }
+
+
+ const name=
+ document
+ .getElementById("customerName")
+ .value
+ .trim();
+
+
+ const phone=
+ document
+ .getElementById("customerPhone")
+ .value
+ .trim();
+
+
+ if(
+  !name
+  ||
+  !/^[0-9]{10}$/.test(phone)
+ ){
+
+  alert(
+   "Please enter your name and a valid 10-digit mobile number."
+  );
+
+  return;
+
+ }
+
+
  const amount=getTotal();
- currentUPILink="upi://pay?pa="+encodeURIComponent(UPI_ID)+"&pn="+encodeURIComponent(PAYEE)+"&am="+amount+"&cu=INR";
- document.getElementById("qrImage").src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+encodeURIComponent(currentUPILink);
- document.getElementById("paymentAmount").textContent="₹"+amount;
- document.getElementById("paymentBox").style.display="block";
- document.getElementById("paymentBox").scrollIntoView({behavior:"smooth"});
+
+
+ currentUPILink=
+
+ "upi://pay?pa="
+ +encodeURIComponent(UPI_ID)
+
+ +"&pn="
+ +encodeURIComponent(PAYEE)
+
+ +"&am="
+ +amount
+
+ +"&cu=INR";
+
+
+ document
+ .getElementById("qrImage")
+ .src=
+
+ "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="
+ +encodeURIComponent(currentUPILink);
+
+
+ document
+ .getElementById("paymentAmount")
+ .textContent=
+ "₹"+amount;
+
+
+ document
+ .getElementById("paymentBox")
+ .style.display="block";
+
+
+ document
+ .getElementById("paymentBox")
+ .scrollIntoView({
+  behavior:"smooth"
+ });
+
 }
+
+
+/* =====================================================
+ OPEN UPI APP
+===================================================== */
 
 function payWithUPI(){
- if(currentUPILink)window.location.href=currentUPILink;
+
+ if(currentUPILink){
+
+  window.location.href=
+  currentUPILink;
+
+ }
+
 }
+
+
+/* =====================================================
+ SUBMIT PAYMENT
+===================================================== */
 
 function submitOrder(){
- const utr=document.getElementById("utr").value.trim();
- if(!utr){alert("Please enter your UTR / transaction reference.");return;}
+
+ const utr=
+ document
+ .getElementById("utr")
+ .value
+ .trim();
+
+
+ if(!utr){
+
+  alert(
+   "Please enter your UTR / transaction reference."
+  );
+
+  return;
+
+ }
+
+
  const order={
-  name:document.getElementById("customerName").value.trim(),
-  phone:document.getElementById("customerPhone").value.trim(),
-  items:cart.map(p=>({name:p.name,quantity:p.qty,price:p.price})),
+
+  name:
+  document
+  .getElementById("customerName")
+  .value
+  .trim(),
+
+  phone:
+  document
+  .getElementById("customerPhone")
+  .value
+  .trim(),
+
+  items:
+  cart.map(p=>({
+
+   name:p.name,
+   quantity:p.qty,
+   price:p.price
+
+  })),
+
   total:getTotal(),
+
   utr:utr
+
  };
- console.log("Order details:",order);
- document.getElementById("paymentStatus").textContent="Payment details submitted on this page. Awaiting manual confirmation from the café.";
- alert("Details recorded in this browser session. Please contact the café to confirm the order. Payment must be checked in the bank account.");
+
+
+ console.log(
+  "Order details:",
+  order
+ );
+
+
+ document
+ .getElementById("paymentStatus")
+ .innerHTML=
+
+ `<b style="color:#567257">
+   ✓ Payment details submitted.
+  </b>
+  <br>
+  Awaiting manual confirmation from the café.`;
+
+
+ alert(
+  "Payment details recorded in this browser session. Payment must be checked in the actual bank account before confirming the order."
+ );
+
 }
+
+
+/* =====================================================
+ TABLE BOOKING
+===================================================== */
+
+function bookTable(event){
+
+ event.preventDefault();
+
+
+ const name=
+ document
+ .getElementById("bookName")
+ .value
+ .trim();
+
+
+ const phone=
+ document
+ .getElementById("bookPhone")
+ .value
+ .trim();
+
+
+ const date=
+ document
+ .getElementById("bookDate")
+ .value;
+
+
+ const time=
+ document
+ .getElementById("bookTime")
+ .value;
+
+
+ const guests=
+ document
+ .getElementById("bookGuests")
+ .value;
+
+
+ const area=
+ document
+ .getElementById("bookArea")
+ .value;
+
+
+ const message=
+ document
+ .getElementById("bookMessage")
+ .value
+ .trim();
+
+
+ if(
+  !/^[0-9]{10}$/.test(phone)
+ ){
+
+  alert(
+   "Please enter a valid 10-digit mobile number."
+  );
+
+  return;
+
+ }
+
+
+ const selectedDate=
+ new Date(date+"T00:00:00");
+
+
+ const today=
+ new Date();
+
+
+ today.setHours(0,0,0,0);
+
+
+ if(selectedDate<today){
+
+  alert(
+   "Please select today or a future date."
+  );
+
+  return;
+
+ }
+
+
+ const booking={
+
+  name:name,
+  phone:phone,
+  date:date,
+  time:time,
+  guests:guests,
+  seating:area,
+  specialRequest:message
+
+ };
+
+
+ console.log(
+  "Table booking:",
+  booking
+ );
+
+
+ alert(
+
+  "Thank you "
+  +name
+  +"! Your table request for "
+  +guests
+  +" guest(s) on "
+  +date
+  +" at "
+  +time
+  +" has been recorded."
+
+ );
+
+
+ event.target.reset();
+
+
+ setMinimumBookingDate();
+
+
+ notify(
+  "Table reservation request submitted!"
+ );
+
+}
+
+
+/* =====================================================
+ CONTACT FORM
+===================================================== */
 
 function sendContact(event){
+
  event.preventDefault();
- alert("Thanks for contacting Brew & Bite! This demo form does not send messages to a server yet.");
+
+
+ alert(
+  "Thanks for contacting Brew & Bite! This demo form does not send messages to a server yet."
+ );
+
+
  event.target.reset();
+
 }
 
+
+/* =====================================================
+ MINIMUM BOOKING DATE
+===================================================== */
+
+function setMinimumBookingDate(){
+
+ const input=
+ document.getElementById("bookDate");
+
+
+ if(!input){
+  return;
+ }
+
+
+ const today=
+ new Date();
+
+
+ const year=
+ today.getFullYear();
+
+
+ const month=
+ String(
+  today.getMonth()+1
+ )
+ .padStart(2,"0");
+
+
+ const day=
+ String(
+  today.getDate()
+ )
+ .padStart(2,"0");
+
+
+ input.min=
+ `${year}-${month}-${day}`;
+
+}
+
+
+/* =====================================================
+ INITIALIZE WEBSITE
+===================================================== */
+
 renderMenu();
+
 renderFeatured();
+
 renderCart();
+
 updateCartCount();
+
+setMinimumBookingDate();
+
 </script>
+
 </body>
 </html>
