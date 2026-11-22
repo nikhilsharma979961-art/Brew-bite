@@ -6,352 +6,406 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brew & Bite | Premium Cafe</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
- --dark:#201711;
- --brown:#493020;
- --gold:#c99a5b;
- --cream:#f7f2e9;
- --white:#fffdf9;
- --muted:#82766b;
- --border:#e9dfd2;
-}
+:root{--dark:#211710;--brown:#493020;--gold:#c99a5b;--cream:#f8f3eb;--white:#fffdf9;--muted:#81766b;--border:#eadfce}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark)}
-button,input{font:inherit}
-button{cursor:pointer}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%}
-
-.topbar{
- background:var(--gold);color:#241910;text-align:center;
- padding:9px;font-size:12px;letter-spacing:1.5px
-}
-header{
- position:sticky;top:0;z-index:50;background:rgba(32,23,17,.97);
- color:white;padding:17px 7%;display:flex;align-items:center;
- justify-content:space-between;box-shadow:0 4px 20px #0002
-}
-.logo{font-family:'Playfair Display',serif;font-size:26px;color:var(--gold)}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+img{max-width:100%;display:block}
+.container{width:min(1160px,90%);margin:auto}
+.topbar{background:var(--gold);text-align:center;padding:9px;font-size:11px;letter-spacing:2px}
+header{position:sticky;top:0;z-index:100;background:#211710f5;color:white;backdrop-filter:blur(15px);box-shadow:0 5px 25px #0002}
+.navbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font:700 27px 'Playfair Display',serif;color:var(--gold)}
 .logo span{color:white}
-nav{display:flex;align-items:center;gap:25px}
-nav a{font-size:13px;color:#eee;transition:.3s}
-nav a:hover{color:var(--gold)}
-.cart-link{border:1px solid var(--gold);padding:9px 16px;border-radius:30px}
-
-.hero{
- min-height:570px;display:flex;align-items:center;
- background:linear-gradient(90deg,#17100be8,#17100b88,#17100b30),
- url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=1800') center/cover;
- color:white;padding:70px 10%
-}
-.hero-content{max-width:650px;animation:fadeUp .9s ease}
-.eyebrow{color:var(--gold);letter-spacing:4px;font-size:12px;font-weight:bold}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,7vw,76px);line-height:1.1;margin:20px 0}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{font-size:13px;color:#eee;transition:.3s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.cart-pill{border:1px solid var(--gold);padding:10px 17px;border-radius:30px}
+.menu-toggle{display:none;background:none;border:0;color:white;font-size:26px}
+.page{display:none;animation:pageIn .55s ease}
+.page.active{display:block}
+@keyframes pageIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.hero{min-height:590px;display:flex;align-items:center;color:white;background:linear-gradient(90deg,#160e0be8,#160e0b88,#160e0b22),url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=1800') center/cover}
+.hero-content{max-width:650px;padding:85px 0;animation:fadeUp 1s both}
+.eyebrow{color:var(--gold);letter-spacing:4px;font-size:12px;font-weight:700}
+.hero h1{font:600 clamp(43px,7vw,76px)/1.1 'Playfair Display',serif;margin:20px 0}
 .hero h1 span{color:var(--gold)}
-.hero p{color:#e8ded2;line-height:1.9;max-width:510px}
-.primary-btn{
- display:inline-block;background:var(--gold);color:#21170f;
- padding:14px 27px;border:0;border-radius:4px;font-weight:bold;
- margin-top:25px;transition:.3s
-}
-.primary-btn:hover{background:#e2bb84;transform:translateY(-3px);box-shadow:0 8px 20px #0003}
-
-.section{padding:80px 7%}
-.section-heading{text-align:center;margin-bottom:40px}
-.section-heading small{color:#a16e38;letter-spacing:3px;font-weight:bold}
-.section-heading h2{font-family:'Playfair Display',serif;font-size:38px;margin:12px 0}
-.section-heading p{color:var(--muted);font-size:14px}
-
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:-1px}
-.feature{background:var(--dark);color:white;text-align:center;padding:30px 15px}
-.feature .symbol{font-size:27px;color:var(--gold)}
-.feature h3{font-family:'Playfair Display',serif;margin:10px 0}
-.feature p{font-size:12px;color:#c6b8a9}
-
-.menu-section{background:#fffdf9}
-.menu-tools{max-width:950px;margin:0 auto 30px}
-.search{
- width:100%;padding:15px 18px;border:1px solid var(--border);
- border-radius:7px;background:white;outline:none;margin-bottom:18px
-}
-.search:focus{border-color:var(--gold);box-shadow:0 0 0 3px #c99a5b22}
+.hero p{color:#eee0d3;line-height:1.9;max-width:500px}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--gold);color:#211710;padding:14px 25px;border:0;border-radius:40px;font-weight:700;margin-top:23px;transition:.3s}
+.btn:hover{transform:translateY(-4px);background:#e2bb84;box-shadow:0 12px 25px #0003}
+.btn-dark{background:var(--brown);color:white}
+.btn-dark:hover{background:var(--gold);color:var(--dark)}
+.section{padding:85px 0}
+.section-heading{text-align:center;margin-bottom:42px}
+.section-heading small{color:#a16e38;letter-spacing:3px;font-weight:700}
+.section-heading h2{font:600 clamp(30px,4vw,43px) 'Playfair Display',serif;margin:12px 0}
+.section-heading p{font-size:14px;color:var(--muted);line-height:1.8}
+.features{background:var(--dark);color:white}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;padding:35px 0;text-align:center}
+.feature-grid h3{font:600 22px 'Playfair Display',serif;margin:12px}
+.feature-grid p{font-size:12px;color:#c7b8a8}
+.feature-icon{font-size:30px;color:var(--gold)}
+.menu-tools{max-width:850px;margin:0 auto 30px}
+.search{width:100%;padding:16px 20px;border:1px solid var(--border);border-radius:40px;background:white;outline:none;margin-bottom:17px}
+.search:focus,input:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px #c99a5b20}
 .filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
-.filter{
- border:1px solid var(--border);background:white;padding:9px 19px;
- border-radius:30px;color:var(--brown);transition:.25s
-}
-.filter.active,.filter:hover{background:var(--brown);color:white;border-color:var(--brown)}
-
-.menu-grid{
- display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
- gap:24px;max-width:1250px;margin:auto
-}
-.food-card{
- background:white;border-radius:10px;overflow:hidden;
- border:1px solid #eee7dd;transition:.35s
-}
-.food-card:hover{transform:translateY(-7px);box-shadow:0 15px 35px #3c29151a}
-.food-card img{width:100%;height:185px;object-fit:cover;transition:.5s}
-.food-card:hover img{transform:scale(1.04)}
-.food-img{overflow:hidden}
-.food-info{padding:18px}
-.food-category{font-size:10px;letter-spacing:2px;color:#a16e38;font-weight:bold;text-transform:uppercase}
-.food-info h3{font-family:'Playfair Display',serif;font-size:20px;margin:8px 0}
-.food-info p{font-size:12px;color:var(--muted);line-height:1.6;min-height:38px}
-.food-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:15px}
-.price{font-weight:bold;font-size:18px;color:#8b572d}
-.add-btn{background:var(--brown);color:white;border:0;padding:10px 16px;border-radius:5px;transition:.3s}
-.add-btn:hover{background:var(--gold);color:#201711}
-
-.about{background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
-.about img{width:100%;height:370px;object-fit:cover;border-radius:8px}
-.about h2{font:600 38px 'Playfair Display',serif;margin:15px 0}
-.about p{color:var(--muted);line-height:1.9;font-size:14px}
-
-.cart-section{background:#efe5d7}
-.cart-box{max-width:850px;margin:auto;background:white;padding:30px;border-radius:12px;box-shadow:0 8px 30px #0000000b}
-.cart-row{display:grid;grid-template-columns:1fr auto auto;gap:18px;align-items:center;padding:15px 0;border-bottom:1px solid var(--border)}
-.cart-name{font-weight:600}
-.cart-price{font-size:14px;color:var(--muted)}
-.qty-controls{display:flex;align-items:center;gap:10px}
-.qty-controls button{border:1px solid var(--border);background:#fff;padding:5px 10px;border-radius:4px}
-.remove{border:0;background:none;color:#b44;font-size:12px}
-.cart-total{display:flex;justify-content:space-between;font-size:22px;font-weight:bold;margin-top:24px}
+.filter{background:white;border:1px solid var(--border);border-radius:30px;padding:10px 20px;transition:.3s}
+.filter.active,.filter:hover{background:var(--brown);color:white}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:24px}
+.product-card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 12px 35px #38241412;transition:transform .4s,box-shadow .4s}
+.product-card:hover{transform:translateY(-9px);box-shadow:0 20px 40px #38241420}
+.product-image{height:195px;overflow:hidden;background:#eee}
+.product-image img{width:100%;height:100%;object-fit:cover;transition:transform .65s}
+.product-card:hover .product-image img{transform:scale(1.09)}
+.product-info{padding:19px}
+.product-category{font-size:10px;color:#a16e38;letter-spacing:2px;font-weight:700;text-transform:uppercase}
+.product-info h3{font:600 21px 'Playfair Display',serif;margin:8px 0}
+.product-info p{font-size:12px;color:var(--muted);line-height:1.7;min-height:42px}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:15px}
+.price{font-weight:700;font-size:18px;color:#87552e}
+.add-btn{border:0;border-radius:30px;background:var(--brown);color:white;padding:10px 17px;transition:.3s}
+.add-btn:hover{background:var(--gold);color:var(--dark);transform:scale(1.04)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.about-grid img{height:420px;width:100%;object-fit:cover;border-radius:25px;box-shadow:0 12px 35px #38241412}
+.about-grid h2{font:600 40px 'Playfair Display',serif;margin:15px 0}
+.about-grid p{color:var(--muted);line-height:2;font-size:14px;margin-bottom:15px}
+.info-card{background:white;padding:30px;border-radius:20px;box-shadow:0 12px 35px #38241412}
+.info-card h3{font:600 24px 'Playfair Display',serif;margin-bottom:15px}
+.info-card p{font-size:14px;color:var(--muted);line-height:1.9}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.contact-grid input,.contact-grid textarea,.customer-form input,.payment-box input{width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:white;outline:none;margin-bottom:13px}
+.contact-grid textarea{min-height:120px;resize:vertical}
+.cart-box{max-width:850px;margin:auto;background:white;padding:30px;border-radius:22px;box-shadow:0 12px 35px #38241412}
+.cart-row{display:grid;grid-template-columns:1fr auto auto;gap:18px;align-items:center;padding:17px 0;border-bottom:1px solid var(--border)}
+.qty-controls{display:flex;gap:10px;align-items:center}
+.qty-controls button{border:1px solid var(--border);background:white;border-radius:50%;width:30px;height:30px}
+.remove{background:none;border:0;color:#a33;font-size:12px;margin-top:5px}
+.cart-total{display:flex;justify-content:space-between;font-size:23px;font-weight:700;padding:25px 0}
+.customer-form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.checkout-btn{width:100%;padding:16px;border:0;border-radius:40px;background:var(--gold);font-weight:700;transition:.3s}
+.checkout-btn:hover{background:var(--brown);color:white}
+.payment-box{display:none;margin:30px auto 0;max-width:500px;text-align:center;background:var(--cream);padding:28px;border-radius:22px}
+.payment-box h3{font:600 27px 'Playfair Display',serif}
+.payment-box img{width:225px;height:225px;object-fit:contain;margin:20px auto;background:white;border-radius:15px}
+.payment-box p{font-size:13px;color:var(--muted);line-height:1.8}
+.payment-amount{font-size:27px;font-weight:700;color:#87552e;margin:12px}
+.verify-section{margin-top:30px;padding:22px;background:white;border-radius:16px;text-align:left}
+.verify-section h4{font:600 21px 'Playfair Display',serif;margin-bottom:12px}
+.verify-section li{font-size:12px;color:var(--muted);margin:9px 0 9px 18px;line-height:1.6}
+.notice{font-size:11px!important;color:#a24e32!important;margin-top:12px}
 .empty{text-align:center;color:var(--muted);padding:35px}
-
-.customer-form{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.customer-form input{padding:13px;border:1px solid var(--border);border-radius:5px;width:100%;outline:none}
-.customer-form input:focus{border-color:var(--gold)}
-.full{grid-column:1/-1}
-.checkout-btn{width:100%;padding:15px;background:var(--gold);border:0;border-radius:5px;font-weight:bold;margin-top:20px;transition:.3s}
-.checkout-btn:hover{background:#b57e40;color:white}
-
-.payment-box{
- display:none;max-width:500px;margin:30px auto 0;padding:28px;
- background:#fff;border:1px solid var(--border);border-radius:10px;text-align:center
-}
-.payment-box h3{font:600 25px 'Playfair Display',serif}
-.payment-box img{width:220px;height:220px;object-fit:contain;margin:20px auto}
-.payment-amount{font-size:25px;font-weight:bold;color:#8b572d;margin:12px}
-.payment-box p{font-size:13px;color:var(--muted);line-height:1.7}
-.payment-box input{width:100%;padding:13px;margin:12px 0;border:1px solid var(--border);border-radius:5px}
-.notice{font-size:11px!important;color:#9b4d30!important;margin-top:12px}
-
-footer{background:var(--dark);color:white;padding:55px 7% 25px;text-align:center}
-footer h2{font:600 30px 'Playfair Display',serif;color:var(--gold)}
-footer p{font-size:13px;color:#c6b8a9;margin-top:12px}
-.footer-line{border-top:1px solid #ffffff22;margin-top:30px;padding-top:20px;font-size:11px;color:#a99b8d}
-
-.toast{
- position:fixed;bottom:25px;right:25px;background:var(--dark);
- color:white;padding:15px 22px;border-radius:7px;z-index:100;
- opacity:0;transform:translateY(20px);transition:.3s;pointer-events:none
-}
+.map-frame{width:100%;height:320px;border:0;border-radius:20px;margin-top:25px}
+footer{background:var(--dark);color:white;padding:55px 0 25px;text-align:center}
+footer h2{font:600 32px 'Playfair Display',serif;color:var(--gold)}
+footer p{color:#c7b8a8;font-size:13px;margin-top:12px;line-height:1.8}
+.footer-links{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin:22px}
+.footer-links a{font-size:12px;color:#eee}
+.footer-bottom{border-top:1px solid #ffffff20;padding-top:20px;margin-top:25px;color:#a99b8d;font-size:11px}
+.toast{position:fixed;bottom:25px;right:25px;background:var(--dark);color:white;padding:15px 23px;border-radius:40px;z-index:200;opacity:0;transform:translateY(20px);transition:.3s;pointer-events:none}
 .toast.show{opacity:1;transform:translateY(0)}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
-
-@media(max-width:700px){
- header{padding:15px 5%;flex-wrap:wrap;gap:12px}
- nav{gap:13px;flex-wrap:wrap}
- nav a{font-size:11px}
- .logo{font-size:22px}
- .hero{min-height:480px;padding:50px 7%}
- .features{grid-template-columns:1fr}
- .section{padding:60px 5%}
- .about{grid-template-columns:1fr}
- .about img{height:260px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){
+ .navbar{flex-wrap:wrap;padding:14px 0}
+ .menu-toggle{display:block}
+ .nav-links{display:none;width:100%;flex-direction:column;gap:18px;padding:15px 0}
+ .nav-links.open{display:flex}
+ .hero{min-height:510px}
+ .feature-grid{grid-template-columns:1fr}
+ .about-grid,.contact-grid{grid-template-columns:1fr}
+ .about-grid img{height:280px}
  .cart-box{padding:18px}
  .cart-row{grid-template-columns:1fr auto;gap:10px}
  .cart-row .qty-controls{grid-column:1/-1}
  .customer-form{grid-template-columns:1fr}
- .full{grid-column:auto}
+ .section{padding:60px 0}
 }
 </style>
 </head>
-
 <body>
 
 <div class="topbar">✦ FRESHLY BREWED • FRESHLY SERVED • MADE WITH LOVE ✦</div>
 
 <header>
- <a href="#home" class="logo">BREW <span>&</span> BITE.</a>
- <nav>
-  <a href="#home">Home</a>
-  <a href="#menu">Our Menu</a>
-  <a href="#about">Our Story</a>
-  <a href="#cart" class="cart-link">Cart (<span id="cartCount">0</span>)</a>
- </nav>
+ <div class="container navbar">
+  <a class="logo" href="#" onclick="showPage('home');return false">BREW <span>&</span> BITE.</a>
+  <button class="menu-toggle" onclick="toggleNav()">☰</button>
+  <nav class="nav-links" id="navLinks">
+   <a href="#" onclick="showPage('home');return false">Home</a>
+   <a href="#" onclick="showPage('menu');return false">Menu</a>
+   <a href="#" onclick="showPage('about');return false">About</a>
+   <a href="#" onclick="showPage('contact');return false">Contact</a>
+   <a class="cart-pill" href="#" onclick="showPage('checkout');return false">Cart (<span class="cart-count">0</span>)</a>
+  </nav>
+ </div>
 </header>
 
-<section class="hero" id="home">
- <div class="hero-content">
-  <div class="eyebrow">WELCOME TO BREW & BITE</div>
-  <h1>Where Every Sip<br>Feels Like <span>Home.</span></h1>
-  <p>Discover handcrafted coffee, delicious food and delightful desserts. A little place for big moments and beautiful memories.</p>
-  <a href="#menu" class="primary-btn">EXPLORE OUR MENU →</a>
- </div>
-</section>
+<main>
 
-<div class="features">
- <div class="feature"><div class="symbol">☕</div><h3>Fresh Coffee</h3><p>Carefully brewed for every coffee lover.</p></div>
- <div class="feature"><div class="symbol">✧</div><h3>Quality Ingredients</h3><p>Fresh ingredients in every single bite.</p></div>
- <div class="feature"><div class="symbol">♡</div><h3>Made With Love</h3><p>Good food and unforgettable experiences.</p></div>
+<!-- HOME PAGE -->
+<div class="page active" id="home">
+ <section class="hero">
+  <div class="container hero-content">
+   <div class="eyebrow">WELCOME TO BREW & BITE</div>
+   <h1>Where Every Sip<br>Feels Like <span>Home.</span></h1>
+   <p>Discover handcrafted coffee, delicious food and delightful desserts. A little place for big moments and beautiful memories.</p>
+   <button class="btn" onclick="showPage('menu')">EXPLORE OUR MENU →</button>
+  </div>
+ </section>
+
+ <section class="features">
+  <div class="container feature-grid">
+   <div><div class="feature-icon">☕</div><h3>Fresh Coffee</h3><p>Carefully brewed for every coffee lover.</p></div>
+   <div><div class="feature-icon">✧</div><h3>Quality Ingredients</h3><p>Fresh ingredients in every single bite.</p></div>
+   <div><div class="feature-icon">♡</div><h3>Made With Love</h3><p>Good food and unforgettable experiences.</p></div>
+  </div>
+ </section>
+
+ <section class="section container">
+  <div class="section-heading">
+   <small>OUR FAVOURITES</small>
+   <h2>Customer Favourites</h2>
+   <p>Explore some of our most loved treats.</p>
+  </div>
+  <div class="product-grid" id="featuredProducts"></div>
+  <div style="text-align:center"><button class="btn btn-dark" onclick="showPage('menu')">VIEW FULL MENU →</button></div>
+ </section>
 </div>
 
-<section class="section menu-section" id="menu">
- <div class="section-heading">
-  <small>EXPLORE OUR COLLECTION</small>
-  <h2>Our Delicious Menu</h2>
-  <p>Something special for every mood and every craving.</p>
- </div>
-
- <div class="menu-tools">
-  <input class="search" id="search" placeholder="⌕  Search coffee, pizza, dessert..." oninput="renderMenu()">
-  <div class="filters">
-   <button class="filter active" onclick="setCategory('All',this)">All Items</button>
-   <button class="filter" onclick="setCategory('Food',this)">Food</button>
-   <button class="filter" onclick="setCategory('Dessert',this)">Desserts</button>
-   <button class="filter" onclick="setCategory('Beverage',this)">Beverages</button>
+<!-- MENU PAGE -->
+<div class="page" id="menu">
+ <section class="section container">
+  <div class="section-heading">
+   <small>EXPLORE OUR COLLECTION</small>
+   <h2>Our Delicious Menu</h2>
+   <p>Something special for every mood and every craving.</p>
   </div>
- </div>
-
- <div class="menu-grid" id="menuItems"></div>
-</section>
-
-<section class="section about" id="about">
- <div>
-  <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1000" alt="Coffee being prepared">
- </div>
- <div>
-  <small style="color:#a16e38;letter-spacing:3px">OUR STORY</small>
-  <h2>A Place To Pause, Sip & Smile.</h2>
-  <p>At Brew & Bite, we believe a café is more than just coffee. It is a place where friends meet, stories begin and memories are created. From our freshly prepared food to our carefully crafted beverages, every detail is designed to make your day better.</p>
-  <a href="#menu" class="primary-btn">DISCOVER THE MENU</a>
- </div>
-</section>
-
-<section class="section cart-section" id="cart">
- <div class="section-heading">
-  <small>YOUR ORDER</small>
-  <h2>Shopping Cart</h2>
-  <p>Review your favourite picks before checkout.</p>
- </div>
-
- <div class="cart-box">
-  <div id="cartItems"><div class="empty">Your cart is waiting for something delicious! ☕</div></div>
-  <div class="cart-total"><span>Total</span><span id="total">₹0</span></div>
-
-  <div class="customer-form">
-   <input id="customerName" placeholder="Your full name">
-   <input id="customerPhone" type="tel" placeholder="Mobile number">
-   <input id="customerAddress" class="full" placeholder="Pickup / delivery details">
+  <div class="menu-tools">
+   <input class="search" id="search" placeholder="⌕  Search coffee, pizza, dessert..." oninput="renderMenu()">
+   <div class="filters">
+    <button class="filter active" onclick="setCategory('All',this)">All Items</button>
+    <button class="filter" onclick="setCategory('Food',this)">Food</button>
+    <button class="filter" onclick="setCategory('Dessert',this)">Desserts</button>
+    <button class="filter" onclick="setCategory('Beverage',this)">Beverages</button>
+   </div>
   </div>
+  <div class="product-grid" id="menuItems"></div>
+ </section>
+</div>
 
-  <button class="checkout-btn" onclick="checkout()">CONTINUE TO PAYMENT →</button>
-
-  <div class="payment-box" id="paymentBox">
-   <h3>Complete Your Payment</h3>
-   <p>Scan the QR code using your UPI application.</p>
-   <img id="qrImage" alt="UPI Payment QR Code">
-   <div class="payment-amount" id="paymentAmount">₹0</div>
-   <p>UPI ID: <b>9799618755-bbfa-2@ybl</b></p>
-   <button class="primary-btn" onclick="payWithUPI()">OPEN UPI APP</button>
-   <input id="utr" placeholder="Enter UTR / transaction reference">
-   <button class="checkout-btn" onclick="submitOrder()">SUBMIT ORDER DETAILS</button>
-   <p class="notice">Important: Submitting a UTR does not verify payment. The café must confirm the transaction in its bank/UPI account before accepting the order.</p>
-   <p id="paymentStatus"></p>
+<!-- ABOUT PAGE -->
+<div class="page" id="about">
+ <section class="section container">
+  <div class="about-grid">
+   <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1000" alt="Coffee preparation">
+   <div>
+    <small class="eyebrow">OUR STORY</small>
+    <h2>A Place To Pause, Sip & Smile.</h2>
+    <p>At Brew & Bite, we believe a café is more than just coffee. It is a place where friends meet, stories begin and memories are created.</p>
+    <p>From freshly prepared food to carefully crafted beverages, every detail is designed to make your day better.</p>
+    <button class="btn btn-dark" onclick="showPage('menu')">DISCOVER OUR MENU</button>
+   </div>
   </div>
- </div>
-</section>
+  <div class="section-heading" style="margin-top:85px">
+   <small>OUR PROMISE</small><h2>More Than Just A Café</h2>
+   <p>Warm hospitality, delightful flavours and a comfortable atmosphere.</p>
+  </div>
+  <div class="feature-grid" style="background:var(--dark);border-radius:20px">
+   <div><div class="feature-icon">♡</div><h3>Hospitality</h3><p>Every guest matters to us.</p></div>
+   <div><div class="feature-icon">✦</div><h3>Freshness</h3><p>Care in every preparation.</p></div>
+   <div><div class="feature-icon">☕</div><h3>Experience</h3><p>Moments worth remembering.</p></div>
+  </div>
+ </section>
+</div>
+
+<!-- CONTACT PAGE -->
+<div class="page" id="contact">
+ <section class="section container">
+  <div class="section-heading">
+   <small>COME SAY HELLO</small>
+   <h2>Visit Our Café</h2>
+   <p>We look forward to welcoming you.</p>
+  </div>
+  <div class="contact-grid">
+   <div class="info-card">
+    <h3>Our Location</h3>
+    <p><b>Brew & Bite Café</b></p>
+    <p>Bidholi, Dehradun, Uttarakhand, India</p>
+    <p style="margin-top:15px">📍 Find us in the Bidholi area of Dehradun.</p>
+    <iframe class="map-frame" loading="lazy" src="https://maps.google.com/maps?q=Bidholi%2C%20Dehradun%2C%20Uttarakhand&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
+   </div>
+   <div class="info-card">
+    <h3>Get In Touch</h3>
+    <p>Have a question about our menu or an order? Send us a message.</p>
+    <form onsubmit="sendContact(event)">
+     <input id="contactName" placeholder="Your name" required>
+     <input id="contactEmail" type="email" placeholder="Your email" required>
+     <textarea id="contactMessage" placeholder="Your message..." required></textarea>
+     <button class="btn btn-dark" type="submit">SEND MESSAGE</button>
+    </form>
+   </div>
+  </div>
+ </section>
+</div>
+
+<!-- CHECKOUT PAGE -->
+<div class="page" id="checkout">
+ <section class="section container">
+  <div class="section-heading">
+   <small>YOUR ORDER</small>
+   <h2>Shopping Cart & Checkout</h2>
+   <p>Review your favourite picks before payment.</p>
+  </div>
+  <div class="cart-box">
+   <div id="cartItems"><div class="empty">Your cart is waiting for something delicious! ☕</div></div>
+   <div class="cart-total"><span>Total</span><span id="total">₹0</span></div>
+
+   <h3 style="font-family:'Playfair Display';margin-bottom:15px">Customer Details</h3>
+   <div class="customer-form">
+    <input id="customerName" placeholder="Your full name">
+    <input id="customerPhone" type="tel" placeholder="10-digit mobile number">
+   </div>
+   <p style="font-size:12px;color:var(--muted);margin:5px 0 18px">Orders are for café pickup. Delivery address is not required.</p>
+   <button class="checkout-btn" onclick="checkout()">CONTINUE TO PAYMENT →</button>
+
+   <div class="payment-box" id="paymentBox">
+    <h3>Complete Your Payment</h3>
+    <p>Scan the QR code using your UPI application.</p>
+    <img id="qrImage" alt="UPI Payment QR Code">
+    <div class="payment-amount" id="paymentAmount">₹0</div>
+    <p>UPI ID: <b>9799618755-bbfa-2@ybl</b></p>
+    <button class="btn" onclick="payWithUPI()">OPEN UPI APP</button>
+
+    <div class="verify-section">
+     <h4>Verify Payment Details</h4>
+     <p>After paying, enter your UPI transaction reference (UTR).</p>
+     <input id="utr" placeholder="Enter UTR / transaction reference">
+     <button class="checkout-btn" onclick="submitOrder()">SUBMIT PAYMENT DETAILS</button>
+     <p class="notice">Submitting your UTR does not mean payment is verified. The café must check the actual bank/UPI transaction before confirming the order.</p>
+     <p id="paymentStatus" style="margin-top:15px"></p>
+    </div>
+   </div>
+  </div>
+ </section>
+</div>
+
+</main>
 
 <footer>
- <h2>BREW & BITE.</h2>
- <p>Good Coffee. Great Food. Beautiful Moments.</p>
- <p>Freshly brewed happiness, every day.</p>
- <div class="footer-line">© 2026 Brew & Bite Café | All Rights Reserved</div>
+ <div class="container">
+  <h2>BREW & BITE.</h2>
+  <p>Good Coffee. Great Food. Beautiful Moments.</p>
+  <div class="footer-links">
+   <a href="#" onclick="showPage('home');return false">Home</a>
+   <a href="#" onclick="showPage('menu');return false">Menu</a>
+   <a href="#" onclick="showPage('about');return false">About</a>
+   <a href="#" onclick="showPage('contact');return false">Contact</a>
+  </div>
+  <p>📍 Bidholi, Dehradun, Uttarakhand, India</p>
+  <div class="footer-bottom">© 2026 Brew & Bite Café | All Rights Reserved</div>
+ </div>
 </footer>
 
 <div class="toast" id="toast">Added to cart!</div>
 
 <script>
-const UPI_ID = "9799618755-bbfa-2@ybl";
-const PAYEE = "Brew and Bite Cafe";
+const UPI_ID="9799618755-bbfa-2@ybl";
+const PAYEE="Brew and Bite Cafe";
 
-const products = [
- {name:"Chocolate Cake",category:"Dessert",price:180,desc:"Rich chocolate cake with creamy layers.",img:"photo-1578985545062-69928b1d9587"},
- {name:"Brownie",category:"Dessert",price:120,desc:"Warm and fudgy chocolate brownie.",img:"photo-1606313564200-e75d5e30476c"},
- {name:"Cheesecake",category:"Dessert",price:200,desc:"Smooth and creamy classic cheesecake.",img:"photo-1533134242443-d4fd215305ad"},
- {name:"Ice Cream",category:"Dessert",price:100,desc:"Chilled and delicious ice cream.",img:"photo-1501446529957-6226bd447c46"},
- {name:"Waffles",category:"Dessert",price:160,desc:"Golden waffles with sweet toppings.",img:"photo-1562376552-0d160a2f238d"},
- {name:"Donut",category:"Dessert",price:90,desc:"Soft donut with chocolate glaze.",img:"photo-1551024506-0bccd828d307"},
- {name:"Cupcake",category:"Dessert",price:110,desc:"Freshly baked cupcake with frosting.",img:"photo-1486427944299-d1955d23e34d"},
- {name:"Margherita Pizza",category:"Food",price:250,desc:"Classic cheese pizza with fresh herbs.",img:"photo-1579751626657-72bc17010498"},
- {name:"Veg Burger",category:"Food",price:150,desc:"Crispy vegetable patty with fresh veggies.",img:"photo-1568901346375-23c9450c58cd"},
- {name:"White Sauce Pasta",category:"Food",price:190,desc:"Creamy pasta with herbs and vegetables.",img:"photo-1473093295043-cdd812d0e601"},
- {name:"Grilled Sandwich",category:"Food",price:130,desc:"Grilled sandwich with a tasty filling.",img:"photo-1528735602780-2552fd46c7af"},
- {name:"French Fries",category:"Food",price:100,desc:"Crispy golden salted potato fries.",img:"photo-1573080496219-bb080dd4f877"},
- {name:"Garlic Bread",category:"Food",price:140,desc:"Toasted bread with garlic and herbs.",img:"photo-1619531040576-f9416740661c"},
- {name:"Cappuccino",category:"Beverage",price:120,desc:"Espresso topped with silky milk foam.",img:"photo-1572442388796-11668a67e53d"},
- {name:"Cold Coffee",category:"Beverage",price:140,desc:"Chilled coffee blended until smooth.",img:"photo-1461023058943-07fcbe16d735"},
- {name:"Hot Chocolate",category:"Beverage",price:150,desc:"Rich chocolate drink for cozy moments.",img:"photo-1542990253-0b8be3f5c2b8"},
- {name:"Iced Latte",category:"Beverage",price:160,desc:"Espresso, milk and refreshing ice.",img:"photo-1461023058943-07fcbe16d735"},
- {name:"Fresh Lime Soda",category:"Beverage",price:90,desc:"Refreshing lime drink served chilled.",img:"photo-1513558161293-cf8c8a5a7f5b"},
- {name:"Mango Smoothie",category:"Beverage",price:150,desc:"Creamy mango smoothie with fresh flavour.",img:"photo-1505252585461-04db1eb84625"},
- {name:"Strawberry Shake",category:"Beverage",price:160,desc:"Sweet strawberry milkshake served cold.",img:"photo-1572490122747-3968b75cc699"}
+const products=[
+{name:"Chocolate Cake",category:"Dessert",price:180,desc:"Rich chocolate cake with creamy layers.",img:"photo-1578985545062-69928b1d9587"},
+{name:"Brownie",category:"Dessert",price:120,desc:"Warm and fudgy chocolate brownie.",img:"photo-1606313564200-e75d5e30476c"},
+{name:"Cheesecake",category:"Dessert",price:200,desc:"Smooth and creamy classic cheesecake.",img:"photo-1533134242443-d4fd215305ad"},
+{name:"Ice Cream",category:"Dessert",price:100,desc:"Chilled and delicious ice cream.",img:"photo-1501446529957-6226bd447c46"},
+{name:"Waffles",category:"Dessert",price:160,desc:"Golden waffles with sweet toppings.",img:"photo-1562376552-0d160a2f238d"},
+{name:"Donut",category:"Dessert",price:90,desc:"Soft donut with chocolate glaze.",img:"photo-1551024506-0bccd828d307"},
+{name:"Cupcake",category:"Dessert",price:110,desc:"Fresh cupcake with delicious frosting.",img:"photo-1486427944299-d1955d23e34d"},
+{name:"Margherita Pizza",category:"Food",price:250,desc:"Classic cheese pizza with fresh herbs.",img:"photo-1579751626657-72bc17010498"},
+{name:"Veg Burger",category:"Food",price:150,desc:"Crispy vegetable patty with fresh veggies.",img:"photo-1568901346375-23c9450c58cd"},
+{name:"White Sauce Pasta",category:"Food",price:190,desc:"Creamy pasta with herbs and vegetables.",img:"photo-1473093295043-cdd812d0e601"},
+{name:"Grilled Sandwich",category:"Food",price:130,desc:"Grilled sandwich with tasty filling.",img:"photo-1528735602780-2552fd46c7af"},
+{name:"French Fries",category:"Food",price:100,desc:"Crispy golden salted potato fries.",img:"photo-1573080496219-bb080dd4f877"},
+{name:"Garlic Bread",category:"Food",price:140,desc:"Toasted bread with garlic and herbs.",img:"photo-1619531040576-f9416740661c"},
+{name:"Cappuccino",category:"Beverage",price:120,desc:"Espresso topped with silky milk foam.",img:"photo-1572442388796-11668a67e53d"},
+{name:"Cold Coffee",category:"Beverage",price:140,desc:"Chilled coffee blended until smooth.",img:"photo-1461023058943-07fcbe16d735"},
+{name:"Hot Chocolate",category:"Beverage",price:150,desc:"Rich chocolate drink for cozy moments.",img:"photo-1542990253-0b8be3f5c2b8"},
+{name:"Iced Latte",category:"Beverage",price:160,desc:"Espresso, milk and refreshing ice.",img:"photo-1517701604599-bb29b565090c"},
+{name:"Fresh Lime Soda",category:"Beverage",price:90,desc:"Refreshing lime drink served chilled.",img:"photo-1513558161293-cf8c8a5a7f5b"},
+{name:"Mango Smoothie",category:"Beverage",price:150,desc:"Creamy mango smoothie.",img:"photo-1505252585461-04db1eb84625"},
+{name:"Strawberry Shake",category:"Beverage",price:160,desc:"Sweet strawberry milkshake served cold.",img:"photo-1572490122747-3968b75cc699"}
 ];
 
-let cart=[];
+let cart=JSON.parse(localStorage.getItem("brewCart")||"[]");
 let activeCategory="All";
 let currentUPILink="";
 
+function showPage(id){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ const page=document.getElementById(id);
+ if(page)page.classList.add("active");
+ document.querySelectorAll(".nav-links a").forEach(a=>a.classList.remove("active"));
+ document.getElementById("navLinks").classList.remove("open");
+ window.scrollTo({top:0,behavior:"smooth"});
+ if(id==="menu")renderMenu();
+ if(id==="checkout")renderCart();
+}
+
+function toggleNav(){
+ document.getElementById("navLinks").classList.toggle("open");
+}
+
 function imageURL(id){
- return "https://images.unsplash.com/"+id+"?auto=format&fit=crop&w=650&q=80";
+ return "https://images.unsplash.com/"+id+"?auto=format&fit=crop&w=700&q=85";
+}
+
+function notify(message){
+ const toast=document.getElementById("toast");
+ toast.textContent=message;
+ toast.classList.add("show");
+ setTimeout(()=>toast.classList.remove("show"),2200);
+}
+
+function saveCart(){
+ localStorage.setItem("brewCart",JSON.stringify(cart));
+}
+
+function updateCartCount(){
+ const count=cart.reduce((sum,p)=>sum+p.qty,0);
+ document.querySelectorAll(".cart-count").forEach(el=>el.textContent=count);
+}
+
+function productCard(p){
+ return `<article class="product-card">
+ <div class="product-image"><img loading="lazy" src="${imageURL(p.img)}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700'"></div>
+ <div class="product-info"><span class="product-category">${p.category}</span>
+ <h3>${p.name}</h3><p>${p.desc}</p>
+ <div class="product-bottom"><span class="price">₹${p.price}</span>
+ <button class="add-btn" onclick="addToCart('${p.name}')">+ Add</button></div></div></article>`;
 }
 
 function renderMenu(){
- const query=document.getElementById("search").value.toLowerCase();
- const filtered=products.filter(p=>
-  (activeCategory==="All"||p.category===activeCategory)&&
-  (p.name.toLowerCase().includes(query)||p.desc.toLowerCase().includes(query))
- );
-
- document.getElementById("menuItems").innerHTML=filtered.length?
- filtered.map(p=>`
- <div class="food-card">
-  <div class="food-img">
-   <img loading="lazy" src="${imageURL(p.img)}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=650'">
-  </div>
-  <div class="food-info">
-   <div class="food-category">${p.category}</div>
-   <h3>${p.name}</h3>
-   <p>${p.desc}</p>
-   <div class="food-bottom">
-    <span class="price">₹${p.price}</span>
-    <button class="add-btn" onclick="addToCart('${p.name}')">+ Add</button>
-   </div>
-  </div>
- </div>`).join("")
- :'<p style="text-align:center;grid-column:1/-1;padding:35px">No items found. Try another search.</p>';
+ const grid=document.getElementById("menuItems");
+ if(!grid)return;
+ const query=(document.getElementById("search")?.value||"").toLowerCase();
+ const filtered=products.filter(p=>(activeCategory==="All"||p.category===activeCategory)&&(p.name.toLowerCase().includes(query)||p.desc.toLowerCase().includes(query)));
+ grid.innerHTML=filtered.length?filtered.map(productCard).join():'<div class="empty">No matching products found.</div>';
 }
 
-function setCategory(cat,button){
- activeCategory=cat;
+function setCategory(category,button){
+ activeCategory=category;
  document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
  button.classList.add("active");
  renderMenu();
 }
 
-function notify(message){
- const toast=document.getElementById("toast");
- toast.innerText=message;
- toast.classList.add("show");
- setTimeout(()=>toast.classList.remove("show"),2200);
+function renderFeatured(){
+ const box=document.getElementById("featuredProducts");
+ if(box)box.innerHTML=products.slice(0,4).map(productCard).join("");
 }
 
 function addToCart(name){
@@ -359,7 +413,7 @@ function addToCart(name){
  const found=cart.find(p=>p.name===name);
  if(found)found.qty++;
  else cart.push({...product,qty:1});
- renderCart();
+ saveCart();renderCart();updateCartCount();
  notify(name+" added to cart!");
 }
 
@@ -368,12 +422,12 @@ function changeQty(name,change){
  if(!item)return;
  item.qty+=change;
  if(item.qty<=0)cart=cart.filter(p=>p.name!==name);
- renderCart();
+ saveCart();renderCart();updateCartCount();
 }
 
 function removeItem(name){
  cart=cart.filter(p=>p.name!==name);
- renderCart();
+ saveCart();renderCart();updateCartCount();
 }
 
 function getTotal(){
@@ -382,84 +436,70 @@ function getTotal(){
 
 function renderCart(){
  const box=document.getElementById("cartItems");
- document.getElementById("cartCount").innerText=cart.reduce((s,p)=>s+p.qty,0);
- document.getElementById("total").innerText="₹"+getTotal();
-
+ if(!box)return;
+ document.getElementById("total").textContent="₹"+getTotal();
  if(!cart.length){
   box.innerHTML='<div class="empty">Your cart is waiting for something delicious! ☕</div>';
   document.getElementById("paymentBox").style.display="none";
   return;
  }
-
  box.innerHTML=cart.map(p=>`
  <div class="cart-row">
-  <div><div class="cart-name">${p.name}</div><div class="cart-price">₹${p.price} each</div></div>
+  <div><b>${p.name}</b><br><small>₹${p.price} each</small></div>
   <div class="qty-controls">
    <button onclick="changeQty('${p.name}',-1)">−</button>
    <b>${p.qty}</b>
    <button onclick="changeQty('${p.name}',1)">+</button>
   </div>
-  <div style="text-align:right">
-   <b>₹${p.price*p.qty}</b><br>
-   <button class="remove" onclick="removeItem('${p.name}')">Remove</button>
-  </div>
+  <div style="text-align:right"><b>₹${p.price*p.qty}</b><br><button class="remove" onclick="removeItem('${p.name}')">Remove</button></div>
  </div>`).join("");
 }
 
 function checkout(){
- if(!cart.length){notify("Please add something to your cart!");return;}
-
+ if(!cart.length){notify("Your cart is empty!");return;}
  const name=document.getElementById("customerName").value.trim();
  const phone=document.getElementById("customerPhone").value.trim();
- const address=document.getElementById("customerAddress").value.trim();
-
- if(!name||!phone||!address){
-  alert("Please enter your name, phone number and pickup/delivery details.");
+ if(!name||!/^[0-9]{10}$/.test(phone)){
+  alert("Please enter your name and a valid 10-digit mobile number.");
   return;
  }
- if(!/^[0-9]{10}$/.test(phone)){
-  alert("Please enter a valid 10-digit mobile number.");
-  return;
- }
-
  const amount=getTotal();
- currentUPILink="upi://pay?pa="+encodeURIComponent(UPI_ID)+
-  "&pn="+encodeURIComponent(PAYEE)+
-  "&am="+amount+"&cu=INR";
-
- document.getElementById("qrImage").src=
-  "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+encodeURIComponent(currentUPILink);
- document.getElementById("paymentAmount").innerText="₹"+amount;
+ currentUPILink="upi://pay?pa="+encodeURIComponent(UPI_ID)+"&pn="+encodeURIComponent(PAYEE)+"&am="+amount+"&cu=INR";
+ document.getElementById("qrImage").src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+encodeURIComponent(currentUPILink);
+ document.getElementById("paymentAmount").textContent="₹"+amount;
  document.getElementById("paymentBox").style.display="block";
- document.getElementById("paymentBox").scrollIntoView({behavior:"smooth",block:"center"});
+ document.getElementById("paymentBox").scrollIntoView({behavior:"smooth"});
 }
 
 function payWithUPI(){
- if(!currentUPILink)return;
- window.location.href=currentUPILink;
+ if(currentUPILink)window.location.href=currentUPILink;
 }
 
 function submitOrder(){
  const utr=document.getElementById("utr").value.trim();
- if(!utr){alert("Please enter your transaction reference.");return;}
-
+ if(!utr){alert("Please enter your UTR / transaction reference.");return;}
  const order={
-  customer:document.getElementById("customerName").value.trim(),
+  name:document.getElementById("customerName").value.trim(),
   phone:document.getElementById("customerPhone").value.trim(),
-  details:document.getElementById("customerAddress").value.trim(),
   items:cart.map(p=>({name:p.name,quantity:p.qty,price:p.price})),
   total:getTotal(),
   utr:utr
  };
-
- document.getElementById("paymentStatus").innerText=
-  "Order details submitted on this page. Payment is awaiting manual confirmation.";
  console.log("Order details:",order);
- alert("Order details prepared. Please contact the café to confirm your order. Payment must be checked in the UPI/bank account.");
+ document.getElementById("paymentStatus").textContent="Payment details submitted on this page. Awaiting manual confirmation from the café.";
+ alert("Details recorded in this browser session. Please contact the café to confirm the order. Payment must be checked in the bank account.");
+}
+
+function sendContact(event){
+ event.preventDefault();
+ alert("Thanks for contacting Brew & Bite! This demo form does not send messages to a server yet.");
+ event.target.reset();
 }
 
 renderMenu();
+renderFeatured();
 renderCart();
+updateCartCount();
 </script>
 </body>
 </html>
