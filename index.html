@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brew & Bite Café</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f7f2e9;color:#29231d}
+header{background:#241b16;color:#fff;padding:20px 7%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.logo{font-size:25px;font-weight:bold;color:#e6b77a}
+nav a{color:white;text-decoration:none;margin-left:20px}
+.hero{min-height:390px;background:linear-gradient(#0008,#0009),url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=1500') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:white;padding:30px}
+.hero h1{font-size:48px;margin-bottom:15px}
+.hero p{font-size:18px}
+.btn{background:#b77942;color:white;border:0;padding:12px 22px;border-radius:5px;cursor:pointer;margin-top:18px;font-size:15px}
+section{padding:55px 7%}
+.heading{text-align:center;font-size:30px;margin-bottom:30px;color:#56351f}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.item{background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 15px #0001}
+.item img{width:100%;height:165px;object-fit:cover}
+.item-content{padding:16px}
+.item h3{margin-bottom:8px}
+.item p{color:#777;font-size:14px;min-height:35px}
+.price{font-weight:bold;color:#985b2d;margin-top:12px}
+.item button{width:100%;background:#56351f;color:white;border:0;padding:11px;margin-top:12px;border-radius:5px;cursor:pointer}
+.cart{background:#fff;padding:25px;border-radius:12px;max-width:700px;margin:auto;box-shadow:0 4px 15px #0001}
+.cart-row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #ddd}
+.cart-row button{padding:3px 9px;cursor:pointer}
+.total{font-size:21px;font-weight:bold;text-align:right;margin-top:20px}
+input{width:100%;padding:12px;margin:8px 0;border:1px solid #ccc;border-radius:5px}
+.payment{text-align:center;background:white;padding:25px;border-radius:12px;max-width:500px;margin:25px auto}
+.payment img{width:220px;max-width:100%;margin:15px auto;display:block}
+footer{text-align:center;background:#241b16;color:white;padding:28px}
+@media(max-width:600px){header{flex-direction:column;gap:12px}nav a{margin:0 7px;font-size:13px}.hero h1{font-size:34px}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">☕ BREW & BITE</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#menu">Menu</a>
+<a href="#cart">Cart</a>
+</nav>
+</header>
+
+<div class="hero" id="home">
+<div>
+<h1>Brew & Bite Café</h1>
+<p>Good Coffee. Great Food. Beautiful Moments.</p>
+<a href="#menu"><button class="btn">Explore Menu</button></a>
+</div>
+</div>
+
+<section id="menu">
+<h2 class="heading">Our Delicious Menu</h2>
+<div class="menu" id="menuItems"></div>
+</section>
+
+<section id="cart">
+<h2 class="heading">Your Shopping Cart</h2>
+<div class="cart">
+<div id="cartItems">Your cart is empty.</div>
+<div class="total" id="total">Total: ₹0</div>
+<button class="btn" onclick="checkout()">Proceed to Payment</button>
+</div>
+
+<div class="payment" id="payment" style="display:none">
+<h2>Complete Your Payment</h2>
+<p>Scan the QR code using any UPI app.</p>
+<img id="qr" alt="UPI Payment QR Code">
+<p id="payAmount"></p>
+<button class="btn" onclick="openUPI()">Pay using UPI App</button>
+<p style="margin-top:15px;font-size:13px">After payment, enter your UTR / transaction reference below.</p>
+<input id="utr" placeholder="Enter UTR / Transaction ID">
+<button class="btn" onclick="submitOrder()">Submit Payment Details</button>
+<p id="paymentStatus" style="margin-top:12px"></p>
+</div>
+</section>
+
+<footer>
+<h3>Brew & Bite Café</h3>
+<p>Freshly Brewed Happiness, Every Day.</p>
+<p>© 2026 Brew & Bite Café. All rights reserved.</p>
+</footer>
+
+<script>
+const upiId = "9799618755-bbfa@ybl";
+const payeeName = "Brew and Bite Cafe";
+
+const products = [
+{name:"Chocolate Cake",cat:"Dessert",price:180,img:"photo-1578985545062-69928b1d9587"},
+{name:"Brownie",cat:"Dessert",price:120,img:"photo-1606313564200-e75d5e30476c"},
+{name:"Cheesecake",cat:"Dessert",price:200,img:"photo-1533134242443-d4fd215305ad"},
+{name:"Ice Cream",cat:"Dessert",price:100,img:"photo-1501446529957-6226bd447c46"},
+{name:"Waffles",cat:"Dessert",price:160,img:"photo-1562376552-0d160a2f238d"},
+{name:"Donut",cat:"Dessert",price:90,img:"photo-1551024506-0bccd828d307"},
+{name:"Cupcake",cat:"Dessert",price:110,img:"photo-1486427944299-d1955d23e34d"},
+{name:"Margherita Pizza",cat:"Food",price:250,img:"photo-1579751626657-72bc17010498"},
+{name:"Veg Burger",cat:"Food",price:150,img:"photo-1568901346375-23c9450c58cd"},
+{name:"Pasta",cat:"Food",price:190,img:"photo-1473093295043-cdd812d0e601"},
+{name:"Sandwich",cat:"Food",price:130,img:"photo-1528735602780-2552fd46c7af"},
+{name:"French Fries",cat:"Food",price:100,img:"photo-1573080496219-bb080dd4f877"},
+{name:"Garlic Bread",cat:"Food",price:140,img:"photo-1619531040576-f9416740661c"},
+{name:"Cappuccino",cat:"Beverage",price:120,img:"photo-1572442388796-11668a67e53d"},
+{name:"Cold Coffee",cat:"Beverage",price:140,img:"photo-1461023058943-07fcbe16d735"},
+{name:"Hot Chocolate",cat:"Beverage",price:150,img:"photo-1542990253-0b8be3f5c2b8"},
+{name:"Iced Latte",cat:"Beverage",price:160,img:"photo-1461023058943-07fcbe16d735"},
+{name:"Fresh Lime Soda",cat:"Beverage",price:90,img:"photo-1513558161293-cf8c8a5a7f5b"},
+{name:"Mango Smoothie",cat:"Beverage",price:150,img:"photo- smoothie"},
+{name:"Strawberry Shake",cat:"Beverage",price:160,img:"photo- strawberry"}
+];
+
+let cart = [];
+
+function imageURL(id){
+return id.startsWith("photo-") && !id.includes(" ")
+? "https://images.unsplash.com/"+id+"?auto=format&fit=crop&w=600&q=80"
+: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80";
+}
+
+function renderMenu(){
+const menu=document.getElementById("menuItems");
+menu.innerHTML=products.map((p,i)=>`
+<div class="item">
+<img src="${imageURL(p.img)}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600'">
+<div class="item-content">
+<h3>${p.name}</h3>
+<p>${p.cat}</p>
+<div class="price">₹${p.price}</div>
+<button onclick="addToCart(${i})">Add to Cart</button>
+</div>
+</div>`).join("");
+}
+
+function addToCart(i){
+let found=cart.find(x=>x.name===products[i].name);
+if(found) found.qty++;
+else cart.push({...products[i],qty:1});
+renderCart();
+}
+
+function renderCart(){
+const box=document.getElementById("cartItems");
+if(cart.length===0){box.innerHTML="Your cart is empty.";document.getElementById("total").innerText="Total: ₹0";return;}
+box.innerHTML=cart.map((p,i)=>`
+<div class="cart-row">
+<span>${p.name} × ${p.qty}</span>
+<span>₹${p.price*p.qty}
+<button onclick="changeQty(${i},-1)">−</button>
+<button onclick="changeQty(${i},1)">+</button>
+</span></div>`).join("");
+document.getElementById("total").innerText="Total: ₹"+getTotal();
+}
+
+function changeQty(i,n){
+cart[i].qty+=n;
+if(cart[i].qty<=0)cart.splice(i,1);
+renderCart();
+}
+
+function getTotal(){
+return cart.reduce((sum,p)=>sum+p.price*p.qty,0);
+}
+
+function checkout(){
+if(cart.length===0){alert("Please add items to your cart first!");return;}
+const amount=getTotal();
+const upiLink=`upi://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR`;
+document.getElementById("qr").src=
+"https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="+encodeURIComponent(upiLink);
+document.getElementById("payAmount").innerText="Amount to Pay: ₹"+amount;
+document.getElementById("payment").style.display="block";
+document.getElementById("payment").scrollIntoView({behavior:"smooth"});
+}
+
+function openUPI(){
+const amount=getTotal();
+const link=`upi://pay?pa=${encodeURIComponent(upiId)}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR`;
+window.location.href=link;
+}
+
+function submitOrder(){
+const utr=document.getElementById("utr").value.trim();
+if(!utr){alert("Please enter your transaction reference.");return;}
+document.getElementById("paymentStatus").innerText=
+"Details submitted. Payment is NOT verified yet. Please wait for the café to confirm your transaction.";
+alert("Order details received. Please verify the payment in your UPI/bank account before confirming the order.");
+}
+
+renderMenu();
+</script>
+</body>
+</html>
