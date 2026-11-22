@@ -3,1013 +3,1800 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Brew & Bite | Premium Cafe</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
-  --dark:#211710;
-  --brown:#493020;
-  --gold:#c99a5b;
-  --cream:#f8f3eb;
-  --white:#fffdf9;
-  --muted:#81766b;
-  --border:#eadfce;
-  --green:#4f7655;
-  --red:#a84a3a;
+    --dark:#211710;
+    --brown:#493020;
+    --gold:#c99a5b;
+    --cream:#f8f3eb;
+    --white:#fffdf9;
+    --muted:#81766b;
+    --border:#eadfce;
+    --green:#4f7655;
+    --red:#a84a3a;
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:100px}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-button,input,textarea,select{font:inherit}
-button{cursor:pointer}
-img{max-width:100%;display:block}
-.container{width:min(1160px,90%);margin:auto}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:100px;
+}
+
+body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--cream);
+    color:var(--dark);
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+textarea,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+.container{
+    width:min(1160px,90%);
+    margin:auto;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
 
 .topbar{
-  background:var(--gold);
-  text-align:center;
-  padding:9px;
-  font-size:11px;
-  letter-spacing:2px;
-  font-weight:600;
+    background:var(--gold);
+    text-align:center;
+    padding:9px;
+    font-size:11px;
+    letter-spacing:2px;
+    font-weight:600;
 }
 
+
+/* =========================
+   NAVBAR
+========================= */
+
 header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:#211710f5;
-  color:white;
-  backdrop-filter:blur(15px);
-  box-shadow:0 5px 25px #0002;
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#211710f5;
+    color:white;
+    backdrop-filter:blur(15px);
+    box-shadow:0 5px 25px #0002;
 }
 
 .navbar{
-  min-height:76px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
 .logo{
-  font:700 27px 'Playfair Display',serif;
-  color:var(--gold);
+    font:700 27px 'Playfair Display',serif;
+    color:var(--gold);
 }
 
-.logo span{color:white}
+.logo span{
+    color:white;
+}
 
 .nav-links{
-  display:flex;
-  gap:22px;
-  align-items:center;
+    display:flex;
+    gap:22px;
+    align-items:center;
 }
 
 .nav-links a{
-  font-size:13px;
-  color:#eee;
-  transition:.3s;
+    font-size:13px;
+    color:#eee;
+    transition:.3s;
 }
 
-.nav-links a:hover{color:var(--gold)}
+.nav-links a:hover{
+    color:var(--gold);
+}
 
 .book-pill,
 .cart-pill{
-  border:1px solid var(--gold);
-  padding:10px 17px;
-  border-radius:30px;
+    border:1px solid var(--gold);
+    padding:10px 17px;
+    border-radius:30px;
 }
 
 .book-pill:hover{
-  background:var(--gold);
-  color:var(--dark)!important;
+    background:var(--gold);
+    color:var(--dark)!important;
 }
 
 .cart-pill{
-  background:var(--gold);
-  color:var(--dark)!important;
-  font-weight:700;
+    background:var(--gold);
+    color:var(--dark)!important;
+    font-weight:700;
 }
 
 .menu-toggle{
-  display:none;
-  background:none;
-  border:0;
-  color:white;
-  font-size:26px;
+    display:none;
+    background:none;
+    border:0;
+    color:white;
+    font-size:26px;
 }
+
+
+/* =========================
+   PAGES
+========================= */
 
 .page{
-  display:none;
-  animation:pageIn .5s ease;
+    display:none;
+    animation:pageIn .5s ease;
 }
 
-.page.active{display:block}
+.page.active{
+    display:block;
+}
 
 @keyframes pageIn{
-  from{opacity:0;transform:translateY(15px)}
-  to{opacity:1;transform:translateY(0)}
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
 }
 
-.hero{
-  min-height:610px;
-  display:flex;
-  align-items:center;
-  color:white;
-  background:
-  linear-gradient(90deg,#160e0bed,#160e0b8a,#160e0b22),
-  url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=1800')
-  center/cover;
-}
 
-.hero-content{
-  max-width:650px;
-  padding:85px 0;
-}
-
-.eyebrow{
-  color:var(--gold);
-  letter-spacing:4px;
-  font-size:12px;
-  font-weight:700;
-}
-
-.hero h1{
-  font:600 clamp(43px,7vw,76px)/1.1 'Playfair Display',serif;
-  margin:20px 0;
-}
-
-.hero h1 span{color:var(--gold)}
-
-.hero p{
-  color:#eee0d3;
-  line-height:1.9;
-  max-width:520px;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
+/* =========================
+   BUTTONS
+========================= */
 
 .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  background:var(--gold);
-  color:#211710;
-  padding:14px 25px;
-  border:0;
-  border-radius:40px;
-  font-weight:700;
-  margin-top:23px;
-  transition:.3s;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--gold);
+    color:#211710;
+    padding:14px 25px;
+    border:0;
+    border-radius:40px;
+    font-weight:700;
+    margin-top:23px;
+    transition:.3s;
 }
 
 .btn:hover{
-  transform:translateY(-3px);
-  background:#e2bb84;
-  box-shadow:0 12px 25px #0003;
+    transform:translateY(-3px);
+    background:#e2bb84;
+    box-shadow:0 12px 25px #0003;
 }
 
-.btn-dark{background:var(--brown);color:white}
-.btn-dark:hover{background:var(--gold);color:var(--dark)}
+.btn-dark{
+    background:var(--brown);
+    color:white;
+}
+
+.btn-dark:hover{
+    background:var(--gold);
+    color:var(--dark);
+}
 
 .btn-outline{
-  background:transparent;
-  color:white;
-  border:1px solid #ffffff88;
+    background:transparent;
+    color:white;
+    border:1px solid #ffffff88;
 }
 
-.btn-outline:hover{background:white;color:var(--dark)}
+.btn-outline:hover{
+    background:white;
+    color:var(--dark);
+}
 
-.section{padding:85px 0}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:610px;
+    display:flex;
+    align-items:center;
+    color:white;
+
+    background:
+    linear-gradient(
+        90deg,
+        #160e0bed,
+        #160e0b8a,
+        #160e0b22
+    ),
+    url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1800&q=90')
+    center/cover;
+}
+
+.hero-content{
+    max-width:650px;
+    padding:85px 0;
+}
+
+.eyebrow{
+    color:var(--gold);
+    letter-spacing:4px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.hero h1{
+    font:600 clamp(43px,7vw,76px)/1.1 'Playfair Display',serif;
+    margin:20px 0;
+}
+
+.hero h1 span{
+    color:var(--gold);
+}
+
+.hero p{
+    color:#eee0d3;
+    line-height:1.9;
+    max-width:520px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+
+/* =========================
+   COMMON SECTIONS
+========================= */
+
+.section{
+    padding:85px 0;
+}
 
 .section-heading{
-  text-align:center;
-  margin-bottom:42px;
+    text-align:center;
+    margin-bottom:42px;
 }
 
 .section-heading small{
-  color:#a16e38;
-  letter-spacing:3px;
-  font-weight:700;
+    color:#a16e38;
+    letter-spacing:3px;
+    font-weight:700;
 }
 
 .section-heading h2{
-  font:600 clamp(30px,4vw,43px) 'Playfair Display',serif;
-  margin:12px 0;
+    font:600 clamp(30px,4vw,43px) 'Playfair Display',serif;
+    margin:12px 0;
 }
 
 .section-heading p{
-  font-size:14px;
-  color:var(--muted);
-  line-height:1.8;
+    font-size:14px;
+    color:var(--muted);
+    line-height:1.8;
 }
 
-.features{background:var(--dark);color:white}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+    background:var(--dark);
+    color:white;
+}
 
 .feature-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:25px;
-  padding:35px 0;
-  text-align:center;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    padding:35px 0;
+    text-align:center;
 }
 
 .feature-grid h3{
-  font:600 22px 'Playfair Display',serif;
-  margin:12px;
+    font:600 22px 'Playfair Display',serif;
+    margin:12px;
 }
 
-.feature-grid p{font-size:12px;color:#c7b8a8}
-.feature-icon{font-size:30px;color:var(--gold)}
+.feature-grid p{
+    font-size:12px;
+    color:#c7b8a8;
+}
+
+.feature-icon{
+    font-size:30px;
+    color:var(--gold);
+}
+
+
+/* =========================
+   CUSTOMER RATING
+========================= */
 
 .rating-strip{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:25px;
-  background:white;
-  border:1px solid var(--border);
-  padding:25px 30px;
-  border-radius:22px;
-  margin-bottom:35px;
-  box-shadow:0 12px 35px #38241412;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:25px;
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    padding:25px 30px;
+
+    border-radius:22px;
+
+    margin-bottom:35px;
+
+    box-shadow:0 12px 35px #38241412;
 }
 
 .big-rating{
-  font:700 43px 'Playfair Display',serif;
+    font:700 43px 'Playfair Display',serif;
 }
 
-.stars{color:#e2a52c;letter-spacing:1px}
+.stars{
+    color:#e2a52c;
+    letter-spacing:1px;
+}
 
 .rating-strip p{
-  color:var(--muted);
-  font-size:13px;
+    color:var(--muted);
+    font-size:13px;
 }
 
+
+/* =========================
+   MENU HERO
+========================= */
+
 .menu-hero{
-  min-height:350px;
-  display:flex;
-  align-items:center;
-  text-align:center;
-  color:white;
-  background:
-  linear-gradient(#160e0bc9,#160e0be2),
-  url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1800')
-  center/cover;
+    min-height:350px;
+
+    display:flex;
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        #160e0bc9,
+        #160e0be2
+    ),
+    url('https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1800&q=90')
+    center/cover;
 }
 
 .menu-hero-content{
-  max-width:700px;
-  margin:auto;
+    max-width:700px;
+    margin:auto;
 }
 
 .menu-hero small{
-  color:var(--gold);
-  letter-spacing:4px;
-  font-weight:700;
+    color:var(--gold);
+    letter-spacing:4px;
+    font-weight:700;
 }
 
 .menu-hero h1{
-  font:600 clamp(40px,6vw,62px) 'Playfair Display',serif;
-  margin:15px 0;
+    font:600 clamp(40px,6vw,62px) 'Playfair Display',serif;
+    margin:15px 0;
 }
 
 .menu-hero p{
-  color:#ded0c3;
-  line-height:1.8;
+    color:#ded0c3;
+    line-height:1.8;
 }
 
+
+/* =========================
+   MENU TOOLS
+========================= */
+
 .menu-tools{
-  max-width:900px;
-  margin:0 auto 35px;
-  background:white;
-  padding:22px;
-  border-radius:22px;
-  box-shadow:0 12px 35px #38241412;
+    max-width:900px;
+
+    margin:0 auto 35px;
+
+    background:white;
+
+    padding:22px;
+
+    border-radius:22px;
+
+    box-shadow:0 12px 35px #38241412;
 }
 
 .search{
-  width:100%;
-  padding:16px 20px;
-  border:1px solid var(--border);
-  border-radius:40px;
-  background:white;
-  outline:none;
-  margin-bottom:17px;
+    width:100%;
+
+    padding:16px 20px;
+
+    border:1px solid var(--border);
+
+    border-radius:40px;
+
+    background:white;
+
+    outline:none;
+
+    margin-bottom:17px;
 }
 
 .search:focus,
 input:focus,
 textarea:focus,
 select:focus{
-  border-color:var(--gold);
-  box-shadow:0 0 0 3px #c99a5b20;
-  outline:none;
+
+    border-color:var(--gold);
+
+    box-shadow:0 0 0 3px #c99a5b20;
+
+    outline:none;
 }
 
 .filters{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
 .filter{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:30px;
-  padding:10px 20px;
-  transition:.3s;
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:30px;
+
+    padding:10px 20px;
+
+    transition:.3s;
 }
 
 .filter.active,
 .filter:hover{
-  background:var(--brown);
-  color:white;
+    background:var(--brown);
+    color:white;
 }
 
+
+/* =========================
+   PRODUCTS
+========================= */
+
 .product-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(235px,1fr));
-  gap:24px;
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(235px,1fr));
+
+    gap:24px;
 }
 
 .product-card{
-  position:relative;
-  background:white;
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 12px 35px #38241412;
-  transition:.4s;
-  border:1px solid #eadfceaa;
+    position:relative;
+
+    background:white;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 35px #38241412;
+
+    transition:.4s;
+
+    border:1px solid #eadfceaa;
 }
 
 .product-card:hover{
-  transform:translateY(-9px);
-  box-shadow:0 20px 45px #38241422;
+    transform:translateY(-9px);
+
+    box-shadow:0 20px 45px #38241422;
 }
 
 .product-image{
-  height:205px;
-  overflow:hidden;
-  background:#eee;
+    height:205px;
+
+    overflow:hidden;
+
+    background:#eee;
 }
 
 .product-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.65s;
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.65s;
 }
 
 .product-card:hover .product-image img{
-  transform:scale(1.09);
+    transform:scale(1.09);
 }
 
 .product-badge{
-  position:absolute;
-  top:13px;
-  left:13px;
-  z-index:2;
-  background:var(--gold);
-  padding:6px 11px;
-  border-radius:20px;
-  font-size:9px;
-  font-weight:700;
-  letter-spacing:1px;
+    position:absolute;
+
+    top:13px;
+    left:13px;
+
+    z-index:2;
+
+    background:var(--gold);
+
+    padding:6px 11px;
+
+    border-radius:20px;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
 }
 
-.product-info{padding:19px}
+.product-info{
+    padding:19px;
+}
 
 .product-category{
-  font-size:10px;
-  color:#a16e38;
-  letter-spacing:2px;
-  font-weight:700;
-  text-transform:uppercase;
+    font-size:10px;
+
+    color:#a16e38;
+
+    letter-spacing:2px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
 }
 
 .product-info h3{
-  font:600 21px 'Playfair Display',serif;
-  margin:8px 0;
+    font:600 21px 'Playfair Display',serif;
+
+    margin:8px 0;
 }
 
 .product-info p{
-  font-size:12px;
-  color:var(--muted);
-  line-height:1.7;
-  min-height:42px;
+    font-size:12px;
+
+    color:var(--muted);
+
+    line-height:1.7;
+
+    min-height:42px;
 }
 
 .product-rating{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  margin-top:11px;
-  font-size:11px;
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    margin-top:11px;
+
+    font-size:11px;
 }
 
-.rating-number{font-weight:700}
-.review-count{color:#9b9188}
+.rating-number{
+    font-weight:700;
+}
+
+.review-count{
+    color:#9b9188;
+}
 
 .product-bottom{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-top:15px;
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-top:15px;
+
+    gap:10px;
 }
 
 .price{
-  font-weight:700;
-  font-size:18px;
-  color:#87552e;
+    font-weight:700;
+
+    font-size:18px;
+
+    color:#87552e;
 }
 
 .add-btn{
-  border:0;
-  border-radius:30px;
-  background:var(--brown);
-  color:white;
-  padding:10px 17px;
-  transition:.3s;
+    border:0;
+
+    border-radius:30px;
+
+    background:var(--brown);
+
+    color:white;
+
+    padding:10px 17px;
+
+    transition:.3s;
 }
 
 .add-btn:hover{
-  background:var(--gold);
-  color:var(--dark);
-  transform:scale(1.04);
+    background:var(--gold);
+
+    color:var(--dark);
+
+    transform:scale(1.04);
 }
 
+
+/* =========================
+   ABOUT
+========================= */
+
 .about-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:55px;
-  align-items:center;
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:55px;
+
+    align-items:center;
 }
 
 .about-grid img{
-  height:420px;
-  width:100%;
-  object-fit:cover;
-  border-radius:25px;
+    height:420px;
+
+    width:100%;
+
+    object-fit:cover;
+
+    border-radius:25px;
+
+    box-shadow:0 12px 35px #38241412;
 }
 
 .about-grid h2{
-  font:600 40px 'Playfair Display',serif;
-  margin:15px 0;
+    font:600 40px 'Playfair Display',serif;
+
+    margin:15px 0;
 }
 
 .about-grid p{
-  color:var(--muted);
-  line-height:2;
-  font-size:14px;
-  margin-bottom:15px;
+    color:var(--muted);
+
+    line-height:2;
+
+    font-size:14px;
+
+    margin-bottom:15px;
 }
+
+
+/* =========================
+   BOOK TABLE
+========================= */
 
 .booking-page{
-  min-height:680px;
-  background:
-  linear-gradient(#160e0bd4,#160e0bd4),
-  url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1800')
-  center/cover;
+    min-height:680px;
+
+    background:
+    linear-gradient(
+        #160e0bd4,
+        #160e0bd4
+    ),
+    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=90')
+    center/cover;
 }
 
-.booking-page .section-heading h2{color:white}
-.booking-page .section-heading small{color:var(--gold)}
-.booking-page .section-heading p{color:#d5c7ba}
+.booking-page .section-heading h2{
+    color:white;
+}
+
+.booking-page .section-heading small{
+    color:var(--gold);
+}
+
+.booking-page .section-heading p{
+    color:#d5c7ba;
+}
 
 .booking-box{
-  max-width:850px;
-  margin:auto;
-  background:#fffdf9f7;
-  padding:38px;
-  border-radius:26px;
+    max-width:850px;
+
+    margin:auto;
+
+    background:#fffdf9f7;
+
+    padding:38px;
+
+    border-radius:26px;
+
+    box-shadow:0 20px 60px #0004;
 }
 
 .booking-box h3{
-  text-align:center;
-  font:600 27px 'Playfair Display',serif;
-  margin-bottom:25px;
+    text-align:center;
+
+    font:600 27px 'Playfair Display',serif;
+
+    margin-bottom:25px;
 }
 
 .booking-form{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:14px;
 }
 
 .booking-form input,
 .booking-form select,
 .booking-form textarea{
-  width:100%;
-  padding:14px 16px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:white;
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    background:white;
 }
 
 .booking-form textarea{
-  grid-column:1/-1;
-  min-height:110px;
+    grid-column:1/-1;
+
+    min-height:110px;
+
+    resize:vertical;
 }
 
 .booking-submit{
-  grid-column:1/-1;
-  border:0;
-  padding:16px;
-  border-radius:40px;
-  background:var(--gold);
-  font-weight:700;
+    grid-column:1/-1;
+
+    border:0;
+
+    padding:16px;
+
+    border-radius:40px;
+
+    background:var(--gold);
+
+    font-weight:700;
+
+    transition:.3s;
 }
 
+.booking-submit:hover{
+    background:var(--brown);
+
+    color:white;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
 .contact-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:25px;
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
 }
 
 .info-card{
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 12px 35px #38241412;
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 12px 35px #38241412;
 }
 
 .info-card h3{
-  font:600 24px 'Playfair Display',serif;
-  margin-bottom:15px;
+    font:600 24px 'Playfair Display',serif;
+
+    margin-bottom:15px;
 }
 
 .info-card p{
-  font-size:14px;
-  color:var(--muted);
-  line-height:1.9;
+    font-size:14px;
+
+    color:var(--muted);
+
+    line-height:1.9;
 }
 
 .contact-grid input,
 .contact-grid textarea,
 .customer-form input,
 .payment-box input{
-  width:100%;
-  padding:14px 16px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:white;
-  outline:none;
-  margin-bottom:13px;
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    background:white;
+
+    outline:none;
+
+    margin-bottom:13px;
 }
 
-.contact-grid textarea{min-height:120px}
+.contact-grid textarea{
+    min-height:120px;
+
+    resize:vertical;
+}
 
 .map-frame{
-  width:100%;
-  height:320px;
-  border:0;
-  border-radius:20px;
-  margin-top:25px;
+    width:100%;
+
+    height:320px;
+
+    border:0;
+
+    border-radius:20px;
+
+    margin-top:25px;
 }
 
+
+/* =========================
+   CART
+========================= */
+
 .cart-box{
-  max-width:850px;
-  margin:auto;
-  background:white;
-  padding:30px;
-  border-radius:22px;
-  box-shadow:0 12px 35px #38241412;
+    max-width:850px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:22px;
+
+    box-shadow:0 12px 35px #38241412;
 }
 
 .cart-row{
-  display:grid;
-  grid-template-columns:1fr auto auto;
-  gap:18px;
-  align-items:center;
-  padding:17px 0;
-  border-bottom:1px solid var(--border);
+    display:grid;
+
+    grid-template-columns:1fr auto auto;
+
+    gap:18px;
+
+    align-items:center;
+
+    padding:17px 0;
+
+    border-bottom:1px solid var(--border);
 }
 
 .qty-controls{
-  display:flex;
-  gap:10px;
-  align-items:center;
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
 }
 
 .qty-controls button{
-  border:1px solid var(--border);
-  background:white;
-  border-radius:50%;
-  width:30px;
-  height:30px;
+    border:1px solid var(--border);
+
+    background:white;
+
+    border-radius:50%;
+
+    width:30px;
+
+    height:30px;
 }
 
 .remove{
-  background:none;
-  border:0;
-  color:#a33;
-  font-size:12px;
+    background:none;
+
+    border:0;
+
+    color:#a33;
+
+    font-size:12px;
+
+    margin-top:5px;
 }
 
 .cart-total{
-  display:flex;
-  justify-content:space-between;
-  font-size:23px;
-  font-weight:700;
-  padding:25px 0;
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:23px;
+
+    font-weight:700;
+
+    padding:25px 0;
 }
 
 .customer-form{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
 }
 
 .checkout-btn{
-  width:100%;
-  padding:16px;
-  border:0;
-  border-radius:40px;
-  background:var(--gold);
-  font-weight:700;
-  transition:.3s;
+    width:100%;
+
+    padding:16px;
+
+    border:0;
+
+    border-radius:40px;
+
+    background:var(--gold);
+
+    font-weight:700;
+
+    transition:.3s;
 }
 
 .checkout-btn:hover{
-  background:var(--brown);
-  color:white;
+    background:var(--brown);
+
+    color:white;
 }
 
+
+/* =========================
+   PAYMENT
+========================= */
+
 .payment-box{
-  display:none;
-  margin:30px auto 0;
-  max-width:550px;
-  text-align:center;
-  background:var(--cream);
-  padding:28px;
-  border-radius:22px;
+    display:none;
+
+    margin:30px auto 0;
+
+    max-width:550px;
+
+    text-align:center;
+
+    background:var(--cream);
+
+    padding:28px;
+
+    border-radius:22px;
 }
 
 .payment-box h3{
-  font:600 27px 'Playfair Display',serif;
+    font:600 27px 'Playfair Display',serif;
 }
 
 .payment-box img{
-  width:225px;
-  height:225px;
-  object-fit:contain;
-  margin:20px auto;
-  background:white;
-  border-radius:15px;
+    width:225px;
+
+    height:225px;
+
+    object-fit:contain;
+
+    margin:20px auto;
+
+    background:white;
+
+    border-radius:15px;
 }
 
 .payment-box p{
-  font-size:13px;
-  color:var(--muted);
-  line-height:1.8;
+    font-size:13px;
+
+    color:var(--muted);
+
+    line-height:1.8;
 }
 
 .payment-amount{
-  font-size:27px;
-  font-weight:700;
-  color:#87552e;
-  margin:12px;
+    font-size:27px;
+
+    font-weight:700;
+
+    color:#87552e;
+
+    margin:12px;
 }
 
 .verify-section{
-  margin-top:30px;
-  padding:22px;
-  background:white;
-  border-radius:16px;
-  text-align:left;
+    margin-top:30px;
+
+    padding:22px;
+
+    background:white;
+
+    border-radius:16px;
+
+    text-align:left;
 }
 
 .verify-section h4{
-  font:600 21px 'Playfair Display',serif;
-  margin-bottom:12px;
+    font:600 21px 'Playfair Display',serif;
+
+    margin-bottom:12px;
 }
 
 .verify-message{
-  margin-top:15px;
-  font-size:13px;
-  line-height:1.7;
+    margin-top:15px;
+
+    font-size:13px;
+
+    line-height:1.7;
 }
 
 .loading{
-  color:#87552e;
-  font-weight:700;
+    color:#87552e;
+
+    font-weight:700;
 }
 
-.success{color:var(--green);font-weight:700}
-.error{color:var(--red);font-weight:700}
+.success{
+    color:var(--green);
+
+    font-weight:700;
+}
+
+.error{
+    color:var(--red);
+
+    font-weight:700;
+}
+
+
+/* =========================
+   RECEIPT
+========================= */
 
 .receipt-box{
-  display:none;
-  margin-top:25px;
-  background:white;
-  padding:28px;
-  border-radius:18px;
-  border:1px solid var(--border);
-  text-align:left;
+    display:none;
+
+    margin-top:25px;
+
+    background:white;
+
+    padding:28px;
+
+    border-radius:18px;
+
+    border:1px solid var(--border);
+
+    text-align:left;
 }
 
 .receipt-header{
-  text-align:center;
-  padding-bottom:20px;
-  border-bottom:1px dashed #cdbda9;
-  margin-bottom:20px;
+    text-align:center;
+
+    padding-bottom:20px;
+
+    border-bottom:1px dashed #cdbda9;
+
+    margin-bottom:20px;
 }
 
 .receipt-header h2{
-  font:700 28px 'Playfair Display',serif;
-  color:var(--brown);
+    font:700 28px 'Playfair Display',serif;
+
+    color:var(--brown);
 }
 
 .receipt-meta p{
-  margin:7px 0;
-  font-size:12px;
+    margin:7px 0;
+
+    font-size:12px;
 }
 
 .receipt-item{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  padding:10px 0;
-  border-bottom:1px dashed #ddd;
-  font-size:13px;
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:10px 0;
+
+    border-bottom:1px dashed #ddd;
+
+    font-size:13px;
 }
 
 .receipt-total{
-  display:flex;
-  justify-content:space-between;
-  margin-top:20px;
-  font-size:20px;
-  font-weight:700;
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:20px;
+
+    font-size:20px;
+
+    font-weight:700;
 }
 
 .payment-success{
-  margin-top:20px;
-  padding:13px;
-  text-align:center;
-  background:#edf5ed;
-  color:var(--green);
-  border-radius:10px;
-  font-weight:700;
+    margin-top:20px;
+
+    padding:13px;
+
+    text-align:center;
+
+    background:#edf5ed;
+
+    color:var(--green);
+
+    border-radius:10px;
+
+    font-weight:700;
 }
 
 .empty{
-  text-align:center;
-  color:var(--muted);
-  padding:35px;
+    text-align:center;
+
+    color:var(--muted);
+
+    padding:35px;
 }
 
+
+/* =========================
+   FOOTER
+========================= */
+
 footer{
-  background:var(--dark);
-  color:white;
-  padding:55px 0 25px;
-  text-align:center;
+    background:var(--dark);
+
+    color:white;
+
+    padding:55px 0 25px;
+
+    text-align:center;
 }
 
 footer h2{
-  font:600 32px 'Playfair Display',serif;
-  color:var(--gold);
+    font:600 32px 'Playfair Display',serif;
+
+    color:var(--gold);
 }
 
 footer p{
-  color:#c7b8a8;
-  font-size:13px;
-  margin-top:12px;
+    color:#c7b8a8;
+
+    font-size:13px;
+
+    margin-top:12px;
+
+    line-height:1.8;
 }
 
 .footer-links{
-  display:flex;
-  justify-content:center;
-  gap:22px;
-  flex-wrap:wrap;
-  margin:22px;
+    display:flex;
+
+    justify-content:center;
+
+    gap:22px;
+
+    flex-wrap:wrap;
+
+    margin:22px;
+}
+
+.footer-links a{
+    font-size:12px;
+
+    color:#eee;
+}
+
+.footer-links a:hover{
+    color:var(--gold);
 }
 
 .footer-bottom{
-  border-top:1px solid #ffffff20;
-  padding-top:20px;
-  margin-top:25px;
-  color:#a99b8d;
-  font-size:11px;
+    border-top:1px solid #ffffff20;
+
+    padding-top:20px;
+
+    margin-top:25px;
+
+    color:#a99b8d;
+
+    font-size:11px;
 }
 
+
+/* =========================
+   TOAST
+========================= */
+
 .toast{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  background:var(--dark);
-  color:white;
-  padding:15px 23px;
-  border-radius:40px;
-  z-index:200;
-  opacity:0;
-  transform:translateY(20px);
-  transition:.3s;
-  pointer-events:none;
+    position:fixed;
+
+    bottom:25px;
+
+    right:25px;
+
+    background:var(--dark);
+
+    color:white;
+
+    padding:15px 23px;
+
+    border-radius:40px;
+
+    z-index:200;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:.3s;
+
+    pointer-events:none;
 }
 
 .toast.show{
-  opacity:1;
-  transform:translateY(0);
+    opacity:1;
+
+    transform:translateY(0);
 }
+
+
+/* =========================
+   PRINT RECEIPT
+========================= */
 
 @media print{
-  body *{visibility:hidden}
-  #receiptBox,#receiptBox *{visibility:visible}
-  #receiptBox{
-    display:block!important;
-    position:absolute;
-    left:0;
-    top:0;
-    width:100%;
-    border:0;
-  }
-  #printReceiptBtn{display:none}
+
+    body *{
+        visibility:hidden;
+    }
+
+    #receiptBox,
+    #receiptBox *{
+        visibility:visible;
+    }
+
+    #receiptBox{
+        display:block!important;
+
+        position:absolute;
+
+        left:0;
+
+        top:0;
+
+        width:100%;
+
+        border:0;
+    }
+
+    #printReceiptBtn{
+        display:none;
+    }
 }
 
+
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:760px){
-  .navbar{flex-wrap:wrap;padding:14px 0}
-  .menu-toggle{display:block}
-  .nav-links{
-    display:none;
-    width:100%;
-    flex-direction:column;
-    gap:18px;
-    padding:15px 0;
-  }
-  .nav-links.open{display:flex}
-  .feature-grid{grid-template-columns:1fr}
-  .about-grid,.contact-grid{grid-template-columns:1fr}
-  .customer-form,.booking-form{grid-template-columns:1fr}
-  .booking-form textarea,.booking-submit{grid-column:auto}
-  .rating-strip{flex-direction:column;text-align:center}
-  .cart-row{grid-template-columns:1fr auto}
-  .cart-row .qty-controls{grid-column:1/-1}
-  .section{padding:60px 0}
+
+    .navbar{
+        flex-wrap:wrap;
+
+        padding:14px 0;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        display:none;
+
+        width:100%;
+
+        flex-direction:column;
+
+        gap:18px;
+
+        padding:15px 0;
+    }
+
+    .nav-links.open{
+        display:flex;
+    }
+
+    .hero{
+        min-height:530px;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about-grid img{
+        height:280px;
+    }
+
+    .customer-form,
+    .booking-form{
+        grid-template-columns:1fr;
+    }
+
+    .booking-form textarea,
+    .booking-submit{
+        grid-column:auto;
+    }
+
+    .rating-strip{
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+    .cart-row{
+        grid-template-columns:1fr auto;
+    }
+
+    .cart-row .qty-controls{
+        grid-column:1/-1;
+    }
+
+    .section{
+        padding:60px 0;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
+
+<!-- =========================
+     TOP BAR
+========================= -->
+
 <div class="topbar">
 ✦ FRESHLY BREWED • FRESHLY SERVED • MADE WITH LOVE ✦
 </div>
 
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
 <header>
+
 <div class="container navbar">
 
-<a class="logo" href="#" onclick="showPage('home');return false">
+<a
+class="logo"
+href="#"
+onclick="showPage('home');return false">
+
 BREW <span>&</span> BITE.
+
 </a>
 
-<button class="menu-toggle" onclick="toggleNav()">☰</button>
 
-<nav class="nav-links" id="navLinks">
-<a href="#" onclick="showPage('home');return false">Home</a>
-<a href="#" onclick="showPage('menu');return false">Menu</a>
-<a href="#" onclick="showPage('about');return false">About</a>
-<a href="#" onclick="showPage('contact');return false">Contact</a>
+<button
+class="menu-toggle"
+onclick="toggleNav()">
 
-<a class="book-pill" href="#" onclick="showPage('booking');return false">
+☰
+
+</button>
+
+
+<nav
+class="nav-links"
+id="navLinks">
+
+<a
+href="#"
+onclick="showPage('home');return false">
+
+Home
+
+</a>
+
+
+<a
+href="#"
+onclick="showPage('menu');return false">
+
+Menu
+
+</a>
+
+
+<a
+href="#"
+onclick="showPage('about');return false">
+
+About
+
+</a>
+
+
+<a
+href="#"
+onclick="showPage('contact');return false">
+
+Contact
+
+</a>
+
+
+<a
+class="book-pill"
+href="#"
+onclick="showPage('booking');return false">
+
 Book a Table
+
 </a>
 
-<a class="cart-pill" href="#" onclick="showPage('checkout');return false">
+
+<a
+class="cart-pill"
+href="#"
+onclick="showPage('checkout');return false">
+
 Cart (<span class="cart-count">0</span>)
+
 </a>
+
 </nav>
 
 </div>
+
 </header>
+
 
 <main>
 
-<!-- HOME -->
 
-<div class="page active" id="home">
+<!-- =================================================
+     HOME PAGE
+================================================= -->
+
+<div
+class="page active"
+id="home">
+
 
 <section class="hero">
+
 <div class="container hero-content">
 
-<div class="eyebrow">WELCOME TO BREW & BITE</div>
+
+<div class="eyebrow">
+
+WELCOME TO BREW & BITE
+
+</div>
+
 
 <h1>
+
 Where Every Sip<br>
+
 Feels Like <span>Home.</span>
+
 </h1>
 
+
 <p>
+
 Discover handcrafted coffee, delicious food and delightful desserts.
 A little place for big moments and beautiful memories.
+
 </p>
 
+
 <div class="hero-buttons">
-<button class="btn" onclick="showPage('menu')">
+
+
+<button
+class="btn"
+onclick="showPage('menu')">
+
 EXPLORE OUR MENU →
+
 </button>
 
-<button class="btn btn-outline" onclick="showPage('booking')">
+
+<button
+class="btn btn-outline"
+onclick="showPage('booking')">
+
 BOOK A TABLE
+
 </button>
+
+
 </div>
 
 </div>
+
 </section>
+
+
+<!-- FEATURES -->
 
 <section class="features">
+
 <div class="container feature-grid">
 
+
 <div>
+
 <div class="feature-icon">☕</div>
+
 <h3>Fresh Coffee</h3>
-<p>Carefully brewed for every coffee lover.</p>
+
+<p>
+Carefully brewed for every coffee lover.
+</p>
+
 </div>
 
+
 <div>
+
 <div class="feature-icon">✧</div>
+
 <h3>Quality Ingredients</h3>
-<p>Fresh ingredients in every single bite.</p>
+
+<p>
+Fresh ingredients in every single bite.
+</p>
+
 </div>
+
 
 <div>
+
 <div class="feature-icon">♡</div>
+
 <h3>Made With Love</h3>
-<p>Good food and unforgettable experiences.</p>
-</div>
+
+<p>
+Good food and unforgettable experiences.
+</p>
 
 </div>
+
+
+</div>
+
 </section>
+
+
+<!-- CUSTOMER FAVOURITES -->
 
 <section class="section container">
 
+
 <div class="section-heading">
-<small>OUR FAVOURITES</small>
-<h2>Customer Favourites</h2>
-<p>Explore some of our most loved treats.</p>
+
+<small>
+OUR FAVOURITES
+</small>
+
+<h2>
+Customer Favourites
+</h2>
+
+<p>
+Explore some of our most loved treats.
+</p>
+
 </div>
+
 
 <div class="rating-strip">
 
+
 <div>
-<div class="big-rating">4.8</div>
-<div class="stars">★★★★★</div>
+
+<div class="big-rating">
+4.8
 </div>
+
+<div class="stars">
+★★★★★
+</div>
+
+</div>
+
 
 <p>
-Loved for handcrafted coffee, delicious food and a warm café experience.
+
+Loved for handcrafted coffee, delicious food
+and a warm café experience.
+
 </p>
 
-<button class="btn btn-dark" style="margin:0" onclick="showPage('booking')">
+
+<button
+class="btn btn-dark"
+style="margin:0"
+onclick="showPage('booking')">
+
 RESERVE A TABLE
+
 </button>
+
 
 </div>
 
-<div class="product-grid" id="featuredProducts"></div>
+
+<div
+class="product-grid"
+id="featuredProducts">
+
+</div>
+
 
 <div style="text-align:center">
-<button class="btn btn-dark" onclick="showPage('menu')">
+
+<button
+class="btn btn-dark"
+onclick="showPage('menu')">
+
 VIEW FULL MENU →
+
 </button>
+
 </div>
+
 
 </section>
+
 </div>
 
 
-<!-- MENU -->
+<!-- =================================================
+     MENU PAGE
+================================================= -->
 
-<div class="page" id="menu">
+<div
+class="page"
+id="menu">
+
 
 <section class="menu-hero">
+
 <div class="container menu-hero-content">
 
-<small>BREW & BITE SIGNATURE COLLECTION</small>
 
-<h1>Crafted For Every Craving.</h1>
+<small>
+
+BREW & BITE SIGNATURE COLLECTION
+
+</small>
+
+
+<h1>
+
+Crafted For Every Craving.
+
+</h1>
+
 
 <p>
+
 Handcrafted coffee, comfort food and irresistible desserts
 prepared for memorable café moments.
+
 </p>
 
+
 </div>
+
 </section>
+
 
 <section class="section container">
 
+
+<div class="section-heading">
+
+<small>
+
+EXPLORE OUR COLLECTION
+
+</small>
+
+<h2>
+
+Our Delicious Menu
+
+</h2>
+
+<p>
+
+Something special for every mood and every craving.
+
+</p>
+
+</div>
+
+
 <div class="menu-tools">
+
 
 <input
 class="search"
@@ -1017,52 +1804,119 @@ id="search"
 placeholder="⌕ Search coffee, pizza, burger, dessert..."
 oninput="renderMenu()">
 
+
+
 <div class="filters">
 
-<button class="filter active" onclick="setCategory('All',this)">
+
+<button
+class="filter active"
+onclick="setCategory('All',this)">
+
 All Items
+
 </button>
 
-<button class="filter" onclick="setCategory('Food',this)">
+
+<button
+class="filter"
+onclick="setCategory('Food',this)">
+
 🍕 Food
+
 </button>
 
-<button class="filter" onclick="setCategory('Dessert',this)">
+
+<button
+class="filter"
+onclick="setCategory('Dessert',this)">
+
 🍰 Desserts
+
 </button>
 
-<button class="filter" onclick="setCategory('Beverage',this)">
+
+<button
+class="filter"
+onclick="setCategory('Beverage',this)">
+
 ☕ Beverages
+
 </button>
 
-</div>
+
 </div>
 
-<div class="product-grid" id="menuItems"></div>
+</div>
+
+
+<div
+class="product-grid"
+id="menuItems">
+
+</div>
+
 
 </section>
+
 </div>
 
 
-<!-- BOOKING -->
+<!-- =================================================
+     BOOK A TABLE
+================================================= -->
 
-<div class="page booking-page" id="booking">
+<div
+class="page booking-page"
+id="booking">
+
 
 <section class="section container">
 
+
 <div class="section-heading">
-<small>RESERVATIONS</small>
-<h2>Book Your Table</h2>
-<p>Reserve your favourite spot at Brew & Bite.</p>
+
+<small>
+
+RESERVATIONS
+
+</small>
+
+<h2>
+
+Book Your Table
+
+</h2>
+
+<p>
+
+Reserve your favourite spot at Brew & Bite.
+
+</p>
+
 </div>
+
 
 <div class="booking-box">
 
-<h3>Reserve Your Café Experience</h3>
 
-<form class="booking-form" onsubmit="bookTable(event)">
+<h3>
 
-<input id="bookName" placeholder="Your full name" required>
+Reserve Your Café Experience
+
+</h3>
+
+
+<form
+class="booking-form"
+onsubmit="bookTable(event)">
+
+
+<input
+id="bookName"
+placeholder="Your full name"
+required>
+
 
 <input
 id="bookPhone"
@@ -1071,164 +1925,398 @@ maxlength="10"
 placeholder="10-digit mobile number"
 required>
 
-<input id="bookDate" type="date" required>
 
-<input id="bookTime" type="time" required>
+<input
+id="bookDate"
+type="date"
+required>
 
-<select id="bookGuests" required>
-<option value="">Number of guests</option>
-<option value="1">1 Guest</option>
-<option value="2">2 Guests</option>
-<option value="3">3 Guests</option>
-<option value="4">4 Guests</option>
-<option value="5">5 Guests</option>
-<option value="6">6 Guests</option>
-<option value="7+">7+ Guests</option>
+
+<input
+id="bookTime"
+type="time"
+required>
+
+
+<select
+id="bookGuests"
+required>
+
+<option value="">
+Number of guests
+</option>
+
+<option value="1">
+1 Guest
+</option>
+
+<option value="2">
+2 Guests
+</option>
+
+<option value="3">
+3 Guests
+</option>
+
+<option value="4">
+4 Guests
+</option>
+
+<option value="5">
+5 Guests
+</option>
+
+<option value="6">
+6 Guests
+</option>
+
+<option value="7+">
+7+ Guests
+</option>
+
 </select>
+
 
 <select id="bookArea">
-<option>Indoor Seating</option>
-<option>Outdoor Seating</option>
-<option>No Preference</option>
+
+<option value="Indoor">
+Indoor Seating
+</option>
+
+<option value="Outdoor">
+Outdoor Seating
+</option>
+
+<option value="Any">
+No Preference
+</option>
+
 </select>
+
 
 <textarea
 id="bookMessage"
-placeholder="Birthday, anniversary or special request?"></textarea>
+placeholder="Birthday, anniversary or special request?">
 
-<button class="booking-submit" type="submit">
+</textarea>
+
+
+<button
+class="booking-submit"
+type="submit">
+
 RESERVE MY TABLE →
+
 </button>
 
+
 </form>
+
+
 </div>
+
 </section>
+
 </div>
 
 
-<!-- ABOUT -->
+<!-- =================================================
+     ABOUT
+================================================= -->
 
-<div class="page" id="about">
+<div
+class="page"
+id="about">
+
 
 <section class="section container">
+
 
 <div class="about-grid">
 
+
 <img
-src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1000"
+src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=90"
 alt="Coffee preparation">
+
 
 <div>
 
-<small class="eyebrow">OUR STORY</small>
 
-<h2>A Place To Pause, Sip & Smile.</h2>
+<small class="eyebrow">
+
+OUR STORY
+
+</small>
+
+
+<h2>
+
+A Place To Pause, Sip & Smile.
+
+</h2>
+
 
 <p>
+
 At Brew & Bite, we believe a café is more than just coffee.
 It is a place where friends meet, stories begin and memories are created.
+
 </p>
+
 
 <p>
+
 From freshly prepared food to carefully crafted beverages,
 every detail is designed to make your day better.
+
 </p>
 
-<button class="btn btn-dark" onclick="showPage('menu')">
+
+<button
+class="btn btn-dark"
+onclick="showPage('menu')">
+
 DISCOVER OUR MENU
+
 </button>
 
+
 </div>
+
 </div>
+
+
 </section>
+
 </div>
 
 
-<!-- CONTACT -->
+<!-- =================================================
+     CONTACT
+================================================= -->
 
-<div class="page" id="contact">
+<div
+class="page"
+id="contact">
+
 
 <section class="section container">
 
+
 <div class="section-heading">
-<small>COME SAY HELLO</small>
-<h2>Visit Our Café</h2>
-<p>We look forward to welcoming you.</p>
+
+<small>
+
+COME SAY HELLO
+
+</small>
+
+<h2>
+
+Visit Our Café
+
+</h2>
+
+<p>
+
+We look forward to welcoming you.
+
+</p>
+
 </div>
+
 
 <div class="contact-grid">
 
+
 <div class="info-card">
 
-<h3>Our Location</h3>
 
-<p><b>Brew & Bite Café</b></p>
-<p>Bidholi, Dehradun, Uttarakhand, India</p>
+<h3>
+
+Our Location
+
+</h3>
+
+
+<p>
+
+<b>Brew & Bite Café</b>
+
+</p>
+
+
+<p>
+
+Bidholi, Dehradun, Uttarakhand, India
+
+</p>
+
 
 <iframe
 class="map-frame"
 loading="lazy"
 src="https://maps.google.com/maps?q=Bidholi%2C%20Dehradun%2C%20Uttarakhand&t=&z=14&ie=UTF8&iwloc=&output=embed">
+
 </iframe>
 
+
 </div>
+
 
 <div class="info-card">
 
-<h3>Get In Touch</h3>
 
-<p>Have a question about our menu, booking or order?</p>
+<h3>
 
-<form onsubmit="sendContact(event)" style="margin-top:20px">
+Get In Touch
 
-<input placeholder="Your name" required>
-<input type="email" placeholder="Your email" required>
-<textarea placeholder="Your message..." required></textarea>
+</h3>
 
-<button class="btn btn-dark" type="submit">
+
+<p>
+
+Have a question about our menu, booking or order?
+
+</p>
+
+
+<form
+onsubmit="sendContact(event)"
+style="margin-top:20px">
+
+
+<input
+placeholder="Your name"
+required>
+
+
+<input
+type="email"
+placeholder="Your email"
+required>
+
+
+<textarea
+placeholder="Your message..."
+required>
+
+</textarea>
+
+
+<button
+class="btn btn-dark"
+type="submit">
+
 SEND MESSAGE
+
 </button>
 
+
 </form>
+
+
 </div>
 
 </div>
+
+
 </section>
+
 </div>
 
 
-<!-- CHECKOUT -->
+<!-- =================================================
+     CHECKOUT
+================================================= -->
 
-<div class="page" id="checkout">
+<div
+class="page"
+id="checkout">
+
 
 <section class="section container">
 
+
 <div class="section-heading">
-<small>YOUR ORDER</small>
-<h2>Shopping Cart & Checkout</h2>
-<p>Review your favourite picks before payment.</p>
+
+
+<small>
+
+YOUR ORDER
+
+</small>
+
+
+<h2>
+
+Shopping Cart & Checkout
+
+</h2>
+
+
+<p>
+
+Review your favourite picks before payment.
+
+</p>
+
+
 </div>
+
 
 <div class="cart-box">
 
+
 <div id="cartItems">
+
+
 <div class="empty">
+
 Your cart is waiting for something delicious! ☕
+
 </div>
+
+
 </div>
+
 
 <div class="cart-total">
-<span>Total</span>
-<span id="total">₹0</span>
+
+<span>
+
+Total
+
+</span>
+
+<span id="total">
+
+₹0
+
+</span>
+
 </div>
 
-<h3 style="font-family:'Playfair Display';margin-bottom:15px">
+
+<h3
+style="
+font-family:'Playfair Display';
+margin-bottom:15px
+">
+
 Customer Details
+
 </h3>
+
 
 <div class="customer-form">
 
-<input id="customerName" placeholder="Your full name">
+
+<input
+id="customerName"
+placeholder="Your full name">
+
 
 <input
 id="customerPhone"
@@ -1236,1169 +2324,2651 @@ type="tel"
 maxlength="10"
 placeholder="10-digit mobile number">
 
+
 </div>
 
-<p style="font-size:12px;color:var(--muted);margin:5px 0 18px">
+
+<p
+style="
+font-size:12px;
+color:var(--muted);
+margin:5px 0 18px
+">
+
 Orders are for café pickup.
+
 </p>
 
-<button class="checkout-btn" onclick="checkout()">
+
+<button
+class="checkout-btn"
+onclick="checkout()">
+
 CONTINUE TO PAYMENT →
+
 </button>
 
 
-<!-- PAYMENT -->
+<!-- PAYMENT BOX -->
 
-<div class="payment-box" id="paymentBox">
+<div
+class="payment-box"
+id="paymentBox">
 
-<h3>Complete Your Payment</h3>
 
-<p>Scan this QR code using any UPI application.</p>
+<h3>
 
-<img id="qrImage" alt="UPI Payment QR">
+Complete Your Payment
 
-<div class="payment-amount" id="paymentAmount">₹0</div>
+</h3>
+
 
 <p>
-UPI ID: <b>9799618755-bbfa-2@ybl</b>
+
+Scan this QR code using any UPI application.
+
 </p>
 
-<button class="btn" onclick="payWithUPI()">
+
+<img
+id="qrImage"
+alt="UPI Payment QR Code">
+
+
+<div
+class="payment-amount"
+id="paymentAmount">
+
+₹0
+
+</div>
+
+
+<p>
+
+UPI ID:
+
+<b>
+9799618755-bbfa-2@ybl
+</b>
+
+</p>
+
+
+<button
+class="btn"
+onclick="payWithUPI()">
+
 OPEN UPI APP
+
 </button>
 
 
-<!-- UTR VERIFICATION -->
+<!-- PAYMENT VERIFICATION -->
 
 <div class="verify-section">
 
-<h4>Verify Payment</h4>
+
+<h4>
+
+Verify Payment
+
+</h4>
+
 
 <p>
-Payment complete karne ke baad apna UPI transaction reference / UTR enter karein.
+
+Payment complete karne ke baad apna
+UPI transaction reference / UTR enter karein.
+
 </p>
+
 
 <input
 id="utr"
 placeholder="Enter UTR / transaction reference"
 style="margin-top:15px">
 
+
 <button
 class="checkout-btn"
 id="verifyButton"
 onclick="verifyPayment()">
+
 VERIFY PAYMENT
+
 </button>
 
-<div class="verify-message" id="paymentStatus"></div>
+
+<div
+class="verify-message"
+id="paymentStatus">
+
+</div>
+
 
 </div>
 
 
 <!-- RECEIPT -->
 
-<div class="receipt-box" id="receiptBox">
+<div
+class="receipt-box"
+id="receiptBox">
+
 
 <div class="receipt-header">
 
-<h2>BREW & BITE.</h2>
 
-<p>PAYMENT RECEIPT</p>
+<h2>
+
+BREW & BITE.
+
+</h2>
+
+
+<p>
+
+PAYMENT RECEIPT
+
+</p>
+
 
 </div>
 
-<div id="receiptContent"></div>
+
+<div id="receiptContent">
+
+</div>
+
 
 <button
 id="printReceiptBtn"
 class="checkout-btn"
 onclick="window.print()">
+
 PRINT RECEIPT
+
 </button>
 
-</div>
 
 </div>
+
+
 </div>
+
+
+</div>
+
+
 </section>
+
 </div>
+
 
 </main>
 
 
+<!-- =================================================
+     FOOTER
+================================================= -->
+
 <footer>
+
 
 <div class="container">
 
-<h2>BREW & BITE.</h2>
 
-<p>Good Coffee. Great Food. Beautiful Moments.</p>
+<h2>
+
+BREW & BITE.
+
+</h2>
+
+
+<p>
+
+Good Coffee. Great Food. Beautiful Moments.
+
+</p>
+
 
 <div class="footer-links">
 
-<a href="#" onclick="showPage('home');return false">Home</a>
-<a href="#" onclick="showPage('menu');return false">Menu</a>
-<a href="#" onclick="showPage('booking');return false">Book a Table</a>
-<a href="#" onclick="showPage('about');return false">About</a>
-<a href="#" onclick="showPage('contact');return false">Contact</a>
+
+<a
+href="#"
+onclick="showPage('home');return false">
+
+Home
+
+</a>
+
+
+<a
+href="#"
+onclick="showPage('menu');return false">
+
+Menu
+
+</a>
+
+
+<a
+href="#"
+onclick="showPage('booking');return false">
+
+Book a Table
+
+</a>
+
+
+<a
+href="#"
+onclick="showPage('about');return false">
+
+About
+
+</a>
+
+
+<a
+href="#"
+onclick="showPage('contact');return false">
+
+Contact
+
+</a>
+
 
 </div>
 
-<p>📍 Bidholi, Dehradun, Uttarakhand, India</p>
+
+<p>
+
+📍 Bidholi, Dehradun, Uttarakhand, India
+
+</p>
+
 
 <div class="footer-bottom">
+
 © 2026 Brew & Bite Café | All Rights Reserved
-</div>
 
 </div>
+
+
+</div>
+
+
 </footer>
 
 
-<div class="toast" id="toast">Added to cart!</div>
+<div
+class="toast"
+id="toast">
+
+Added to cart!
+
+</div>
 
 
 <script>
 
+
+/* =================================================
+   PAYMENT SETTINGS
+================================================= */
+
 const UPI_ID="9799618755-bbfa-2@ybl";
+
 const PAYEE="Brew and Bite Cafe";
 
 
-/* PRODUCTS */
+/* =================================================
+   PRODUCTS
+================================================= */
 
 const products=[
 
+
+/* =========================
+   DESSERTS
+========================= */
+
+
 {
+
 name:"Chocolate Cake",
+
 category:"Dessert",
+
 price:180,
+
 rating:4.9,
+
 reviews:218,
+
 badge:"BESTSELLER",
+
 desc:"Rich chocolate cake with creamy chocolate layers.",
-img:"photo-1578985545062-69928b1d9587"
+
+img:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Brownie",
+
 category:"Dessert",
+
 price:120,
+
 rating:4.8,
+
 reviews:184,
+
 badge:"POPULAR",
+
 desc:"Warm and fudgy chocolate brownie.",
-img:"photo-1606313564200-e75d5e30476c"
+
+img:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Cheesecake",
+
 category:"Dessert",
+
 price:200,
+
 rating:4.9,
+
 reviews:171,
+
 badge:"SIGNATURE",
+
 desc:"Smooth and creamy classic cheesecake.",
-img:"photo-1533134242443-d4fd215305ad"
+
+img:"https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Waffles",
+
 category:"Dessert",
+
 price:160,
+
 rating:4.8,
+
 reviews:145,
+
 badge:"CUSTOMER PICK",
+
 desc:"Golden waffles with delicious sweet toppings.",
-img:"photo-1562376552-0d160a2f238d"
+
+img:"https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Donut",
+
 category:"Dessert",
+
 price:90,
+
 rating:4.6,
+
 reviews:93,
+
 badge:"",
+
 desc:"Soft donut finished with chocolate glaze.",
-img:"photo-1551024506-0bccd828d307"
+
+img:"https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Tiramisu",
+
 category:"Dessert",
+
 price:220,
+
 rating:4.9,
+
 reviews:139,
+
 badge:"PREMIUM",
+
 desc:"Classic coffee-flavoured Italian dessert.",
-img:"photo-1571877227200-a0d98ea607e9"
+
+img:"https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Pancakes",
+
 category:"Dessert",
+
 price:170,
+
 rating:4.8,
+
 reviews:126,
+
 badge:"",
+
 desc:"Fluffy pancakes served with sweet toppings.",
-img:"photo-1528207776546-365bb710ee93"
+
+img:"https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
+/* =========================
+   FOOD
+========================= */
+
+
 {
+
 name:"Margherita Pizza",
+
 category:"Food",
+
 price:250,
+
 rating:4.9,
+
 reviews:242,
+
 badge:"BESTSELLER",
-desc:"Classic cheese pizza with tomato and herbs.",
-img:"photo-1579751626657-72bc17010498"
+
+desc:"Classic cheese pizza with tomato and fresh herbs.",
+
+img:"https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Farmhouse Pizza",
+
 category:"Food",
+
 price:320,
+
 rating:4.8,
+
 reviews:173,
+
 badge:"CHEF'S PICK",
+
 desc:"Loaded pizza with vegetables, cheese and herbs.",
-img:"photo-1574071318508-1cdbab80d002"
+
+img:"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Veg Burger",
+
 category:"Food",
+
 price:150,
+
 rating:4.8,
+
 reviews:194,
+
 badge:"POPULAR",
+
 desc:"Crispy vegetable patty with cheese and veggies.",
-img:"photo-1568901346375-23c9450c58cd"
+
+img:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Cheese Burger",
+
 category:"Food",
+
 price:190,
+
 rating:4.8,
+
 reviews:153,
+
 badge:"",
-desc:"Café-style burger loaded with melted cheese.",
-img:"photo-1550547660-d9450f859349"
+
+desc:"Cafe-style burger loaded with melted cheese.",
+
+img:"https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"White Sauce Pasta",
+
 category:"Food",
+
 price:190,
+
 rating:4.9,
+
 reviews:205,
+
 badge:"SIGNATURE",
-desc:"Creamy pasta with herbs and fresh vegetables.",
-img:"photo-1473093295043-cdd812d0e601"
+
+desc:"Creamy white sauce pasta with herbs and vegetables.",
+
+img:"https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Red Sauce Pasta",
+
 category:"Food",
+
 price:180,
+
 rating:4.7,
+
 reviews:128,
+
 badge:"",
-desc:"Pasta tossed in tangy tomato sauce.",
-img:"photo-1563379926898-05f4575a45d8"
+
+desc:"Pasta tossed in rich tomato sauce and Italian herbs.",
+
+img:"https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Grilled Sandwich",
+
 category:"Food",
+
 price:130,
+
 rating:4.7,
+
 reviews:121,
+
 badge:"",
-desc:"Crispy grilled sandwich with tasty filling.",
-img:"photo-1528735602780-2552fd46c7af"
+
+desc:"Crispy grilled sandwich with a delicious filling.",
+
+img:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"French Fries",
+
 category:"Food",
+
 price:100,
+
 rating:4.8,
+
 reviews:212,
+
 badge:"FAVOURITE",
+
 desc:"Crispy golden salted potato fries.",
-img:"photo-1573080496219-bb080dd4f877"
+
+img:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Garlic Bread",
+
 category:"Food",
+
 price:140,
+
 rating:4.7,
+
 reviews:102,
-badge:"",
-desc:"Toasted bread with garlic butter and herbs.",
-img:"photo-1573140247632-f8fd74997d5c"
+
+badge:"FRESH BAKED",
+
+desc:"Crispy toasted garlic bread with butter and herbs.",
+
+img:"https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
+/* =========================
+   BEVERAGES
+========================= */
+
+
 {
+
 name:"Cappuccino",
+
 category:"Beverage",
+
 price:120,
+
 rating:4.9,
+
 reviews:231,
+
 badge:"BESTSELLER",
+
 desc:"Espresso topped with silky steamed milk foam.",
-img:"photo-1572442388796-11668a67e53d"
+
+img:"https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Cold Coffee",
+
 category:"Beverage",
+
 price:140,
+
 rating:4.9,
+
 reviews:254,
+
 badge:"MOST LOVED",
+
 desc:"Chilled creamy coffee blended until smooth.",
-img:"photo-1461023058943-07fcbe16d735"
+
+img:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Hot Chocolate",
+
 category:"Beverage",
+
 price:150,
+
 rating:4.8,
+
 reviews:147,
+
 badge:"COZY PICK",
-desc:"Rich chocolate drink for cozy moments.",
-img:"photo-1542990253-0b8be3f5c2b8"
+
+desc:"Rich hot chocolate made for cozy moments.",
+
+img:"https://images.unsplash.com/photo-1542990253-0b8be3f5c2b8?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Iced Latte",
+
 category:"Beverage",
+
 price:160,
+
 rating:4.8,
+
 reviews:133,
+
 badge:"",
+
 desc:"Espresso, chilled milk and refreshing ice.",
-img:"photo-1517701604599-bb29b565090c"
+
+img:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Fresh Lime Soda",
+
 category:"Beverage",
+
 price:90,
+
 rating:4.6,
+
 reviews:78,
+
 badge:"REFRESHING",
+
 desc:"Refreshing fresh lime drink served chilled.",
-img:"photo-1513558161293-cf8c8a5a7f5b"
+
+img:"https://images.unsplash.com/photo-1513558161293-cf8c8a5a7f5b?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Mango Smoothie",
+
 category:"Beverage",
+
 price:150,
+
 rating:4.8,
+
 reviews:119,
+
 badge:"FRESH",
+
 desc:"Creamy and refreshing mango smoothie.",
-img:"photo-1505252585461-04db1eb84625"
+
+img:"https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Strawberry Shake",
+
 category:"Beverage",
+
 price:160,
+
 rating:4.8,
+
 reviews:127,
+
 badge:"",
+
 desc:"Sweet strawberry milkshake served chilled.",
-img:"photo-1572490122747-3968b75cc699"
+
+img:"https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=85"
+
 },
 
+
 {
+
 name:"Espresso",
+
 category:"Beverage",
+
 price:90,
+
 rating:4.7,
+
 reviews:94,
+
 badge:"",
+
 desc:"Bold concentrated coffee with rich crema.",
-img:"photo-1510707577719-ae7c14805e3a"
+
+img:"https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=800&q=85"
+
 }
+
 
 ];
 
 
-/* CART */
+/* =================================================
+   VARIABLES
+================================================= */
 
-let cart=JSON.parse(localStorage.getItem("brewCart")||"[]");
+
+let cart=
+JSON.parse(
+    localStorage.getItem("brewCart") || "[]"
+);
+
+
 let activeCategory="All";
+
+
 let currentUPILink="";
+
+
 let paymentAmountForVerification=0;
 
 
-/* NAVIGATION */
+/* =================================================
+   PAGE NAVIGATION
+================================================= */
+
 
 function showPage(id){
 
-document.querySelectorAll(".page")
-.forEach(p=>p.classList.remove("active"));
 
-const page=document.getElementById(id);
+    document
+    .querySelectorAll(".page")
+    .forEach(page=>{
 
-if(page) page.classList.add("active");
+        page.classList.remove("active");
 
-document.getElementById("navLinks").classList.remove("open");
+    });
 
-window.scrollTo({top:0,behavior:"smooth"});
 
-if(id==="menu") renderMenu();
-if(id==="checkout") renderCart();
+    const selectedPage=
+    document.getElementById(id);
+
+
+    if(selectedPage){
+
+        selectedPage.classList.add("active");
+
+    }
+
+
+    document
+    .getElementById("navLinks")
+    .classList.remove("open");
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+
+    if(id==="menu"){
+
+        renderMenu();
+
+    }
+
+
+    if(id==="checkout"){
+
+        renderCart();
+
+    }
 
 }
+
+
+/* =================================================
+   MOBILE NAV
+================================================= */
+
 
 function toggleNav(){
-document.getElementById("navLinks").classList.toggle("open");
-}
 
 
-/* IMAGE */
-
-function imageURL(id){
-
-return "https://images.unsplash.com/"
-+id+
-"?auto=format&fit=crop&w=700&q=85";
+    document
+    .getElementById("navLinks")
+    .classList
+    .toggle("open");
 
 }
 
 
-/* NOTIFICATION */
+/* =================================================
+   IMAGE
+================================================= */
+
+
+function imageURL(url){
+
+    return url;
+
+}
+
+
+/* =================================================
+   NOTIFICATION
+================================================= */
+
 
 function notify(message){
 
-const toast=document.getElementById("toast");
 
-toast.textContent=message;
-toast.classList.add("show");
-
-setTimeout(()=>{
-toast.classList.remove("show");
-},2200);
-
-}
+    const toast=
+    document.getElementById("toast");
 
 
-/* PRODUCT CARD */
+    toast.textContent=message;
 
-function productCard(p){
 
-return `
+    toast.classList.add("show");
 
-<article class="product-card">
 
-${p.badge ? `<span class="product-badge">${p.badge}</span>` : ""}
+    setTimeout(()=>{
 
-<div class="product-image">
+        toast.classList.remove("show");
 
-<img
-loading="lazy"
-src="${imageURL(p.img)}"
-alt="${p.name}"
-onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700'">
-
-</div>
-
-<div class="product-info">
-
-<span class="product-category">${p.category}</span>
-
-<h3>${p.name}</h3>
-
-<p>${p.desc}</p>
-
-<div class="product-rating">
-
-<span class="stars">★★★★★</span>
-
-<span class="rating-number">
-${p.rating}
-</span>
-
-<span class="review-count">
-(${p.reviews} reviews)
-</span>
-
-</div>
-
-<div class="product-bottom">
-
-<span class="price">
-₹${p.price}
-</span>
-
-<button class="add-btn" onclick="addToCart('${p.name}')">
-+ Add
-</button>
-
-</div>
-
-</div>
-
-</article>
-
-`;
+    },2200);
 
 }
 
 
-/* MENU */
+/* =================================================
+   PRODUCT CARD
+================================================= */
+
+
+function productCard(product){
+
+
+    return `
+
+    <article class="product-card">
+
+
+        ${
+            product.badge
+
+            ?
+
+            `<span class="product-badge">
+                ${product.badge}
+            </span>`
+
+            :
+
+            ""
+        }
+
+
+        <div class="product-image">
+
+
+            <img
+
+            loading="lazy"
+
+            src="${imageURL(product.img)}"
+
+            alt="${product.name}"
+
+            onerror="
+                this.onerror=null;
+                this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=85';
+            ">
+
+
+        </div>
+
+
+        <div class="product-info">
+
+
+            <span class="product-category">
+
+                ${product.category}
+
+            </span>
+
+
+            <h3>
+
+                ${product.name}
+
+            </h3>
+
+
+            <p>
+
+                ${product.desc}
+
+            </p>
+
+
+            <div class="product-rating">
+
+
+                <span class="stars">
+
+                    ★★★★★
+
+                </span>
+
+
+                <span class="rating-number">
+
+                    ${product.rating}
+
+                </span>
+
+
+                <span class="review-count">
+
+                    (${product.reviews} reviews)
+
+                </span>
+
+
+            </div>
+
+
+            <div class="product-bottom">
+
+
+                <span class="price">
+
+                    ₹${product.price}
+
+                </span>
+
+
+                <button
+
+                class="add-btn"
+
+                onclick="addToCart('${product.name}')">
+
+                    + Add
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </article>
+
+    `;
+
+}
+
+
+/* =================================================
+   RENDER MENU
+================================================= */
+
 
 function renderMenu(){
 
-const grid=document.getElementById("menuItems");
 
-if(!grid) return;
+    const grid=
+    document.getElementById("menuItems");
 
-const query=(document.getElementById("search")?.value||"").toLowerCase();
 
-const filtered=products.filter(p=>
+    if(!grid){
 
-(activeCategory==="All" || p.category===activeCategory)
+        return;
 
-&&
+    }
 
-(
-p.name.toLowerCase().includes(query)
-||
-p.desc.toLowerCase().includes(query)
-)
 
-);
+    const query=
 
-grid.innerHTML=filtered.length
-? filtered.map(productCard).join("")
-: '<div class="empty">No matching products found.</div>';
+    (
+        document
+        .getElementById("search")
+        ?.value
+
+        ||
+
+        ""
+    )
+
+    .toLowerCase();
+
+
+    const filtered=
+
+    products.filter(product=>{
+
+
+        const categoryMatch=
+
+        activeCategory==="All"
+
+        ||
+
+        product.category===activeCategory;
+
+
+        const searchMatch=
+
+        product.name
+        .toLowerCase()
+        .includes(query)
+
+        ||
+
+        product.desc
+        .toLowerCase()
+        .includes(query);
+
+
+        return categoryMatch && searchMatch;
+
+    });
+
+
+    grid.innerHTML=
+
+    filtered.length
+
+    ?
+
+    filtered
+    .map(productCard)
+    .join("")
+
+    :
+
+    `
+
+    <div class="empty">
+
+        No matching products found.
+
+    </div>
+
+    `;
 
 }
+
+
+/* =================================================
+   CATEGORY FILTER
+================================================= */
 
 
 function setCategory(category,button){
 
-activeCategory=category;
 
-document.querySelectorAll(".filter")
-.forEach(b=>b.classList.remove("active"));
+    activeCategory=category;
 
-button.classList.add("active");
 
-renderMenu();
+    document
+    .querySelectorAll(".filter")
+    .forEach(btn=>{
+
+        btn.classList.remove("active");
+
+    });
+
+
+    button.classList.add("active");
+
+
+    renderMenu();
 
 }
 
 
-/* FEATURED */
+/* =================================================
+   FEATURED PRODUCTS
+================================================= */
+
 
 function renderFeatured(){
 
-const box=document.getElementById("featuredProducts");
 
-if(!box) return;
+    const box=
+    document.getElementById("featuredProducts");
 
-const names=[
-"Cappuccino",
-"Margherita Pizza",
-"Chocolate Cake",
-"Cheesecake"
-];
 
-const featured=names
-.map(name=>products.find(p=>p.name===name))
-.filter(Boolean);
+    if(!box){
 
-box.innerHTML=featured.map(productCard).join("");
+        return;
+
+    }
+
+
+    const featuredNames=[
+
+        "Cappuccino",
+
+        "Margherita Pizza",
+
+        "Chocolate Cake",
+
+        "Cheesecake"
+
+    ];
+
+
+    const featured=
+
+    featuredNames
+
+    .map(name=>
+
+        products.find(
+            product=>product.name===name
+        )
+
+    )
+
+    .filter(Boolean);
+
+
+    box.innerHTML=
+
+    featured
+    .map(productCard)
+    .join("");
 
 }
 
 
-/* CART */
+/* =================================================
+   SAVE CART
+================================================= */
+
 
 function saveCart(){
 
-localStorage.setItem(
-"brewCart",
-JSON.stringify(cart)
-);
+
+    localStorage.setItem(
+
+        "brewCart",
+
+        JSON.stringify(cart)
+
+    );
 
 }
+
+
+/* =================================================
+   UPDATE CART COUNT
+================================================= */
+
 
 function updateCartCount(){
 
-const count=cart.reduce((sum,p)=>sum+p.qty,0);
 
-document.querySelectorAll(".cart-count")
-.forEach(el=>el.textContent=count);
+    const count=
+
+    cart.reduce(
+
+        (sum,item)=>
+        sum+item.qty,
+
+        0
+
+    );
+
+
+    document
+    .querySelectorAll(".cart-count")
+    .forEach(element=>{
+
+        element.textContent=count;
+
+    });
 
 }
+
+
+/* =================================================
+   ADD TO CART
+================================================= */
 
 
 function addToCart(name){
 
-const product=products.find(p=>p.name===name);
 
-if(!product) return;
+    const product=
 
-const found=cart.find(p=>p.name===name);
+    products.find(
 
-if(found){
-found.qty++;
-}else{
-cart.push({...product,qty:1});
+        product=>product.name===name
+
+    );
+
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    const found=
+
+    cart.find(
+
+        item=>item.name===name
+
+    );
+
+
+    if(found){
+
+
+        found.qty++;
+
+
+    }else{
+
+
+        cart.push({
+
+            ...product,
+
+            qty:1
+
+        });
+
+    }
+
+
+    saveCart();
+
+
+    renderCart();
+
+
+    updateCartCount();
+
+
+    notify(
+
+        name+" added to cart!"
+
+    );
+
 }
 
-saveCart();
-renderCart();
-updateCartCount();
 
-notify(name+" added to cart!");
-
-}
+/* =================================================
+   CHANGE QUANTITY
+================================================= */
 
 
 function changeQty(name,change){
 
-const item=cart.find(p=>p.name===name);
 
-if(!item) return;
+    const item=
 
-item.qty+=change;
+    cart.find(
 
-if(item.qty<=0){
-cart=cart.filter(p=>p.name!==name);
+        item=>item.name===name
+
+    );
+
+
+    if(!item){
+
+        return;
+
+    }
+
+
+    item.qty+=change;
+
+
+    if(item.qty<=0){
+
+
+        cart=
+
+        cart.filter(
+
+            item=>item.name!==name
+
+        );
+
+    }
+
+
+    saveCart();
+
+
+    renderCart();
+
+
+    updateCartCount();
+
 }
 
-saveCart();
-renderCart();
-updateCartCount();
 
-}
+/* =================================================
+   REMOVE ITEM
+================================================= */
 
 
 function removeItem(name){
 
-cart=cart.filter(p=>p.name!==name);
 
-saveCart();
-renderCart();
-updateCartCount();
+    cart=
+
+    cart.filter(
+
+        item=>item.name!==name
+
+    );
+
+
+    saveCart();
+
+
+    renderCart();
+
+
+    updateCartCount();
+
+
+    notify(
+
+        "Item removed from cart"
+
+    );
 
 }
+
+
+/* =================================================
+   TOTAL
+================================================= */
 
 
 function getTotal(){
 
-return cart.reduce(
-(sum,p)=>sum+p.price*p.qty,
-0
-);
+
+    return cart.reduce(
+
+        (sum,item)=>
+
+        sum+
+        item.price*
+        item.qty,
+
+        0
+
+    );
 
 }
+
+
+/* =================================================
+   RENDER CART
+================================================= */
 
 
 function renderCart(){
 
-const box=document.getElementById("cartItems");
 
-if(!box) return;
+    const box=
 
-document.getElementById("total").textContent="₹"+getTotal();
+    document.getElementById("cartItems");
 
-if(!cart.length){
 
-box.innerHTML=`
-<div class="empty">
-Your cart is waiting for something delicious! ☕
-</div>
-`;
+    if(!box){
 
-document.getElementById("paymentBox").style.display="none";
+        return;
 
-return;
+    }
+
+
+    const totalElement=
+
+    document.getElementById("total");
+
+
+    totalElement.textContent=
+
+    "₹"+getTotal();
+
+
+    if(!cart.length){
+
+
+        box.innerHTML=
+
+        `
+
+        <div class="empty">
+
+            Your cart is waiting
+            for something delicious! ☕
+
+            <br><br>
+
+            <button
+            class="btn btn-dark"
+            onclick="showPage('menu')">
+
+                EXPLORE MENU
+
+            </button>
+
+        </div>
+
+        `;
+
+
+        document
+        .getElementById("paymentBox")
+        .style.display="none";
+
+
+        return;
+
+    }
+
+
+    box.innerHTML=
+
+    cart.map(item=>`
+
+
+        <div class="cart-row">
+
+
+            <div>
+
+
+                <b>
+
+                    ${item.name}
+
+                </b>
+
+
+                <br>
+
+
+                <small>
+
+                    ₹${item.price} each
+
+                </small>
+
+
+            </div>
+
+
+            <div class="qty-controls">
+
+
+                <button
+
+                onclick="changeQty('${item.name}',-1)">
+
+                    −
+
+                </button>
+
+
+                <b>
+
+                    ${item.qty}
+
+                </b>
+
+
+                <button
+
+                onclick="changeQty('${item.name}',1)">
+
+                    +
+
+                </button>
+
+
+            </div>
+
+
+            <div style="text-align:right">
+
+
+                <b>
+
+                    ₹${item.price*item.qty}
+
+                </b>
+
+
+                <br>
+
+
+                <button
+
+                class="remove"
+
+                onclick="removeItem('${item.name}')">
+
+                    Remove
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    `).join("");
+
 }
 
-box.innerHTML=cart.map(p=>`
 
-<div class="cart-row">
+/* =================================================
+   CHECKOUT
+================================================= */
 
-<div>
-<b>${p.name}</b>
-<br>
-<small>₹${p.price} each</small>
-</div>
-
-<div class="qty-controls">
-
-<button onclick="changeQty('${p.name}',-1)">−</button>
-
-<b>${p.qty}</b>
-
-<button onclick="changeQty('${p.name}',1)">+</button>
-
-</div>
-
-<div style="text-align:right">
-
-<b>₹${p.price*p.qty}</b>
-
-<br>
-
-<button class="remove" onclick="removeItem('${p.name}')">
-Remove
-</button>
-
-</div>
-
-</div>
-
-`).join("");
-
-}
-
-
-/* CHECKOUT */
 
 function checkout(){
 
-if(!cart.length){
 
-notify("Your cart is empty!");
+    if(!cart.length){
 
-return;
+
+        notify(
+
+            "Your cart is empty!"
+
+        );
+
+
+        return;
+
+    }
+
+
+    const name=
+
+    document
+    .getElementById("customerName")
+    .value
+    .trim();
+
+
+    const phone=
+
+    document
+    .getElementById("customerPhone")
+    .value
+    .trim();
+
+
+    if(
+
+        !name
+
+        ||
+
+        !/^[0-9]{10}$/.test(phone)
+
+    ){
+
+
+        alert(
+
+            "Please enter your name and a valid 10-digit mobile number."
+
+        );
+
+
+        return;
+
+    }
+
+
+    const amount=
+
+    getTotal();
+
+
+    paymentAmountForVerification=
+
+    amount;
+
+
+    currentUPILink=
+
+    "upi://pay?pa="
+
+    +encodeURIComponent(UPI_ID)
+
+    +"&pn="
+
+    +encodeURIComponent(PAYEE)
+
+    +"&am="
+
+    +encodeURIComponent(amount)
+
+    +"&cu=INR";
+
+
+    document
+    .getElementById("qrImage")
+    .src=
+
+    "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="
+
+    +encodeURIComponent(
+
+        currentUPILink
+
+    );
+
+
+    document
+    .getElementById("paymentAmount")
+    .textContent=
+
+    "₹"+amount;
+
+
+    document
+    .getElementById("paymentStatus")
+    .innerHTML="";
+
+
+    document
+    .getElementById("receiptBox")
+    .style.display="none";
+
+
+    document
+    .getElementById("paymentBox")
+    .style.display="block";
+
+
+    document
+    .getElementById("paymentBox")
+    .scrollIntoView({
+
+        behavior:"smooth"
+
+    });
+
 }
 
-const name=document.getElementById("customerName").value.trim();
-const phone=document.getElementById("customerPhone").value.trim();
 
-if(!name || !/^[0-9]{10}$/.test(phone)){
-
-alert("Please enter your name and a valid 10-digit mobile number.");
-
-return;
-}
-
-const amount=getTotal();
-
-paymentAmountForVerification=amount;
-
-currentUPILink=
-"upi://pay?pa="+encodeURIComponent(UPI_ID)
-+"&pn="+encodeURIComponent(PAYEE)
-+"&am="+encodeURIComponent(amount)
-+"&cu=INR";
-
-document.getElementById("qrImage").src=
-"https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="
-+encodeURIComponent(currentUPILink);
-
-document.getElementById("paymentAmount").textContent="₹"+amount;
-
-document.getElementById("paymentStatus").innerHTML="";
-
-document.getElementById("receiptBox").style.display="none";
-
-document.getElementById("paymentBox").style.display="block";
-
-document.getElementById("paymentBox").scrollIntoView({
-behavior:"smooth"
-});
-
-}
+/* =================================================
+   OPEN UPI
+================================================= */
 
 
 function payWithUPI(){
 
-if(currentUPILink){
-window.location.href=currentUPILink;
-}
+
+    if(currentUPILink){
+
+
+        window.location.href=
+
+        currentUPILink;
+
+    }
 
 }
 
 
-/*
-========================================================
-REAL PAYMENT VERIFICATION
-========================================================
+/* =================================================
+   REAL UTR PAYMENT VERIFICATION
+=================================================
 
-This calls YOUR server.
+IMPORTANT:
 
-Expected endpoint:
+GitHub Pages sirf frontend host karta hai.
+
+Actual UTR verify karne ke liye:
 
 POST /api/verify-payment
 
-Request:
-{
-  "utr":"123456789012",
-  "expectedAmount":500,
-  "upiId":"9799618755-bbfa-2@ybl"
-}
+backend/payment provider API required hai.
 
-Successful response example:
+Server ko response dena hoga:
 
 {
-  "verified":true,
-  "transactionId":"123456789012",
-  "amount":500
+    verified:true,
+    transactionId:"123456789012",
+    amount:500
 }
 
-The server must verify the payment with your
-payment provider / bank / gateway.
+Receipt sirf verified:true par generate hogi.
 
-DO NOT change this function to automatically return true.
-========================================================
-*/
+================================================= */
+
 
 async function verifyPayment(){
 
-const utr=document.getElementById("utr").value.trim();
 
-const status=document.getElementById("paymentStatus");
+    const utr=
 
-const button=document.getElementById("verifyButton");
+    document
+    .getElementById("utr")
+    .value
+    .trim();
 
-if(!utr){
 
-alert("Please enter your UTR / transaction reference.");
+    const status=
 
-return;
+    document
+    .getElementById("paymentStatus");
+
+
+    const button=
+
+    document
+    .getElementById("verifyButton");
+
+
+    if(!utr){
+
+
+        alert(
+
+            "Please enter your UTR / transaction reference."
+
+        );
+
+
+        return;
+
+    }
+
+
+    if(
+
+        !/^[A-Za-z0-9]{8,30}$/.test(utr)
+
+    ){
+
+
+        alert(
+
+            "Please enter a valid UTR / transaction reference."
+
+        );
+
+
+        return;
+
+    }
+
+
+    if(
+
+        paymentAmountForVerification<=0
+
+    ){
+
+
+        status.innerHTML=
+
+        `
+
+        <span class="error">
+
+            Invalid order amount.
+            Please restart checkout.
+
+        </span>
+
+        `;
+
+
+        return;
+
+    }
+
+
+    button.disabled=true;
+
+
+    button.textContent=
+
+    "VERIFYING...";
+
+
+    status.innerHTML=
+
+    `
+
+    <span class="loading">
+
+        Checking transaction securely...
+
+    </span>
+
+    `;
+
+
+    try{
+
+
+        const response=
+
+        await fetch(
+
+            "/api/verify-payment",
+
+            {
+
+                method:"POST",
+
+
+                headers:{
+
+                    "Content-Type":
+                    "application/json"
+
+                },
+
+
+                body:JSON.stringify({
+
+                    utr:utr,
+
+                    expectedAmount:
+                    paymentAmountForVerification,
+
+                    upiId:
+                    UPI_ID
+
+                })
+
+            }
+
+        );
+
+
+        if(!response.ok){
+
+
+            throw new Error(
+
+                "Verification server returned "
+
+                +response.status
+
+            );
+
+        }
+
+
+        const result=
+
+        await response.json();
+
+
+        if(
+
+            result.verified===true
+
+            &&
+
+            Number(result.amount)
+
+            ===
+
+            Number(
+                paymentAmountForVerification
+            )
+
+        ){
+
+
+            status.innerHTML=
+
+            `
+
+            <span class="success">
+
+                ✓ Payment verified successfully.
+
+            </span>
+
+            `;
+
+
+            generateReceipt(
+
+                utr,
+
+                result.transactionId
+                ||
+                utr,
+
+                result.amount
+
+            );
+
+
+        }else{
+
+
+            status.innerHTML=
+
+            `
+
+            <span class="error">
+
+                ✕ Payment could not be verified.
+
+                Please check the UTR
+                and try again.
+
+            </span>
+
+            `;
+
+        }
+
+
+    }catch(error){
+
+
+        console.error(
+
+            "Payment verification error:",
+
+            error
+
+        );
+
+
+        status.innerHTML=
+
+        `
+
+        <span class="error">
+
+            Payment verification service
+            is unavailable.
+
+            Backend payment API is required
+            for real UTR verification.
+
+        </span>
+
+        `;
+
+
+    }finally{
+
+
+        button.disabled=false;
+
+
+        button.textContent=
+
+        "VERIFY PAYMENT";
+
+    }
+
 }
 
-if(!/^[A-Za-z0-9]{8,30}$/.test(utr)){
 
-alert("Please enter a valid UTR / transaction reference.");
-
-return;
-}
-
-if(paymentAmountForVerification<=0){
-
-status.innerHTML=
-'<span class="error">Invalid order amount. Please restart checkout.</span>';
-
-return;
-}
-
-button.disabled=true;
-button.textContent="VERIFYING...";
-
-status.innerHTML=
-'<span class="loading">Checking transaction securely...</span>';
-
-try{
-
-const response=await fetch("/api/verify-payment",{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify({
-
-utr:utr,
-
-expectedAmount:paymentAmountForVerification,
-
-upiId:UPI_ID
-
-})
-
-});
+/* =================================================
+   GENERATE RECEIPT
+================================================= */
 
 
-if(!response.ok){
+function generateReceipt(
 
-throw new Error("Verification server returned "+response.status);
+    utr,
 
-}
+    transactionId,
 
+    verifiedAmount
 
-const result=await response.json();
-
-
-if(
-result.verified===true
-&&
-Number(result.amount)===Number(paymentAmountForVerification)
 ){
 
-status.innerHTML=
-'<span class="success">✓ Payment verified successfully.</span>';
 
-generateReceipt(
-utr,
-result.transactionId || utr,
-result.amount
-);
+    const customerName=
 
-}else{
+    document
+    .getElementById("customerName")
+    .value
+    .trim();
 
-status.innerHTML=
-'<span class="error">✕ Payment could not be verified. Check the UTR and try again.</span>';
+
+    const phone=
+
+    document
+    .getElementById("customerPhone")
+    .value
+    .trim();
+
+
+    const receiptNumber=
+
+    "BB-"+Date.now();
+
+
+    const date=
+
+    new Date()
+    .toLocaleString(
+
+        "en-IN",
+
+        {
+
+            dateStyle:"medium",
+
+            timeStyle:"short"
+
+        }
+
+    );
+
+
+    const itemsHTML=
+
+    cart.map(item=>`
+
+
+        <div class="receipt-item">
+
+
+            <span>
+
+                ${escapeHTML(item.name)}
+
+                × ${item.qty}
+
+            </span>
+
+
+            <b>
+
+                ₹${item.price*item.qty}
+
+            </b>
+
+
+        </div>
+
+
+    `).join("");
+
+
+    document
+    .getElementById("receiptContent")
+    .innerHTML=
+
+    `
+
+
+    <div class="receipt-meta">
+
+
+        <p>
+
+            <b>Receipt No:</b>
+
+            ${receiptNumber}
+
+        </p>
+
+
+        <p>
+
+            <b>Date:</b>
+
+            ${date}
+
+        </p>
+
+
+        <p>
+
+            <b>Customer:</b>
+
+            ${escapeHTML(customerName)}
+
+        </p>
+
+
+        <p>
+
+            <b>Mobile:</b>
+
+            ${escapeHTML(phone)}
+
+        </p>
+
+
+        <p>
+
+            <b>Transaction ID:</b>
+
+            ${escapeHTML(
+                String(transactionId)
+            )}
+
+        </p>
+
+
+        <p>
+
+            <b>UTR:</b>
+
+            ${escapeHTML(utr)}
+
+        </p>
+
+
+    </div>
+
+
+    <hr
+
+    style="
+    border:0;
+    border-top:1px solid #eadfce;
+    margin:20px 0;
+    ">
+
+
+    <h3
+
+    style="
+    font-family:'Playfair Display';
+    margin-bottom:12px;
+    ">
+
+        Order Details
+
+    </h3>
+
+
+    ${itemsHTML}
+
+
+    <div class="receipt-total">
+
+
+        <span>
+
+            Total Paid
+
+        </span>
+
+
+        <span style="color:#87552e">
+
+            ₹${verifiedAmount}
+
+        </span>
+
+
+    </div>
+
+
+    <div class="payment-success">
+
+        ✓ PAYMENT VERIFIED
+
+    </div>
+
+
+    `;
+
+
+    const receiptBox=
+
+    document
+    .getElementById("receiptBox");
+
+
+    receiptBox.style.display=
+
+    "block";
+
+
+    receiptBox.scrollIntoView({
+
+        behavior:"smooth",
+
+        block:"start"
+
+    });
 
 }
 
-}catch(error){
 
-console.error("Payment verification error:",error);
+/* =================================================
+   SAFE HTML
+================================================= */
 
-status.innerHTML=
-'<span class="error">Payment verification service is unavailable. Please try again.</span>';
-
-}finally{
-
-button.disabled=false;
-button.textContent="VERIFY PAYMENT";
-
-}
-
-}
-
-
-/* RECEIPT */
-
-function generateReceipt(utr,transactionId,verifiedAmount){
-
-const customerName=
-document.getElementById("customerName").value.trim();
-
-const phone=
-document.getElementById("customerPhone").value.trim();
-
-const receiptNumber=
-"BB-"+Date.now();
-
-const date=
-new Date().toLocaleString("en-IN",{
-dateStyle:"medium",
-timeStyle:"short"
-});
-
-
-const itemsHTML=cart.map(item=>`
-
-<div class="receipt-item">
-
-<span>
-${escapeHTML(item.name)}
-× ${item.qty}
-</span>
-
-<b>
-₹${item.price*item.qty}
-</b>
-
-</div>
-
-`).join("");
-
-
-document.getElementById("receiptContent").innerHTML=`
-
-<div class="receipt-meta">
-
-<p>
-<b>Receipt No:</b>
-${receiptNumber}
-</p>
-
-<p>
-<b>Date:</b>
-${date}
-</p>
-
-<p>
-<b>Customer:</b>
-${escapeHTML(customerName)}
-</p>
-
-<p>
-<b>Mobile:</b>
-${escapeHTML(phone)}
-</p>
-
-<p>
-<b>Transaction ID:</b>
-${escapeHTML(String(transactionId))}
-</p>
-
-<p>
-<b>UTR:</b>
-${escapeHTML(utr)}
-</p>
-
-</div>
-
-<hr style="
-border:0;
-border-top:1px solid #eadfce;
-margin:20px 0;
-">
-
-<h3 style="
-font-family:'Playfair Display';
-margin-bottom:12px;
-">
-Order Details
-</h3>
-
-${itemsHTML}
-
-<div class="receipt-total">
-
-<span>Total Paid</span>
-
-<span style="color:#87552e">
-₹${verifiedAmount}
-</span>
-
-</div>
-
-<div class="payment-success">
-✓ PAYMENT VERIFIED
-</div>
-
-`;
-
-
-const receiptBox=document.getElementById("receiptBox");
-
-receiptBox.style.display="block";
-
-receiptBox.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-
-}
-
-
-/* XSS SAFE RECEIPT */
 
 function escapeHTML(value){
 
-return String(value)
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
+
+    return String(value)
+
+    .replaceAll(
+        "&",
+        "&amp;"
+    )
+
+    .replaceAll(
+        "<",
+        "&lt;"
+    )
+
+    .replaceAll(
+        ">",
+        "&gt;"
+    )
+
+    .replaceAll(
+        '"',
+        "&quot;"
+    )
+
+    .replaceAll(
+        "'",
+        "&#039;"
+    );
 
 }
 
 
-/* BOOKING */
+/* =================================================
+   TABLE BOOKING
+================================================= */
+
 
 function bookTable(event){
 
-event.preventDefault();
 
-const name=document.getElementById("bookName").value.trim();
+    event.preventDefault();
 
-const phone=document.getElementById("bookPhone").value.trim();
 
-const date=document.getElementById("bookDate").value;
+    const name=
 
-const time=document.getElementById("bookTime").value;
+    document
+    .getElementById("bookName")
+    .value
+    .trim();
 
-const guests=document.getElementById("bookGuests").value;
 
-if(!/^[0-9]{10}$/.test(phone)){
+    const phone=
 
-alert("Please enter a valid 10-digit mobile number.");
+    document
+    .getElementById("bookPhone")
+    .value
+    .trim();
 
-return;
+
+    const date=
+
+    document
+    .getElementById("bookDate")
+    .value;
+
+
+    const time=
+
+    document
+    .getElementById("bookTime")
+    .value;
+
+
+    const guests=
+
+    document
+    .getElementById("bookGuests")
+    .value;
+
+
+    if(
+
+        !/^[0-9]{10}$/.test(phone)
+
+    ){
+
+
+        alert(
+
+            "Please enter a valid 10-digit mobile number."
+
+        );
+
+
+        return;
+
+    }
+
+
+    const selected=
+
+    new Date(
+
+        date+"T00:00:00"
+
+    );
+
+
+    const today=
+
+    new Date();
+
+
+    today.setHours(
+
+        0,0,0,0
+
+    );
+
+
+    if(
+
+        selected<today
+
+    ){
+
+
+        alert(
+
+            "Please select today or a future date."
+
+        );
+
+
+        return;
+
+    }
+
+
+    alert(
+
+        "Thank you "
+
+        +name
+
+        +"! Your reservation request for "
+
+        +guests
+
+        +" guest(s) on "
+
+        +date
+
+        +" at "
+
+        +time
+
+        +" has been recorded."
+
+    );
+
+
+    event.target.reset();
+
+
+    setMinimumBookingDate();
+
+
+    notify(
+
+        "Reservation request submitted!"
+
+    );
+
 }
 
-const selected=new Date(date+"T00:00:00");
 
-const today=new Date();
+/* =================================================
+   CONTACT
+================================================= */
 
-today.setHours(0,0,0,0);
-
-if(selected<today){
-
-alert("Please select today or a future date.");
-
-return;
-}
-
-alert(
-"Thank you "+name+
-"! Your reservation request for "+
-guests+
-" guest(s) on "+
-date+
-" at "+
-time+
-" has been recorded."
-);
-
-event.target.reset();
-
-setMinimumBookingDate();
-
-notify("Reservation request submitted!");
-
-}
-
-
-/* CONTACT */
 
 function sendContact(event){
 
-event.preventDefault();
 
-alert("Thanks for contacting Brew & Bite!");
+    event.preventDefault();
 
-event.target.reset();
+
+    alert(
+
+        "Thanks for contacting Brew & Bite!"
+
+    );
+
+
+    event.target.reset();
 
 }
 
 
-/* BOOKING DATE */
+/* =================================================
+   MINIMUM BOOKING DATE
+================================================= */
+
 
 function setMinimumBookingDate(){
 
-const input=document.getElementById("bookDate");
 
-if(!input) return;
+    const input=
 
-const today=new Date();
+    document
+    .getElementById("bookDate");
 
-const year=today.getFullYear();
 
-const month=String(today.getMonth()+1).padStart(2,"0");
+    if(!input){
 
-const day=String(today.getDate()).padStart(2,"0");
+        return;
 
-input.min=`${year}-${month}-${day}`;
+    }
+
+
+    const today=
+
+    new Date();
+
+
+    const year=
+
+    today.getFullYear();
+
+
+    const month=
+
+    String(
+
+        today.getMonth()+1
+
+    )
+
+    .padStart(
+
+        2,
+
+        "0"
+
+    );
+
+
+    const day=
+
+    String(
+
+        today.getDate()
+
+    )
+
+    .padStart(
+
+        2,
+
+        "0"
+
+    );
+
+
+    input.min=
+
+    `${year}-${month}-${day}`;
 
 }
 
 
-/* START */
+/* =================================================
+   INITIALIZE WEBSITE
+================================================= */
+
 
 renderMenu();
+
+
 renderFeatured();
+
+
 renderCart();
+
+
 updateCartCount();
+
+
 setMinimumBookingDate();
+
 
 </script>
 
